@@ -4,8 +4,8 @@
    Everything is plain data; no layout code. Loaded on every page.
    ========================================================================== */
 window.SITE = {
-  name:  "David Ologan",
-  brand: "David Ologan",          // shown in the top-left nav
+  name:  "Zach Park",
+  brand: "Zach Park",          // shown in the top-left nav
 
   /* Top navigation — order = display order. Root-relative hrefs. */
   nav: [
@@ -26,13 +26,13 @@ window.SITE = {
 
   /* Contact + social links. `icon` must match a key in ICONS (scripts/site.js):
      github · scholar · linkedin · email · file · external                    */
-  email: "dologan@andrew.cmu.edu",
+  email: "jhyeonpark01@gmail.com",
   cv_pdf: "/assets/pdf/David_Ologan_Resume.pdf",
   socials: [
-    { label: "Email",          icon: "email",    href: "mailto:dologan@andrew.cmu.edu" },
-    { label: "GitHub",         icon: "github",   href: "https://github.com/ologandavid" },
+    { label: "Email",          icon: "email",    href: "mailto:jhyeonpark01@gmail.com" },
+    { label: "GitHub",         icon: "github",   href: "https://github.com/zpark01" },
     { label: "Google Scholar", icon: "scholar",  href: "https://scholar.google.com/citations?user=H_9PIcwAAAAJ" },
-    { label: "LinkedIn",       icon: "linkedin", href: "https://www.linkedin.com/in/dologan" },
+    { label: "LinkedIn",       icon: "linkedin", href: "https://www.linkedin.com/in/jhyeon-park" },
   ],
 
   /* NOTE: the homepage hero (headline, bio, portrait) is written directly in
