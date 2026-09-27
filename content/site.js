@@ -165,24 +165,33 @@ window.SITE = {
 
 
   /* ---- News / updates (newest first) ----------------------------------- */
-
-  news: [
-
-    {
-      date: "Sep 2026",
-      txt: "Joined the <strong>Safe AI Lab</strong> at Carnegie Mellon University."
-    },
-
-    {
-      date: "Aug 2026",
-      txt: "Started the M.S. Mechanical Engineering - Research program at <strong>Carnegie Mellon University</strong>."
-    },
-
-    {
-      date: "May 2026",
-      txt: "Graduated <strong>Summa Cum Laude</strong> from The Cooper Union with a B.E. in Mechanical Engineering and a minor in Bioengineering."
-    },
-
-  ],
+   news: [
+   
+     {
+       date: "May 2026",
+       txt: "Graduated <strong>Summa Cum Laude</strong> from The Cooper Union with a B.E. in Mechanical Engineering and a minor in Bioengineering."
+     },
+   
+     {
+       date: "Nov 2025",
+       txt: "<a href=\"https://www.maroonandgoldlabs.org/ventures/ovelia\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Maroon & Gold Labs Full Grant Winner</strong></a>"
+     },
+   
+     {
+       date: "Oct 2025",
+       txt: "<a href=\"https://venturewell.org/debut-2025-winners/?utm_source=social&utm_medium=LinkedIn&utm_campaign=P_2025+DEBUT+Outreach+-+Confirmed+Registrants\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>NIH NIBIB / VentureWell DEBUT Challenge 2nd Place Winner</strong></a>"
+     },
+   
+     {
+       date: "Sep 2025",
+       txt: "<a href=\"https://cooper.edu/engineering/news/cooper-team-wins-2nd-place-digital-hackathon\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Pfizer Digital Hackathon 2nd Place Winner</strong></a>"
+     },
+   
+     {
+       date: "Sep 2024",
+       txt: "<a href=\"https://cooper.edu/engineering/news/cooper-union-team-takes-second-place-pfizers-first-digital-hackathon\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Pfizer Inaugural Digital Hackathon 2nd Place Winner</strong></a>"
+     },
+   
+   ],
 
 };
