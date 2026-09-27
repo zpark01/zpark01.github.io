@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>H-Vision — Smartphone Terrain & Gait Perception — Zach Park</title>
+
+  <meta
+    name="description"
+    content="A smartphone-based multimodal terrain and gait perception platform combining LiDAR, cameras, IMU, and voice annotation."
+  >
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>"
+  >
+
+  <meta property="og:type" content="website">
+
+  <meta
+    property="og:title"
+    content="H-Vision — Smartphone Terrain & Gait Perception — Zach Park"
+  >
+
+  <meta
+    property="og:description"
+    content="LiDAR, cameras, IMU, and voice synchronized on a waist-worn smartphone for look-ahead terrain sensing and gait analysis."
+  >
+
+  <meta
+    property="og:url"
+    content="https://zpark01.github.io/projects/hvision.html"
+  >
+
+  <meta
+    property="og:image"
+    content="https://zpark01.github.io/assets/img/hurotics/hvision/hvision_wearable.jpg"
+  >
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
+
+  <link rel="stylesheet" href="/styles/theme.css">
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t) document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
+</head>
+
+
+<body data-project="hvision">
+
+  <site-header></site-header>
+
+
+  <main>
+
+    <section class="section">
+
+      <div class="container">
+
+
+        <div
+          class="detail-head"
+          id="detail-header"
+        ></div>
+
+
+        <article class="prose wide">
+
+
+          <!-- ================= INTRO ================= -->
+
+          <p class="lede">
+            A waist-worn multimodal sensing platform I proposed and built to
+            explore whether a consumer smartphone could provide look-ahead
+            terrain perception, direct observation of leg motion, and
+            hands-free annotation for walking-assist devices.
+          </p>
+
+
+          <figure>
+            <img
+              src="/assets/img/hurotics/hvision/01_system/concept_diagram.png"
+              alt="H-Vision system concept"
+            >
+
+            <figcaption>
+              H-Vision separates forward terrain sensing from downward
+              observation of the wearer's legs.
+            </figcaption>
+          </figure>
+
+
+
+          <!-- ================= MOTIVATION ================= -->
+
+          <h3>Why use a smartphone?</h3>
+
+          <p>
+            The goal was not to turn an iPhone into the final production sensor.
+            I treated it as a rich reference platform: a modern phone already
+            provides LiDAR depth, multiple synchronized cameras, a high-rate IMU,
+            audio, storage, and significant compute in a single device.
+          </p>
+
+          <p>
+            That made it possible to test several questions quickly:
+            can terrain be observed before the user reaches it, can leg motion
+            be measured directly rather than inferred from an IMU, and can
+            walking data be annotated without requiring the wearer to press a
+            handheld remote?
+          </p>
+
+
+
+          <!-- ================= HARDWARE ================= -->
+
+          <h3>One device, two views</h3>
+
+          <p>
+            My first idea attempted to route depth sensing through a mirror.
+            Testing showed that reflected geometry produced unreliable LiDAR
+            measurements. I therefore separated the sensing roles.
+          </p>
+
+          <p>
+            The forward-facing camera and LiDAR observe terrain directly and
+            preserve metric depth. A second ultra-wide camera looks through a
+            custom 45° prism mirror and is redirected downward toward the
+            wearer's legs and feet, where RGB motion is sufficient.
+          </p>
+
+
+          <div class="media-row">
+
+            <figure>
+              <img
+                src="/assets/img/hurotics/hvision/hvision_mirror_mount.jpg"
+                alt="Custom prism mirror mounted over the iPhone ultra-wide camera"
+              >
+
+              <figcaption>
+                3D-printed prism mount redirecting only the ultra-wide camera.
+              </figcaption>
+            </figure>
+
+
+            <figure>
+              <img
+                src="/assets/img/hurotics/hvision/hvision_wearable.jpg"
+                alt="H-Vision smartphone worn on a belt"
+              >
+
+              <figcaption>
+                Final waist-mounted configuration.
+              </figcaption>
+            </figure>
+
+          </div>
+
+
+
+          <!-- ================= APP ================= -->
+
+          <h3>Synchronized multimodal logging</h3>
+
+          <p>
+            I built the data logger in Swift and SwiftUI using
+            AVFoundation and CoreMotion. The system records forward LiDAR depth
+            at roughly 29 fps, downward ultra-wide RGB at about 30 fps,
+            100 Hz device motion and gravity, camera intrinsics, and audio.
+          </p>
+
+          <p>
+            Every stream is timestamped against the same host clock.
+            This eliminated post-hoc synchronization between vision, depth,
+            motion, and spoken activity labels, and also created a path for
+            aligning the phone with the wearable device's own IMU streams.
+          </p>
+
+
+          <figure>
+            <img
+              src="/assets/img/hurotics/hvision/hvision_app_screen.jpg"
+              alt="H-Vision iPhone data logging interface"
+            >
+
+            <figcaption>
+              Live logger showing downward leg video, forward LiDAR depth,
+              IMU orientation, depth validity, and recording status.
+            </figcaption>
+          </figure>
+
+
+
+          <!-- ================= TERRAIN ================= -->
+
+          <h3>Finding terrain structure in raw LiDAR depth</h3>
+
+          <p>
+            My first terrain-estimation methods tried to recover an absolute
+            ground angle from the depth map and later from a fitted 3D plane.
+            Both approaches performed poorly. The waist-mounted camera was
+            often close to horizontal, so many frames contained walls and
+            distant structures rather than a clean ground plane.
+          </p>
+
+          <p>
+            Instead of forcing a geometric ground model onto those frames,
+            I inspected the raw depth maps and switched to structural depth
+            profiles. Taking the vertical profile through the direction of
+            travel produced physically different signatures for each terrain:
+            flat ground changed gradually, ascending stairs formed stepped
+            plateaus, and descending stairs occupied a narrower depth range.
+          </p>
+
+
+          <figure>
+            <img
+              src="/assets/img/hurotics/hvision/02_terrain/depth_profiles_by_terrain.png"
+              alt="Depth profiles for flat ground and stairs"
+            >
+
+            <figcaption>
+              Representative LiDAR depth maps and vertical depth profiles for
+              different terrain conditions.
+            </figcaption>
+          </figure>
+
+
+          <p>
+            A simple top-versus-bottom profile feature reached an effect size
+            of <strong>4.11</strong> between flat ground and stair ascent in one
+            session. More importantly, this analysis showed that useful terrain
+            structure was already present in the raw consumer LiDAR data,
+            without first reconstructing a full 3D environment.
+          </p>
+
+
+
+          <!-- ================= TTC ================= -->
+
+          <h3>Predicting when the wearer will reach the stair</h3>
+
+          <p>
+            For an assistive controller, recognizing a stair is only part of
+            the problem. The system also needs enough lead time to prepare the
+            assistance before the user's foot reaches it.
+          </p>
+
+          <p>
+            I low-pass filtered the forward distance trajectory to remove
+            gait-induced oscillation, estimated closing velocity using linear
+            regression over a recent time window, and computed time-to-contact
+            from current distance and approach speed.
+          </p>
+
+
+          <figure>
+            <img
+              src="/assets/img/hurotics/hvision/03_arrival_prediction/ttc_showcase_best_event.png"
+              alt="H-Vision stair arrival prediction"
+            >
+
+            <figcaption>
+              On the clean long-range approach, arrival prediction achieved
+              roughly half-second error around five seconds before the stair.
+            </figcaption>
+          </figure>
+
+
+          <p>
+            The useful prediction window was approximately
+            <strong>3–5 seconds before arrival</strong>. Prediction degraded
+            closer to the stair because the wearer naturally slowed down,
+            violating the constant-velocity assumption behind the simple TTC
+            model. Rather than treating that as random noise, I identified
+            deceleration itself as a repeatable behavior that a future hybrid
+            estimator could explicitly use.
+          </p>
+
+
+
+          <!-- ================= GAIT ================= -->
+
+          <h3>Extracting gait directly from the downward camera</h3>
+
+          <p>
+            For the mirror view, I used dense optical flow between consecutive
+            frames. Because the camera moves with the torso, I subtracted the
+            median frame-wide motion from the optical-flow magnitude to suppress
+            common body motion and retain movement that differed locally around
+            the legs.
+          </p>
+
+          <p>
+            The resulting one-dimensional motion signal produced a clear gait
+            rhythm. On flat-ground walking, the extracted cadence was about
+            <strong>102 steps/min</strong> with a spectral
+            <strong>SNR of 19.6</strong>.
+          </p>
+
+
+          <figure>
+            <img
+              src="/assets/img/hurotics/hvision/04_gait/gait_leg_motion_steps.png"
+              alt="Optical-flow gait signal and detected steps"
+            >
+
+            <figcaption>
+              Downward-camera optical flow with detected gait cycles.
+            </figcaption>
+          </figure>
+
+
+
+          <!-- ================= VOICE ================= -->
+
+          <h3>Hands-free annotation</h3>
+
+          <p>
+            I also replaced manual button-based annotation with spoken terrain
+            labels. Audio is recorded on the same time base as depth and IMU,
+            then transcribed offline with Whisper and converted into timestamped
+            activity intervals.
+          </p>
+
+          <p>
+            Moving speech recognition offline avoided capture lag and preserved
+            the original audio for reprocessing. During development, I also
+            diagnosed and corrected a repetition failure in Whisper by disabling
+            previous-text conditioning and restructuring the keyword-matching
+            logic.
+          </p>
+
+
+
+          <!-- ================= LIMITATIONS ================= -->
+
+          <h3>What the prototype did — and did not — establish</h3>
+
+          <p>
+            H-Vision demonstrated that terrain structure, gait rhythm, and
+            useful approach timing can all be extracted from a compact wearable
+            consumer platform. It did not establish general-purpose terrain
+            recognition. Performance varied between sessions and camera angles,
+            and the strongest TTC result came from a limited number of
+            long, straight stair approaches.
+          </p>
+
+          <p>
+            I therefore treated the phone as a reference platform rather than
+            a finished sensor. Its role was to determine which physical signals
+            were worth pursuing in cheaper dedicated hardware and how those
+            signals could complement an exosuit's existing IMUs.
+          </p>
+
+
+
+          <!-- ================= SKILLS ================= -->
+
+          <div class="skills-strip">
+
+            <span class="lbl">
+              Applied skills
+            </span>
+
+            Multimodal Sensing · LiDAR · Computer Vision · Swift / SwiftUI ·
+            AVFoundation · CoreMotion · Optical Flow · Time Synchronization ·
+            Signal Processing · Python · OpenCV · SciPy
+
+          </div>
+
+
+        </article>
+
+
+        <hr class="divider">
+
+
+        <div
+          class="detail-links"
+          id="detail-nav"
+        ></div>
+
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <site-footer></site-footer>
+
+
+  <script src="/content/projects.js"></script>
+  <script src="/content/site.js"></script>
+  <script src="/scripts/site.js"></script>
+  <script src="/scripts/render.js"></script>
+
+
+</body>
+
+</html>
