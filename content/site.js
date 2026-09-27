@@ -12,70 +12,33 @@ window.SITE = {
 
   /* Top navigation — order = display order. Root-relative hrefs. */
 
-  nav: [
-
-    { label: "about", href: "/about.html" },
-
-    {
-      label: "current work",
-      href: "/current-work.html",
-
-      children: [
-
-        {
-          label: "Underbrush Locomotion",
-          href: "/current-work/underbrush.html"
-        },
-
-        {
-          label: "Terrain Modification",
-          href: "/current-work/digging.html"
-        },
-
-        {
-          label: "Deep-Mud Locomotion",
-          href: "/current-work/deep-mud.html"
-        },
-
-        {
-          label: "Quad-SDK",
-          href: "/current-work/quad-sdk.html"
-        },
-
-      ]
-    },
-
-    {
-      label: "research",
-      href: "/research.html"
-    },
-
-    {
-      label: "projects",
-      href: "/projects.html"
-    },
-
-    {
-      label: "experience",
-      href: "/experience.html"
-    },
-
-    {
-      label: "education & teaching",
-      href: "/teaching.html"
-    },
-
-    {
-      label: "outreach",
-      href: "/outreach.html"
-    },
-
-    {
-      label: "cv",
-      href: "/cv.html"
-    },
-
-  ],
+   nav: [
+     { label: "about", href: "/about.html" },
+   
+     /*
+     { 
+       label: "current work", 
+       href: "/current-work.html", 
+       children: [
+         // 기존 내용 전부 그대로
+       ]
+     },
+     */
+   
+     /*
+     { label: "research", href: "/research.html" },
+     */
+   
+     { label: "projects", href: "/projects.html" },
+   
+     /*
+     { label: "experience", href: "/experience.html" },
+     { label: "education & teaching", href: "/teaching.html" },
+     { label: "outreach", href: "/outreach.html" },
+     */
+   
+     { label: "cv", href: "/cv.html" },
+   ],
 
 
   /* Contact + social links.
