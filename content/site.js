@@ -168,28 +168,33 @@ window.SITE = {
    news: [
    
      {
+       date: "Sep 2026",
+       txt: "Joined the <a href=\"https://safeai-lab.github.io/\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Safe AI Lab</strong></a> at Carnegie Mellon University."
+     },
+   
+     {
        date: "May 2026",
        txt: "Graduated <strong>Summa Cum Laude</strong> from The Cooper Union with a B.E. in Mechanical Engineering and a minor in Bioengineering."
      },
    
      {
        date: "Nov 2025",
-       txt: "<a href=\"https://www.maroonandgoldlabs.org/ventures/ovelia\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Maroon & Gold Labs Full Grant Winner</strong></a>"
+       txt: "Awarded a <a href=\"https://www.maroonandgoldlabs.org/ventures/ovelia\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>$5,000 Maroon & Gold Labs Full Grant</strong></a> to support the Ovelia Health project's clinical study and validation."
      },
    
      {
        date: "Oct 2025",
-       txt: "<a href=\"https://venturewell.org/debut-2025-winners/?utm_source=social&utm_medium=LinkedIn&utm_campaign=P_2025+DEBUT+Outreach+-+Confirmed+Registrants\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>NIH NIBIB / VentureWell DEBUT Challenge 2nd Place Winner</strong></a>"
+       txt: "Won <a href=\"https://venturewell.org/debut-2025-winners/?utm_source=social&utm_medium=LinkedIn&utm_campaign=P_2025+DEBUT+Outreach+-+Confirmed+Registrants\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>2nd Place in the NIH NIBIB / VentureWell DEBUT Challenge</strong></a>, receiving a $15,000 award."
      },
    
      {
        date: "Sep 2025",
-       txt: "<a href=\"https://cooper.edu/engineering/news/cooper-team-wins-2nd-place-digital-hackathon\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Pfizer Digital Hackathon 2nd Place Winner</strong></a>"
+       txt: "Led a team to <a href=\"https://cooper.edu/engineering/news/cooper-team-wins-2nd-place-digital-hackathon\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>2nd Place in the Pfizer Digital Hackathon</strong></a>."
      },
    
      {
        date: "Sep 2024",
-       txt: "<a href=\"https://cooper.edu/engineering/news/cooper-union-team-takes-second-place-pfizers-first-digital-hackathon\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Pfizer Inaugural Digital Hackathon 2nd Place Winner</strong></a>"
+       txt: "Won <a href=\"https://cooper.edu/engineering/news/cooper-union-team-takes-second-place-pfizers-first-digital-hackathon\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>2nd Place in Pfizer's Inaugural Digital Hackathon</strong></a>."
      },
    
    ],
