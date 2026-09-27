@@ -29,7 +29,7 @@ window.SITE = {
      { label: "research", href: "/research.html" },
      */
    
-     { label: "projects", href: "/projects.html" },
+     { label: "experience", href: "/projects.html" },
    
      /*
      { label: "experience", href: "/experience.html" },
