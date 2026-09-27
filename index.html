@@ -8,10 +8,13 @@
 
   <meta
     name="description"
-    content="Zach Park is an M.S. Mechanical Engineering - Research student at Carnegie Mellon University working on robotics, robot learning, mechanical design, controls, sensing, and safe physical AI."
+    content="Zach Park is an M.S. Mechanical Engineering - Research student at Carnegie Mellon University working on robot learning, safe physical AI, tactile sensing, and dexterous manipulation."
   >
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>"
+  >
 
   <!-- Open Graph (link previews) -->
   <meta property="og:type" content="website">
@@ -23,10 +26,13 @@
 
   <meta
     property="og:description"
-    content="Robotics, robot learning, mechanical design, controls, sensing, and safe physical AI."
+    content="Robot learning, safe physical AI, tactile sensing, and dexterous manipulation."
   >
 
-  <meta property="og:url" content="https://zpark01.github.io/">
+  <meta
+    property="og:url"
+    content="https://zpark01.github.io/"
+  >
 
   <meta
     property="og:image"
@@ -36,14 +42,18 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
-  <meta name="twitter:card" content="summary_large_image">
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
 
   <meta
     name="twitter:image"
     content="https://zpark01.github.io/assets/img/prof_pic_web.jpg"
   >
 
-  <!-- Structured data: helps search engines show a rich profile for your name -->
+
+  <!-- Structured data: helps search engines understand your profile -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -56,11 +66,18 @@
       "@type": "CollegeOrUniversity",
       "name": "Carnegie Mellon University"
     },
-    "memberOf": {
-      "@type": "Organization",
-      "name": "Safe AI Lab",
-      "url": "https://safeai-lab.github.io/"
-    },
+    "memberOf": [
+      {
+        "@type": "Organization",
+        "name": "Safe AI Lab",
+        "url": "https://safeai-lab.github.io/"
+      },
+      {
+        "@type": "Organization",
+        "name": "Momentum Robotics Lab",
+        "url": "https://momentum-robotics-lab.github.io/"
+      }
+    ],
     "alumniOf": [
       {
         "@type": "CollegeOrUniversity",
@@ -74,16 +91,27 @@
   }
   </script>
 
+
   <link rel="stylesheet" href="/styles/theme.css">
   <link rel="stylesheet" href="/styles/main.css">
 
   <!-- Anti-flash: apply saved theme before first paint. Keep this. -->
-  <script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+  <script>
+    (function(){
+      try{
+        var t = localStorage.getItem('theme');
+        if(t) document.documentElement.setAttribute('data-theme', t);
+      } catch(e){}
+    })();
+  </script>
+
 </head>
+
 
 <body>
 
   <site-header></site-header>
+
 
   <main>
 
@@ -98,20 +126,41 @@
             M.S. Mechanical Engineering · Carnegie Mellon
           </p>
 
+
           <h1>Zach Park</h1>
 
+
           <p class="hero__bio">
+
             I'm a first-year M.S. Mechanical Engineering - Research student at
             <strong>Carnegie Mellon University</strong>, with a background spanning
             robotics hardware, mechanical design, controls, sensing, and machine
-            learning. My previous work includes wearable robotics, medical-device
-            development, and data-driven manufacturing. I am currently working with
-            <a href="https://www.meche.engineering.cmu.edu/directory/bios/zhao-ding.html">Prof. Ding Zhao</a>
+            learning.
+
+            I am currently working with
+            <a href="https://www.meche.engineering.cmu.edu/directory/bios/zhao-ding.html">
+              Prof. Ding Zhao
+            </a>
             in the
-            <a href="https://safeai-lab.github.io/">Safe AI Lab</a>,
-            with interests in robot learning, safe physical AI, and intelligent
-            robotic systems that can operate reliably in the real world.
+            <a href="https://safeai-lab.github.io/">
+              Safe AI Lab
+            </a>,
+            focusing on
+            <strong>robot learning and safe physical AI</strong>.
+
+            I am also pursuing research with
+            <a href="https://ichnow.ski/">
+              Prof. Jeffrey Ichnowski
+            </a>
+            in the
+            <a href="https://momentum-robotics-lab.github.io/">
+              Momentum Robotics Lab
+            </a>,
+            exploring
+            <strong>tactile and vibrotactile sensing for dexterous, contact-rich manipulation</strong>.
+
           </p>
+
 
           <div class="hero__meta">
 
@@ -127,14 +176,19 @@
 
             <span>
               <span class="k">focus</span>
-              Robot Learning · Safe Physical AI · Robotics
+              Robot Learning · Tactile Sensing · Dexterous Manipulation
             </span>
 
           </div>
 
+
           <div class="hero__cta">
 
-            <a class="btn btn--primary" href="/projects.html">
+            <a
+              class="btn btn--primary"
+              href="/projects.html"
+            >
+
               View projects
 
               <svg
@@ -146,13 +200,16 @@
               >
                 <path d="M5 12h14M13 6l6 6-6 6"/>
               </svg>
+
             </a>
+
 
             <a
               class="btn"
               href="/assets/pdf/Zach_Park_Resume.pdf"
               target="_blank"
             >
+
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -165,11 +222,16 @@
               </svg>
 
               Résumé (PDF)
+
             </a>
 
           </div>
 
-          <div class="hero__socials" id="hero-socials"></div>
+
+          <div
+            class="hero__socials"
+            id="hero-socials"
+          ></div>
 
         </div>
 
@@ -187,6 +249,7 @@
       </div>
 
     </section>
+
 
 
     <!-- ================= SELECTED WORK ================= -->
@@ -207,10 +270,13 @@
           <p class="lead">
             A few things I've built across robotics, controls, machine learning,
             medical devices, and hardware.
-            <a href="/projects.html">See all projects →</a>
+            <a href="/projects.html">
+              See all projects →
+            </a>
           </p>
 
         </div>
+
 
         <div
           id="featured-projects"
@@ -222,19 +288,23 @@
     </section>
 
 
+
     <!-- ================= NEWS + SELECTED PUBLICATION ================= -->
     <section class="section">
 
       <!--
         Publication is hidden for now.
 
-        Original class was:
+        Original class:
         class="container grid-2"
 
         Change it back to grid-2 when Publication is enabled again.
       -->
+
       <div class="container">
 
+
+        <!-- ================= NEWS ================= -->
         <div>
 
           <div class="section-head">
@@ -249,9 +319,14 @@
 
           </div>
 
-          <ul id="news" class="news"></ul>
+
+          <ul
+            id="news"
+            class="news"
+          ></ul>
 
         </div>
+
 
 
         <!--
@@ -259,9 +334,18 @@
         PUBLICATION — HIDDEN FOR NOW
 
         To restore later:
-        1. Remove this comment block.
-        2. Change "container" above back to "container grid-2".
+
+        1. Remove this HTML comment.
+        2. Change:
+
+           <div class="container">
+
+           above to:
+
+           <div class="container grid-2">
+
         ===============================================================
+
 
         <div>
 
@@ -277,40 +361,54 @@
 
           </div>
 
+
           <div id="selected-pub"></div>
 
+
           <p class="mt-4">
-            <a class="btn btn--sm" href="/research.html">
+
+            <a
+              class="btn btn--sm"
+              href="/research.html"
+            >
               All publications →
             </a>
+
           </p>
 
         </div>
 
+
         -->
+
 
       </div>
 
     </section>
 
+
   </main>
+
 
 
   <site-footer></site-footer>
 
 
-  <!-- content + logic (order matters: data, then chrome, then render) -->
+
+  <!-- content + logic -->
+  <!-- order matters: data, then chrome, then render -->
 
   <script src="/content/site.js"></script>
 
   <script src="/content/projects.js"></script>
 
-  <!-- Keep this loaded so publication support can be restored later. -->
+  <!-- Publication support is kept loaded for future use. -->
   <script src="/content/publications.js"></script>
 
   <script src="/scripts/site.js"></script>
 
   <script src="/scripts/render.js"></script>
+
 
 </body>
 </html>
