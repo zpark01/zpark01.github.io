@@ -53,7 +53,7 @@ function initProjects() {
   const grid = document.getElementById("projects-grid");
   if (!grid) return;
   const all = window.PROJECTS || [];
-  const cats = ["all", "graduate", "undergraduate"];
+  const cats = ["all", "internship", "projects", "research"];
   const count = (c) => (c === "all" ? all.length : all.filter((p) => p.category === c).length);
 
   const bar = document.getElementById("project-filters");
