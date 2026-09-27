@@ -35,7 +35,7 @@ window.CV = {
   experience: [
 
     {
-      when: "Jun — Aug 2026",
+      when: "Jun 2026 — Aug 2026",
       role: "Mechanical Design Intern",
       org: "HUROTICS Inc. · Seoul, South Korea"
     },
@@ -47,25 +47,25 @@ window.CV = {
     },
 
     {
-      when: "May — Aug 2025",
+      when: "May 2025 — Aug 2025",
       role: "Undergraduate Researcher",
       org: "Wake Forest University · Winston-Salem, NC"
     },
 
     {
-      when: "May — Aug 2024",
+      when: "May 2024 — Aug 2024",
       role: "Undergraduate Researcher",
       org: "Technische Universität Dresden · Dresden, Germany"
     },
 
     {
-      when: "2021 — 2023",
+      when: "Oct 2021 — Apr 2023",
       role: "Republic of Korea Army Service",
       org: "General Outpost (GOP) · Demilitarized Zone (DMZ)"
     },
 
     {
-      when: "Jun — Aug 2021",
+      when: "Jun 2021 — Aug 2021",
       role: "Undergraduate Researcher",
       org: "Seoul National University · Seoul, South Korea"
     },
@@ -89,7 +89,7 @@ window.CV = {
 
     {
       when: "Oct 2025",
-      title: "2nd Place — NIH NIBIB / VentureWell DEBUT Challenge · $15,000 Award"
+      title: "2nd Place — NIH / VentureWell DEBUT Challenge · $15,000 Award"
     },
 
     {
@@ -105,11 +105,6 @@ window.CV = {
     {
       when: "2020 — 2026",
       title: "Cooper Union President Half & Full Tuition Scholarship"
-    },
-
-    {
-      when: "2019",
-      title: "1st Place — FOBISIA Creative Coding Challenge"
     },
 
   ],
