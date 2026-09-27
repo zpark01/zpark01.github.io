@@ -271,11 +271,11 @@ function initDetailHeader() {
   const i = list.findIndex((p) => p.slug === slug);
   const p = list[i];
   if (!p) return;
-  document.title = `${p.title} — David Ologan`;
+  document.title = `${p.title} — Zach Park`;
 
   const links = (p.links || []).map((l) => linkBtn(l, "btn")).join("");
   fill("detail-header", `
-    <a class="backlink" href="/projects.html">← all projects</a>
+    <a class="backlink" href="/projects.html">← experience</a>
     <p class="kicker"><span class="idx">${p.num}</span> ${p.category}</p>
     <h1>${p.title}</h1>
     <div class="detail-meta"><span>${p.course}</span><span>${p.term}</span></div>
