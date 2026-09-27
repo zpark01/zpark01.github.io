@@ -21,6 +21,57 @@
      links     [{label, href, icon}]  icon: github | file | external
    ========================================================================== */
 window.PROJECTS = [
+   {
+  slug: "hurotics-tof-imu",
+  num: "01",
+  category: "internship",
+  featured: true,
+
+  title: "Wearable ToF + IMU Terrain & Gait Sensing",
+  course: "HUROTICS Inc. · Product Design Internship",
+  term: "Summer 2026",
+
+  thumb: "/assets/img/hurotics/tof-imu/tof_wearable_rig.jpg",
+
+  desc: "Built a bilateral thigh-mounted ToF + IMU sensing system for terrain and gait recognition, reaching 99.0% stair classification and 97.7% agreement with human labels using unsupervised clustering.",
+
+  tags: [
+    "Embedded Systems",
+    "ToF Sensing",
+    "IMU",
+    "Machine Learning",
+    "Teensy 4.1",
+    "Signal Processing"
+  ],
+
+  links: [],
+},
+
+{
+  slug: "hvision",
+  num: "02",
+  category: "internship",
+  featured: true,
+
+  title: "H-Vision — Smartphone Terrain & Gait Perception",
+  course: "HUROTICS Inc. · Product Design Internship",
+  term: "Summer 2026",
+
+  thumb: "/assets/img/hurotics/hvision/hvision_wearable.jpg",
+
+  desc: "Designed a waist-worn smartphone perception system that synchronizes LiDAR depth, downward leg video, IMU, and voice for look-ahead terrain sensing and gait analysis.",
+
+  tags: [
+    "LiDAR",
+    "Computer Vision",
+    "Swift",
+    "Sensor Fusion",
+    "Optical Flow",
+    "Signal Processing"
+  ],
+
+  links: [],
+},
   {
     slug: "multi-robot-motion-planning",
     num: "01", category: "graduate", featured: true,
