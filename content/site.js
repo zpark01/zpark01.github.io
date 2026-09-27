@@ -131,11 +131,6 @@ window.SITE = {
    news: [
    
      {
-       date: "Sep 2026",
-       txt: "Joined the <a href=\"https://safeai-lab.github.io/\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Safe AI Lab</strong></a> at Carnegie Mellon University."
-     },
-   
-     {
        date: "May 2026",
        txt: "Graduated <strong>Summa Cum Laude</strong> from The Cooper Union with a B.E. in Mechanical Engineering and a minor in Bioengineering."
      },
