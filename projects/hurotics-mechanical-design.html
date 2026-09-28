@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Exosuit Mechanical Design and Validation Hardware | Zach Park</title>
+
+  <meta
+    name="description"
+    content="Mechanical design and validation hardware developed at HUROTICS, including an anthropomorphic endurance test jig, tendon-routing components, drive-unit docking hardware, and a thermal test bed."
+  >
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>"
+  >
+
+  <meta property="og:type" content="website">
+
+  <meta
+    property="og:title"
+    content="Exosuit Mechanical Design and Validation Hardware | Zach Park"
+  >
+
+  <meta
+    property="og:description"
+    content="Mechanical design and validation hardware developed for wearable exosuit systems at HUROTICS."
+  >
+
+  <meta
+    property="og:url"
+    content="https://zpark01.github.io/projects/hurotics-mechanical-design.html"
+  >
+
+  <meta
+    property="og:image"
+    content="https://zpark01.github.io/assets/img/hurotics/mechanical/jig1.png"
+  >
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
+
+  <link rel="stylesheet" href="/styles/theme.css">
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+
+        if (t) {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+
+<body data-project="hurotics-mechanical-design">
+
+  <site-header></site-header>
+
+
+  <main>
+
+    <section class="section">
+
+      <div class="container">
+
+        <div
+          class="detail-head"
+          id="detail-header"
+        ></div>
+
+
+        <article class="prose wide">
+
+
+          <!-- INTRO -->
+
+          <p class="lede">
+            Mechanical design and validation hardware for wearable exosuits,
+            spanning an anthropomorphic endurance test jig, tendon-routing
+            components, tool-free docking hardware, and a thermal test platform.
+          </p>
+
+
+          <!-- TEST JIG -->
+
+          <h3>Anthropomorphic endurance test jig</h3>
+
+          <p>
+            HUROTICS needed a robotic test fixture that could wear a complete
+            exosuit and reproduce gait motion continuously for long-duration
+            product validation. I developed the mechanical architecture,
+            actuator sizing, and control concept around a real mannequin torso
+            and custom lower-body mechanism.
+          </p>
+
+          <p>
+            The design targeted <strong>200 N cable loading</strong>,
+            <strong>100,000 gait cycles</strong>, and walking speeds from
+            <strong>0.2 to 6 km/h</strong>. I built a torque budget including
+            cable reaction force, leg weight, and acceleration, giving a peak
+            requirement of roughly <strong>29 to 32 N·m</strong>. This led to
+            selection of a compact integrated actuator that could fit within
+            human hip-width constraints while maintaining torque and speed
+            margin.
+          </p>
+
+
+          <div class="media-row">
+
+            <figure>
+              <img
+                src="/assets/img/hurotics/mechanical/jig1.png"
+                alt="Anthropomorphic exosuit test jig CAD"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Dynamic thigh mechanism designed around human-scale hip geometry
+                and flexion-extension motion.
+              </figcaption>
+            </figure>
+
+
+            <figure>
+              <img
+                src="/assets/img/hurotics/mechanical/jig_motor.png"
+                alt="Integrated actuator selected for the test jig"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Integrated servo actuator selected from torque, speed, packaging,
+                and endurance requirements.
+              </figcaption>
+            </figure>
+
+          </div>
+
+
+          <figure>
+            <img
+              src="/assets/img/hurotics/mechanical/jig2.png"
+              alt="Mannequin interface design"
+              loading="lazy"
+            >
+
+            <figcaption>
+              I measured and recreated the existing mannequin interface so the
+              production torso could be reused instead of designing a new upper body.
+            </figcaption>
+          </figure>
+
+
+          <p>
+            The concept was approved for external fabrication, with HUROTICS
+            committing approximately <strong>$15,000</strong> to build the
+            production test system based on the proposed architecture.
+          </p>
+
+
+
+          <!-- SHEATH -->
+
+          <h3>Tendon routing sheath</h3>
+
+          <p>
+            For the next-generation daily-use exosuit, I designed the sheath
+            that redirects the tendon force around the body. Because cable
+            routing directly affects assistive force transmission, I shaped the
+            entry and exit geometry around hip flexion and extension to reduce
+            sharp bends, friction, and interference throughout the joint range
+            of motion.
+          </p>
+
+
+          <figure>
+            <img
+              src="/assets/img/hurotics/mechanical/sheath1.png"
+              alt="Exosuit tendon sheath routing study"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Cable-path and sheath geometry developed around the changing
+              joint configuration during flexion and extension.
+            </figcaption>
+          </figure>
+
+
+
+          <!-- HOOK -->
+
+          <h3>Self-locking thigh hook</h3>
+
+          <p>
+            I also designed the interface connecting the tendon cable to the
+            thigh garment. The hook needed to be easy for patients and older
+            users to attach, while remaining secure under repeated tensile load.
+          </p>
+
+          <p>
+            To simplify production and assembly, I separated the garment-side
+            interface from the cable assembly and designed the hook to capture a
+            cross-pin installed in the cable end. The geometry becomes more
+            secure as tensile load increases, while the outer shape was iterated
+            for grip and handling. I used FEA to evaluate the primary load path
+            and refine the structure before prototyping.
+          </p>
+
+
+          <div class="media-row">
+
+            <figure>
+              <img
+                src="/assets/img/hurotics/mechanical/hook1.png"
+                alt="Self-locking exosuit cable hook CAD"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Final hook architecture developed around tensile loading,
+                handling, and cable attachment.
+              </figcaption>
+            </figure>
+
+
+            <figure>
+              <img
+                src="/assets/img/hurotics/mechanical/hook2.png"
+                alt="Physical hook design iterations"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Rapid-prototype iterations used to evaluate geometry,
+                attachment, and user handling.
+              </figcaption>
+            </figure>
+
+          </div>
+
+
+
+          <!-- DOCKING -->
+
+          <h3>Tool-free drive-unit docking</h3>
+
+          <p>
+            The motor and battery module had to be removable from the
+            back-mounted wearable assembly without tools. I designed a
+            guided sliding interface with snap-fit retention so the drive unit
+            could be inserted along a constrained path and positively locked
+            into place.
+          </p>
+
+          <p>
+            The design incorporated manufacturing clearance for FDM prototypes,
+            including approximately <strong>0.15 to 0.30 mm</strong> sliding
+            clearance, while balancing fit, retention force, accessibility, and
+            repeatable assembly.
+          </p>
+
+
+          <div class="media-row">
+
+            <figure>
+              <img
+                src="/assets/img/hurotics/mechanical/slider2.png"
+                alt="Drive unit docking system CAD"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Docking interface integrated into the complete motor and battery
+                module.
+              </figcaption>
+            </figure>
+
+
+            <figure>
+              <img
+                src="/assets/img/hurotics/mechanical/slider3.png"
+                alt="Physical docking prototype"
+                loading="lazy"
+              >
+
+              <figcaption>
+                FDM prototype used to evaluate sliding clearance and snap-fit
+                engagement.
+              </figcaption>
+            </figure>
+
+          </div>
+
+
+
+          <!-- THERMAL -->
+
+          <h3>Drive-unit thermal test bed</h3>
+
+          <p>
+            To evaluate heat buildup inside the wearable drive enclosure, I
+            designed and fabricated a full-scale test housing around the actual
+            cooling hardware. The enclosure reproduced the drive-unit packaging
+            with one intake fan, two exhaust fans, ventilation openings, and
+            representative internal components.
+          </p>
+
+          <p>
+            The platform allowed the team to run the cooling system in realistic
+            packaging conditions and evaluate temperature rise before committing
+            to the final enclosure design.
+          </p>
+
+
+          <div class="media-row">
+
+            <figure>
+              <img
+                src="/assets/img/hurotics/mechanical/thermal1.png"
+                alt="Thermal test bed CAD"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Test enclosure designed around the actual fan layout and internal
+                packaging.
+              </figcaption>
+            </figure>
+
+
+            <figure>
+              <img
+                src="/assets/img/hurotics/mechanical/thermal3.png"
+                alt="Thermal test bed internal hardware"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Fabricated enclosure with installed fans and internal hardware.
+              </figcaption>
+            </figure>
+
+          </div>
+
+
+          <figure>
+            <video
+              src="/assets/img/hurotics/mechanical/thermal4.mov"
+              controls
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+
+            <figcaption>
+              Functional thermal test setup operating with the installed cooling
+              system.
+            </figcaption>
+          </figure>
+
+
+
+          <!-- SKILLS -->
+
+          <div class="skills-strip">
+
+            <span class="lbl">
+              Applied skills
+            </span>
+
+            Mechanical Design · CAD · Product Development · Actuator Sizing ·
+            Torque Budgeting · FEA · DFM/DFA · FDM Prototyping ·
+            Snap-Fit Design · Tolerance and Clearance Design ·
+            Tendon Routing · Thermal Testing
+
+          </div>
+
+
+        </article>
+
+
+        <hr class="divider">
+
+
+        <div
+          class="detail-links"
+          id="detail-nav"
+        ></div>
+
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <site-footer></site-footer>
+
+
+  <script src="/content/projects.js"></script>
+  <script src="/content/site.js"></script>
+  <script src="/scripts/site.js"></script>
+  <script src="/scripts/render.js"></script>
+
+
+</body>
+
+</html>
