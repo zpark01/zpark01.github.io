@@ -223,6 +223,32 @@ window.PROJECTS = [
   links: [],
 },
 
+   {
+  slug: "neurosurgical-phantom-testbeds",
+  num: "08",
+  category: "internship",
+  featured: false,
+
+  title: "Reusable Neurosurgical Phantoms for Endoscopic Device Validation",
+  course: "Mount Sinai Hospital BioDesign · Mechanical Design Internship",
+  term: "Aug. 2025 – May 2026",
+
+  thumb: "/assets/img/neurosurgical-phantoms/03_csdh_phantom_endoscopic_testing.png",
+
+  desc: "Designed reusable CSDH and ICH anatomical phantoms for endoscopic device validation and surgical training using patient-specific cranial modeling, silicone tissue analogs, and modular surgical access.",
+
+  tags: [
+    "Medical Device Design",
+    "Anatomical Modeling",
+    "Rapid Prototyping",
+    "Silicone Casting",
+    "Endoscopic Validation",
+    "Testbed Development"
+  ],
+
+  links: [],
+},
+
 
 
   /* ========================================================================
