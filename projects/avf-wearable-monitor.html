@@ -89,7 +89,7 @@
 
 
 
-          <!-- FULL PROJECT VIDEO -->
+          <!-- PROJECT VIDEO -->
 
           <figure>
 
@@ -102,8 +102,8 @@
             ></video>
 
             <figcaption>
-              Project overview covering the wearable sensor, benchtop validation,
-              signal processing, and envisioned home-monitoring workflow.
+              Project overview covering the wearable sensor, signal-processing
+              hardware, benchtop validation, and envisioned home-monitoring workflow.
             </figcaption>
 
           </figure>
@@ -173,40 +173,55 @@
           </p>
 
 
-          <div class="media-row">
+          <figure
+            style="
+              max-width: 520px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
 
-            <figure>
+            <img
+              src="/assets/img/avf-monitor/03_piezo_sensor_module.jpg"
+              alt="Orthogonal piezoelectric sensor elements in wearable module"
+              loading="lazy"
+            >
 
-              <img
-                src="/assets/img/avf-monitor/03_piezo_sensor_module.jpg"
-                alt="Orthogonal piezoelectric sensor elements in wearable module"
-                loading="lazy"
-              >
+            <figcaption>
+              Orthogonal piezoelectric sensing elements packaged into a
+              compact skin-contact module.
+            </figcaption>
 
-              <figcaption>
-                Orthogonal piezoelectric sensing elements packaged into a
-                compact skin-contact module.
-              </figcaption>
-
-            </figure>
+          </figure>
 
 
-            <figure>
+          <p>
+            The analog front end converted the high-impedance piezo output into
+            a stable signal suitable for acquisition while differential sensing
+            helped suppress common-mode interference.
+          </p>
 
-              <img
-                src="/assets/img/avf-monitor/04_analog_front_end_signal_conditioning.png"
-                alt="Differential amplifier and 60 Hz notch-filter signal processing"
-                loading="lazy"
-              >
 
-              <figcaption>
-                Analog front end and frequency-domain validation of
-                60 Hz interference removal.
-              </figcaption>
+          <figure
+            style="
+              max-width: 980px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
 
-            </figure>
+            <img
+              src="/assets/img/avf-monitor/04_analog_front_end_signal_conditioning.png"
+              alt="Differential amplifier and 60 Hz notch-filter signal processing"
+              loading="lazy"
+            >
 
-          </div>
+            <figcaption>
+              Differential amplification and frequency-domain validation of
+              60 Hz interference removal.
+            </figcaption>
+
+          </figure>
 
 
           <p>
@@ -224,53 +239,67 @@
           <p>
             We built a closed-loop benchtop flow system with a silicone AVF
             phantom, pump-driven circulation, adjustable branch resistance,
-            and compliance/pulsation elements to create controlled changes in
-            vascular flow. This let us validate the sensor before moving toward
-            patient studies.
+            and compliance elements to create controlled changes in vascular
+            flow before moving toward clinical validation.
           </p>
 
 
-          <div class="media-row">
+          <figure
+            style="
+              max-width: 900px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
 
-            <figure>
+            <img
+              src="/assets/img/avf-monitor/05_in_vitro_flow_test_rig.jpg"
+              alt="Closed-loop in-vitro AVF vascular flow test rig and silicone phantom"
+              loading="lazy"
+            >
 
-              <img
-                src="/assets/img/avf-monitor/05_in_vitro_flow_test_rig.jpg"
-                alt="Closed-loop in-vitro AVF vascular flow test rig and silicone phantom"
-                loading="lazy"
-              >
+            <figcaption>
+              Closed-loop vascular test rig and custom silicone AVF phantom
+              used for controlled hardware validation.
+            </figcaption>
 
-              <figcaption>
-                Closed-loop vascular test rig and custom silicone AVF phantom
-                used for controlled hardware validation.
-              </figcaption>
-
-            </figure>
+          </figure>
 
 
-            <figure>
+          <p>
+            Outflow resistance was progressively increased while pump conditions
+            were held constant, allowing us to simulate gradual fistula restriction
+            and measure how the vibration signature changed.
+          </p>
 
-              <img
-                src="/assets/img/avf-monitor/06_stenosis_signal_response.png"
-                alt="AVF vibration waveform under low and high flow resistance"
-                loading="lazy"
-              >
 
-              <figcaption>
-                Increasing simulated outflow resistance produced a clear change
-                in the measured vibration waveform.
-              </figcaption>
+          <figure
+            style="
+              max-width: 980px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
 
-            </figure>
+            <img
+              src="/assets/img/avf-monitor/06_stenosis_signal_response.png"
+              alt="AVF vibration waveform under low and high flow resistance"
+              loading="lazy"
+            >
 
-          </div>
+            <figcaption>
+              Increasing simulated outflow resistance produced a clear change
+              in the measured vibration waveform.
+            </figcaption>
+
+          </figure>
 
 
           <p>
             The proof-of-concept experiments showed that progressive restriction
-            changed both waveform structure and spectral content. The result
+            changed both waveform structure and spectral content. The results
             established sensing feasibility and motivated patient-specific
-            baseline trending rather than relying on a single universal threshold.
+            baseline trending rather than a single universal threshold.
           </p>
 
 
@@ -287,7 +316,13 @@
           </p>
 
 
-          <figure>
+          <figure
+            style="
+              max-width: 760px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
 
             <img
               src="/assets/img/avf-monitor/07_bmes_debut_award.jpg"
