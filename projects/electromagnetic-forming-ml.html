@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Uncertainty-Aware Deep Learning for Electromagnetic Forming | Zach Park</title>
+
+  <meta
+    name="description"
+    content="Deep learning and uncertainty-aware process modeling for electromagnetic forming using experimental data, Temporal Fusion Transformers, Monte Carlo dropout, LS-DYNA, and uncertainty-driven design of experiments."
+  >
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>"
+  >
+
+  <meta property="og:type" content="website">
+
+  <meta
+    property="og:title"
+    content="Uncertainty-Aware Deep Learning for Electromagnetic Forming | Zach Park"
+  >
+
+  <meta
+    property="og:description"
+    content="Physics-based manufacturing research combining experimental EMF data, deep learning, uncertainty quantification, and targeted experiment design."
+  >
+
+  <meta
+    property="og:url"
+    content="https://zpark01.github.io/projects/electromagnetic-forming-ml.html"
+  >
+
+  <meta
+    property="og:image"
+    content="https://zpark01.github.io/assets/img/emf-research/02_emf_press_lab.jpg"
+  >
+
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="/styles/theme.css">
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+
+        if (t) {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+
+<body data-project="electromagnetic-forming-ml">
+
+  <site-header></site-header>
+
+
+  <main>
+
+    <section class="section">
+
+      <div class="container">
+
+        <div
+          class="detail-head"
+          id="detail-header"
+        ></div>
+
+
+        <article class="prose wide">
+
+
+          <!-- INTRO -->
+
+          <p class="lede">
+            Developed a Python/PyTorch workflow for uncertainty-aware prediction
+            of electromagnetic forming outcomes at Technische Universität Dresden,
+            working with Fraunhofer IWU researchers to connect experimental
+            manufacturing data, deep learning, and targeted physical testing.
+          </p>
+
+
+          <figure
+            style="
+              max-width: 920px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+
+            <img
+              src="/assets/img/emf-research/01_emf_machine_overview.png"
+              alt="Electromagnetic forming machine and measurement components"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Fraunhofer IWU electromagnetic forming system with the workpiece,
+              inductor, current probe, and laser displacement measurement setup.
+            </figcaption>
+
+          </figure>
+
+
+
+          <!-- PROCESS -->
+
+          <h3>Manufacturing process and experimental data</h3>
+
+          <p>
+            Electromagnetic forming uses a high-current pulse to generate Lorentz
+            forces that rapidly deform conductive sheet metal. The experimental
+            dataset varied material yield strength, coil-to-workpiece distance,
+            capacitance, and charging voltage, while recording transient current
+            and final forming depth.
+          </p>
+
+
+          <figure
+            style="
+              max-width: 760px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+
+            <img
+              src="/assets/img/emf-research/03_emf_pulse_measurement.png"
+              alt="Measured electromagnetic forming current and forming response over time"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Measured current pulse and forming response during an EMF event.
+            </figcaption>
+
+          </figure>
+
+
+
+          <!-- MODEL -->
+
+          <h3>Temporal Fusion Transformer process model</h3>
+
+          <p>
+            I built the preprocessing, training, validation, and inference pipeline
+            for a Temporal Fusion Transformer that combined static process variables
+            with time-dependent measurements to predict forming depth. Quantile
+            regression provided lower, median, and upper predictions rather than
+            only a single point estimate.
+          </p>
+
+
+          <div class="media-row">
+
+            <figure>
+
+              <img
+                src="/assets/img/emf-research/04_ls_dyna_deformation_sequence.png"
+                alt="LS-DYNA electromagnetic forming deformation sequence"
+                loading="lazy"
+              >
+
+              <figcaption>
+                LS-DYNA deformation sequence used to connect process physics
+                with data-driven modeling.
+              </figcaption>
+
+            </figure>
+
+
+            <figure>
+
+              <img
+                src="/assets/img/emf-research/05_tft_quantile_predictions.png"
+                alt="Temporal Fusion Transformer quantile predictions compared with measured forming depth"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Quantile predictions compared with measured sheet-forming depth.
+              </figcaption>
+
+            </figure>
+
+          </div>
+
+
+
+          <!-- UNCERTAINTY -->
+
+          <h3>Parameter-specific uncertainty and experiment selection</h3>
+
+          <p>
+            I implemented Monte Carlo dropout to isolate uncertainty associated
+            with individual process inputs rather than treating predictive
+            uncertainty as a single model-wide quantity. This made the model useful
+            not only for prediction, but also for identifying where additional
+            manufacturing data would be most informative.
+          </p>
+
+
+          <figure
+            style="
+              max-width: 760px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+
+            <img
+              src="/assets/img/emf-research/06_monte_carlo_uncertainty.png"
+              alt="Monte Carlo dropout uncertainty quantification for electromagnetic forming process parameters"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Monte Carlo dropout used to quantify predictive uncertainty for
+              process parameters such as coil-to-workpiece distance.
+            </figcaption>
+
+          </figure>
+
+
+          <p>
+            Starting from a <strong>210-sample experimental dataset</strong>,
+            the uncertainty analysis identified three high-uncertainty process
+            combinations and guided <strong>29 additional physical forming tests</strong>.
+            Targeted data collection reduced predictive coefficient of variation
+            by as much as <strong>66.7%</strong> in the selected region of the
+            parameter space.
+          </p>
+
+
+
+          <!-- COLLABORATION -->
+
+          <h3>Research collaboration</h3>
+
+          <p>
+            The project combined mechanical-process understanding, experimental
+            manufacturing data, simulation, and machine learning. I worked closely
+            with researchers at TU Dresden and Fraunhofer IWU to translate model
+            uncertainty into practical decisions about where expensive physical
+            experiments were most valuable.
+          </p>
+
+
+          <figure
+            style="
+              max-width: 760px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+
+            <img
+              src="/assets/img/emf-research/07_fraunhofer_research.jpg"
+              alt="Research internship at Fraunhofer IWU electromagnetic forming facilities"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Research internship at the TU Dresden and Fraunhofer IWU
+              manufacturing facilities.
+            </figcaption>
+
+          </figure>
+
+
+
+          <!-- SKILLS -->
+
+          <div class="skills-strip">
+
+            <span class="lbl">
+              Applied skills
+            </span>
+
+            PyTorch · Temporal Fusion Transformer · Deep Learning ·
+            Uncertainty Quantification · Monte Carlo Dropout ·
+            Design of Experiments · Time-Series Modeling ·
+            LS-DYNA · Python · Data Processing ·
+            Manufacturing Process Modeling · Experimental Data Analysis
+
+          </div>
+
+
+        </article>
+
+
+        <hr class="divider">
+
+
+        <div
+          class="detail-links"
+          id="detail-nav"
+        ></div>
+
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <site-footer></site-footer>
+
+
+  <script src="/content/projects.js"></script>
+  <script src="/content/site.js"></script>
+  <script src="/scripts/site.js"></script>
+  <script src="/scripts/render.js"></script>
+
+
+</body>
+
+</html>
