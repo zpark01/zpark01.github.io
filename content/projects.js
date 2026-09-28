@@ -174,7 +174,7 @@ window.PROJECTS = [
   featured: true,
 
   title: "Wearable AVF Vibration Monitor for Dialysis Patients",
-  course: "Senior Capstone · The Cooper Union + Mount Sinai",
+  course: "Independent Project · The Cooper Union + Mount Sinai",
   term: "2025–2026",
 
   // fallback image
