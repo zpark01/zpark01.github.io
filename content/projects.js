@@ -274,6 +274,32 @@ window.PROJECTS = [
 
   links: [],
 },
+   {
+  slug: "snu-multi-agv",
+  num: "10",
+  category: "research",
+  featured: false,
+
+  title: "Multi-AGV Docking and Shared-Payload Transport",
+  course: "Seoul National University · INRoL Research Internship",
+  term: "Summer 2021",
+
+  thumb: "/assets/img/snu-agv/01_agv_platform_robots.jpg",
+   thumbVideo: "/assets/img/snu-agv/06_multi_agv_animation.mp4",
+
+  desc: "Developed a four-AGV shared-payload transport concept with self-aligning docking connectors, 3D-printed prototypes, a braced platform, and ROS 2-based robot development.",
+
+  tags: [
+    "ROS 2",
+    "Mechanical Design",
+    "SOLIDWORKS",
+    "Multi-Robot Systems",
+    "Rapid Prototyping",
+    "3D Printing"
+  ],
+
+  links: [],
+},
 
   /* ========================================================================
      ORIGINAL TEMPLATE PROJECTS
