@@ -44,9 +44,26 @@ function projectCard(p) {
   const href = p.href || `/projects/${p.slug}.html`;
   const meta = p.meta || `${p.course} · ${p.term}`;
 
-  return `
-  <article class="card">
-    <div class="card__media">
+  const media = p.thumbVideo
+    ? `
+      <video
+        src="${p.thumbVideo}"
+        ${p.thumb ? `poster="${p.thumb}"` : ""}
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-label="${p.title}"
+        style="
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        "
+      ></video>
+    `
+    : `
       <img
         src="${p.thumb}"
         alt="${p.title}"
@@ -58,10 +75,20 @@ function projectCard(p) {
           ? 'style="object-position: 50% 90%;"'
           : ""}
       >
+    `;
+
+  return `
+  <article class="card">
+
+    <div class="card__media">
+      ${media}
     </div>
 
     <div class="card__body">
-      <div class="card__meta">${meta}</div>
+
+      <div class="card__meta">
+        ${meta}
+      </div>
 
       <h3 class="card__title">
         <a class="card__link" href="${href}">
@@ -69,14 +96,20 @@ function projectCard(p) {
         </a>
       </h3>
 
-      <p class="card__desc">${p.desc}</p>
+      <p class="card__desc">
+        ${p.desc}
+      </p>
 
       ${tagList(p.tags, 4)}
 
       <div class="card__foot">
-        <span class="card__arrow">view →</span>
+        <span class="card__arrow">
+          view →
+        </span>
       </div>
+
     </div>
+
   </article>`;
 }
 
