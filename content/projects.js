@@ -249,7 +249,31 @@ window.PROJECTS = [
   links: [],
 },
 
+{
+  slug: "electromagnetic-forming-ml",
+  num: "09",
+  category: "research",
+  featured: false,
 
+  title: "Uncertainty-Aware Deep Learning for Electromagnetic Forming",
+  course: "TU Dresden + Fraunhofer IWU · Research Internship",
+  term: "Summer 2024",
+
+  thumb: "/assets/img/emf-research/02_emf_press_lab.jpg",
+
+  desc: "Built a PyTorch/TFT pipeline for electromagnetic forming prediction and parameter-specific uncertainty quantification, using a 210-sample dataset to target 29 additional experiments and reduce predictive CV by up to 66.7%.",
+
+  tags: [
+    "Deep Learning",
+    "Uncertainty Quantification",
+    "PyTorch",
+    "Temporal Fusion Transformer",
+    "LS-DYNA",
+    "Design of Experiments"
+  ],
+
+  links: [],
+},
 
   /* ========================================================================
      ORIGINAL TEMPLATE PROJECTS
