@@ -197,6 +197,32 @@ window.PROJECTS = [
   links: [],
 },
 
+   {
+  slug: "astronaut-spine-biomechanics",
+  num: "07",
+  category: "research",
+  featured: false,
+
+  title: "NASA-Funded Astronaut Spine Biomechanics and FE Modeling",
+  course: "Wake Forest University School of Medicine · Research Internship",
+  term: "Summer 2025",
+
+  thumb: "/assets/img/astronaut-biomechanics/02_subject_specific_fe_loading.png",
+
+  desc: "Analyzed pre/post-flight astronaut MRI data and developed subject-specific human body modeling workflows for finite-element assessment of spinal injury risk.",
+
+  tags: [
+    "Finite Element Modeling",
+    "Medical Image Analysis",
+    "LS-DYNA",
+    "Python/MATLAB",
+    "Biomechanics",
+    "Human Body Modeling"
+  ],
+
+  links: [],
+},
+
 
 
   /* ========================================================================
