@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NASA-Funded Astronaut Spine Biomechanics and FE Modeling | Zach Park</title>
+
+  <meta
+    name="description"
+    content="NASA-funded astronaut biomechanics research using pre/post-flight MRI, subject-specific human body modeling, and finite-element simulation workflows."
+  >
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>"
+  >
+
+  <meta property="og:type" content="website">
+
+  <meta
+    property="og:title"
+    content="NASA-Funded Astronaut Spine Biomechanics and FE Modeling | Zach Park"
+  >
+
+  <meta
+    property="og:description"
+    content="MRI-driven personalization of human body finite-element models for astronaut spinal biomechanics."
+  >
+
+  <meta
+    property="og:url"
+    content="https://zpark01.github.io/projects/astronaut-spine-biomechanics.html"
+  >
+
+  <meta
+    property="og:image"
+    content="https://zpark01.github.io/assets/img/astronaut-biomechanics/01_wake_forest_research_presentation.jpg"
+  >
+
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="/styles/theme.css">
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+
+        if (t) {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+
+<body data-project="astronaut-spine-biomechanics">
+
+  <site-header></site-header>
+
+
+  <main>
+
+    <section class="section">
+
+      <div class="container">
+
+        <div
+          class="detail-head"
+          id="detail-header"
+        ></div>
+
+
+        <article class="prose wide">
+
+
+          <!-- INTRO -->
+
+          <p class="lede">
+            Contributed to NASA-funded astronaut biomechanics research at
+            Wake Forest University School of Medicine, using pre/post-flight
+            MRI data and subject-specific finite-element modeling to study
+            how long-duration spaceflight affects spinal musculature and injury risk.
+          </p>
+
+
+          <figure
+            style="
+              max-width: 900px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+
+            <img
+              src="/assets/img/astronaut-biomechanics/01_wake_forest_research_presentation.jpg"
+              alt="Presenting astronaut biomechanics research at Wake Forest University School of Medicine"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Presenting the summer research project at Wake Forest University School of Medicine.
+            </figcaption>
+
+          </figure>
+
+
+
+          <!-- MRI PERSONALIZATION -->
+
+          <h3>MRI-driven human body model personalization</h3>
+
+          <p>
+            I analyzed pre- and post-flight MRI data from
+            <strong>nine International Space Station astronauts</strong>,
+            measuring vertebral geometry and segmenting
+            <strong>19 bilateral cervical, thoracic, and lumbar muscles</strong>.
+          </p>
+
+          <p>
+            Muscle cross-sectional areas were compared with the
+            <strong>GHBMC M50 human body model</strong> and converted into
+            regional scaling ratios for physiological cross-sectional area,
+            providing individualized muscle inputs for finite-element models.
+          </p>
+
+
+          <figure
+            style="
+              max-width: 720px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+
+            <img
+              src="/assets/img/astronaut-biomechanics/03_spinal_muscle_csa_ratios.png"
+              alt="Pre and post flight spinal muscle cross-sectional area ratios relative to GHBMC M50"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Cervical, thoracic, and lumbar muscle CSA ratios relative
+              to the GHBMC M50 reference model.
+            </figcaption>
+
+          </figure>
+
+
+
+          <!-- COMPUTATIONAL PIPELINE -->
+
+          <h3>Computational modeling and preprocessing</h3>
+
+          <p>
+            I developed Python and MATLAB tools to extract vertebral centroid
+            coordinates, calculate cortical thickness, process landmark data,
+            and generate LS-PrePost-compatible input files for
+            subject-specific model development.
+          </p>
+
+          <p>
+            The workflow supported personalized
+            <strong>LS-DYNA human body simulations</strong> used to evaluate
+            spinal loading under multiple spacecraft landing directions,
+            severities, and pulse conditions.
+          </p>
+
+
+          <figure
+            style="
+              max-width: 980px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+
+            <img
+              src="/assets/img/astronaut-biomechanics/02_subject_specific_fe_loading.png"
+              alt="Human body finite element model and spacecraft landing loading directions"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Subject-specific human body modeling framework and representative
+              loading directions used for spacecraft landing simulations.
+            </figcaption>
+
+          </figure>
+
+
+
+          <!-- RESEARCH OUTPUT -->
+
+          <h3>Research output</h3>
+
+          <p>
+            The work was supported by the
+            <strong>NASA Human Research Program</strong> and contributed to
+            ongoing efforts to improve astronaut-specific biomechanical models
+            for post-flight injury assessment.
+          </p>
+
+          <p>
+            I presented first-author work on MRI-derived spinal muscle
+            personalization at the <strong>2025 BMES Annual Meeting</strong>.
+          </p>
+
+
+          <figure
+            style="
+              max-width: 760px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+
+            <img
+              src="/assets/img/astronaut-biomechanics/04_wake_forest_biomechanics_interns.jpg"
+              alt="Wake Forest University School of Medicine biomechanics research interns"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Wake Forest University School of Medicine biomechanics research program.
+            </figcaption>
+
+          </figure>
+
+
+
+          <!-- SKILLS -->
+
+          <div class="skills-strip">
+
+            <span class="lbl">
+              Applied skills
+            </span>
+
+            Finite Element Modeling · LS-DYNA · LS-PrePost ·
+            GHBMC Human Body Models · Medical Image Analysis ·
+            MRI Segmentation · Mimics · Anatomical Modeling ·
+            Python · MATLAB · Data Processing ·
+            Biomechanics · Subject-Specific Modeling
+
+          </div>
+
+
+        </article>
+
+
+        <hr class="divider">
+
+
+        <div
+          class="detail-links"
+          id="detail-nav"
+        ></div>
+
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <site-footer></site-footer>
+
+
+  <script src="/content/projects.js"></script>
+  <script src="/content/site.js"></script>
+  <script src="/scripts/site.js"></script>
+  <script src="/scripts/render.js"></script>
+
+
+</body>
+
+</html>
