@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SEA: Active Robotic Armrest for Surgeon Ergonomics | Zach Park</title>
+
+  <meta
+    name="description"
+    content="An active robotic armrest for ENT microsurgery combining mechanical design, sensor-based actuation, human factors, EMG analysis, and computer-vision posture tracking."
+  >
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>"
+  >
+
+  <meta property="og:type" content="website">
+
+  <meta
+    property="og:title"
+    content="SEA: Active Robotic Armrest for Surgeon Ergonomics | Zach Park"
+  >
+
+  <meta
+    property="og:description"
+    content="A mechatronic forearm-support system designed with Mount Sinai collaborators to reduce musculoskeletal strain during long ENT procedures."
+  >
+
+  <meta
+    property="og:url"
+    content="https://zpark01.github.io/projects/surgeon-ergonomic-assist.html"
+  >
+
+  <meta
+    property="og:image"
+    content="https://zpark01.github.io/assets/img/surgeon-ergonomic-assist/01_system_overview.png"
+  >
+
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="/styles/theme.css">
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+
+        if (t) {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+
+<body data-project="surgeon-ergonomic-assist">
+
+  <site-header></site-header>
+
+
+  <main>
+
+    <section class="section">
+
+      <div class="container">
+
+        <div
+          class="detail-head"
+          id="detail-header"
+        ></div>
+
+
+        <article class="prose wide">
+
+
+          <!-- INTRO -->
+
+          <p class="lede">
+            Led an interdisciplinary mechanical and electrical engineering team
+            to develop an active robotic armrest for ENT microsurgery, combining
+            precision mechanical design, sensor-based actuation, human factors,
+            EMG analysis, and computer-vision posture tracking.
+          </p>
+
+
+          <figure>
+
+            <img
+              src="/assets/img/surgeon-ergonomic-assist/01_system_overview.png"
+              alt="SEA active robotic armrest system overview"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Final system integrating an actuated vertical stage, passive
+              two-link arm, and sterile-field-compatible forearm support.
+            </figcaption>
+
+          </figure>
+
+
+
+          <!-- CLINICAL COLLABORATION -->
+
+          <h3>Clinical collaboration and design requirements</h3>
+
+          <p>
+            The project was developed in collaboration with ENT surgeons and
+            ergonomics experts at the Icahn School of Medicine at Mount Sinai
+            and Mount Sinai Hospital. Through clinician feedback, OR workflow
+            observation, and ergonomic guidance, we translated surgical needs
+            into engineering requirements for sterility, adjustability,
+            full forearm support, minimal footprint, and intuitive operation.
+          </p>
+
+          <p>
+            A key problem with existing passive supports is that they are
+            difficult to reposition during a procedure once the sterile field
+            is established. Our goal was therefore to create an active support
+            that could be adjusted quickly without interrupting the surgical
+            workflow.
+          </p>
+
+
+
+          <!-- SYSTEM DEVELOPMENT -->
+
+          <h3>System architecture and mechanical design</h3>
+
+          <p>
+            I led the system-level development and mechanical design of a
+            stool-mounted two-link arm that provides passive horizontal motion
+            while a self-locking lead-screw stage provides active vertical
+            adjustment.
+          </p>
+
+          <p>
+            A NEMA 23 stepper motor and DM542T driver were selected to support
+            up to <strong>7 kg</strong> without back-driving. The articulated
+            arm used 6061 aluminum, bronze bushings, and steel shafts to achieve
+            low-friction motion, repeatable positioning, and a compact operating
+            room footprint.
+          </p>
+
+
+          <div class="media-row">
+
+            <figure>
+
+              <img
+                src="/assets/img/surgeon-ergonomic-assist/02_mechanical_design_manufacturing.png"
+                alt="Mechanical design and machining of the robotic armrest"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Mechanical architecture and fabricated arm components using CNC
+                milling, manual machining, and precision alignment.
+              </figcaption>
+
+            </figure>
+
+
+            <figure>
+
+              <img
+                src="/assets/img/surgeon-ergonomic-assist/03_failure_mode_analysis.png"
+                alt="Parametric failure mode analysis for the armrest structure"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Structural analysis across bending, buckling, pin shear,
+                bearing, and torsional failure modes.
+              </figcaption>
+
+            </figure>
+
+          </div>
+
+
+          <p>
+            Structural sizing combined FEA with a parametric failure-mode study
+            over load, reach, material, cross-section, and joint dimensions.
+            The final aluminum design maintained a reported factor of safety
+            above <strong>7</strong> under the project design load.
+          </p>
+
+
+
+          <!-- CONTROL -->
+
+          <h3>Sensor-based actuation and embedded control</h3>
+
+          <p>
+            To make height adjustment intuitive during surgical work, we built
+            an embedded control system using Arduino, a ToF sensor, tactile
+            clicker switches, and stepper-motor control.
+          </p>
+
+          <p>
+            The ToF sensor detected forearm position near the support surface,
+            while the local controls allowed precise commanded motion without
+            manually repositioning the mechanism.
+          </p>
+
+
+          <figure>
+
+            <img
+              src="/assets/img/surgeon-ergonomic-assist/04_tof_control_interface.png"
+              alt="ToF sensing and embedded control interface for robotic armrest"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Sensor and control prototype with ToF sensing, tactile switches,
+              Arduino logic, and motorized vertical adjustment.
+            </figcaption>
+
+          </figure>
+
+
+
+          <!-- VALIDATION -->
+
+          <h3>Human-subject validation and data processing</h3>
+
+          <p>
+            We evaluated the prototype from three complementary perspectives:
+            muscular effort, posture, and fine-motor precision. Preliminary
+            testing compared supported and unsupported conditions using
+            surface EMG, video pose estimation, and a line-tracing task.
+          </p>
+
+
+          <div class="media-row">
+
+            <figure>
+
+              <img
+                src="/assets/img/surgeon-ergonomic-assist/05_clinical_emg_setup.png"
+                alt="Surface EMG sensor placement during clinical evaluation"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Surface EMG placement used to quantify neck and trapezius
+                muscular effort and fatigue.
+              </figcaption>
+
+            </figure>
+
+
+            <figure>
+
+              <img
+                src="/assets/img/surgeon-ergonomic-assist/06_pose_tracking.png"
+                alt="Computer vision posture tracking for ergonomic analysis"
+                loading="lazy"
+              >
+
+              <figcaption>
+                DWPose-based tracking of ear, shoulder, and facial landmarks
+                for craniovertebral angle, head tilt, and forward-head offset.
+              </figcaption>
+
+            </figure>
+
+          </div>
+
+
+          <p>
+            EMG was sampled at <strong>1 kHz</strong> and processed using
+            RMS amplitude and median power frequency over sliding windows.
+            For posture, side-view video was processed frame-by-frame using
+            DWPose to extract ergonomic neck metrics.
+          </p>
+
+          <p>
+            Drawing precision was quantified by fitting each scanned stroke
+            to a straight line and measuring RMS residual error, giving a
+            simple quantitative measure of hand steadiness.
+          </p>
+
+
+
+          <!-- RESULTS -->
+
+          <div class="media-row">
+
+            <figure>
+
+              <img
+                src="/assets/img/surgeon-ergonomic-assist/07_emg_results.png"
+                alt="Surface EMG comparison with and without robotic armrest"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Pilot EMG analysis comparing muscular effort and
+                fatigue-related trends.
+              </figcaption>
+
+            </figure>
+
+
+            <figure>
+
+              <img
+                src="/assets/img/surgeon-ergonomic-assist/08_posture_results.png"
+                alt="Neck posture comparison with and without robotic armrest"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Computer-vision posture analysis showed a more upright
+                supported posture.
+              </figcaption>
+
+            </figure>
+
+          </div>
+
+
+          <figure>
+
+            <img
+              src="/assets/img/surgeon-ergonomic-assist/09_precision_results.png"
+              alt="Drawing precision comparison with and without robotic armrest"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Line-tracing analysis used RMS deviation from a best-fit line
+              to quantify hand steadiness during a precision task.
+            </figcaption>
+
+          </figure>
+
+
+          <p>
+            In the preliminary evaluation, arm support was associated with
+            roughly <strong>30% lower trapezius EMG amplitude</strong>,
+            <strong>10% lower forward-head offset</strong>, and
+            <strong>23% lower drawing deviation</strong>.
+          </p>
+
+          <p>
+            These results were treated as pilot validation rather than clinical
+            efficacy claims, but they provided quantitative evidence that the
+            mechatronic support concept could improve ergonomics without
+            degrading fine-motor performance.
+          </p>
+
+
+
+          <!-- SKILLS -->
+
+          <div class="skills-strip">
+
+            <span class="lbl">
+              Applied skills
+            </span>
+
+            Technical Leadership · Interdisciplinary Collaboration ·
+            Clinical Co-Design · Assistive Robotics · Mechatronics ·
+            Mechanical Design · Human Factors · FEA · Failure Mode Analysis ·
+            CNC Machining · Manual Machining · Actuator Sizing ·
+            Stepper Motor Control · Arduino · ToF Sensing ·
+            Human-Robot Interaction · EMG Signal Processing ·
+            Computer Vision · Pose Estimation · Experimental Design ·
+            Data Analysis
+
+          </div>
+
+
+        </article>
+
+
+        <hr class="divider">
+
+
+        <div
+          class="detail-links"
+          id="detail-nav"
+        ></div>
+
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <site-footer></site-footer>
+
+
+  <script src="/content/projects.js"></script>
+  <script src="/content/site.js"></script>
+  <script src="/scripts/site.js"></script>
+  <script src="/scripts/render.js"></script>
+
+
+</body>
+
+</html>
