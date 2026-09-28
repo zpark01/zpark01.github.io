@@ -21,19 +21,19 @@
      links     [{label, href, icon}]  icon: github | file | external
    ========================================================================== */
 window.PROJECTS = [
-   {
+{
   slug: "hurotics-tof-imu",
   num: "01",
   category: "internship",
   featured: true,
 
-  title: "Wearable ToF + IMU Terrain & Gait Sensing",
+  title: "Wearable ToF + IMU Terrain and Gait Sensing",
   course: "HUROTICS Inc. · Product Design Internship",
   term: "Summer 2026",
 
-  thumb: "/assets/img/hurotics/tof-imu/tof_wearable_rig.jpg",
+  thumb: "/assets/img/hurotics/tof-imu/01_concept_vertical_vs_tilted.png",
 
-  desc: "Built a bilateral thigh-mounted ToF + IMU sensing system for terrain and gait recognition, reaching 99.0% stair classification and 97.7% agreement with human labels using unsupervised clustering.",
+  desc: "Built a bilateral thigh-mounted ToF and IMU sensing system for terrain and gait recognition, reaching 99.0% stair classification and 97.7% agreement with human labels using unsupervised clustering.",
 
   tags: [
     "Embedded Systems",
@@ -53,13 +53,13 @@ window.PROJECTS = [
   category: "internship",
   featured: true,
 
-  title: "H-Vision — Smartphone Terrain & Gait Perception",
+  title: "H Vision: Smartphone Terrain and Gait Perception",
   course: "HUROTICS Inc. · Product Design Internship",
   term: "Summer 2026",
 
-  thumb: "/assets/img/hurotics/hvision/hvision_wearable.jpg",
+  thumb: "/assets/img/hurotics/hvision/01_system/concept_diagram.png",
 
-  desc: "Designed a waist-worn smartphone perception system that synchronizes LiDAR depth, downward leg video, IMU, and voice for look-ahead terrain sensing and gait analysis.",
+  desc: "Built a waist-worn smartphone perception system combining LiDAR depth, downward leg video, IMU, and voice for look-ahead terrain sensing and gait analysis.",
 
   tags: [
     "LiDAR",
