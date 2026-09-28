@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Wearable AVF Vibration Monitor for Dialysis Patients | Zach Park</title>
+
+  <meta
+    name="description"
+    content="A wearable piezoelectric sensing system for quantitative arteriovenous fistula monitoring, combining analog signal conditioning, embedded acquisition, signal processing, and in-vitro validation."
+  >
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>"
+  >
+
+  <meta property="og:type" content="website">
+
+  <meta
+    property="og:title"
+    content="Wearable AVF Vibration Monitor for Dialysis Patients | Zach Park"
+  >
+
+  <meta
+    property="og:description"
+    content="Wearable vibration sensing for quantitative dialysis-access monitoring using dual-axis piezoelectric sensing and embedded signal processing."
+  >
+
+  <meta
+    property="og:url"
+    content="https://zpark01.github.io/projects/avf-wearable-monitor.html"
+  >
+
+  <meta
+    property="og:image"
+    content="https://zpark01.github.io/assets/img/avf-monitor/02_wearable_prototype.jpg"
+  >
+
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="/styles/theme.css">
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+
+        if (t) {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+
+<body data-project="avf-wearable-monitor">
+
+  <site-header></site-header>
+
+
+  <main>
+
+    <section class="section">
+
+      <div class="container">
+
+        <div
+          class="detail-head"
+          id="detail-header"
+        ></div>
+
+
+        <article class="prose wide">
+
+
+          <!-- INTRO -->
+
+          <p class="lede">
+            Developed a wearable vibration-sensing system that converts
+            the clinically assessed AVF thrill and bruit into quantitative
+            signals for earlier detection of dialysis-access dysfunction,
+            in collaboration with Mount Sinai nephrologists.
+          </p>
+
+
+
+          <!-- FULL PROJECT VIDEO -->
+
+          <figure>
+
+            <video
+              src="/assets/img/avf-monitor/avf_project_video.mp4"
+              controls
+              muted
+              playsinline
+              preload="metadata"
+            ></video>
+
+            <figcaption>
+              Project overview covering the wearable sensor, benchtop validation,
+              signal processing, and envisioned home-monitoring workflow.
+            </figcaption>
+
+          </figure>
+
+
+
+          <!-- CLINICAL PROBLEM -->
+
+          <h3>Clinical problem and sensing approach</h3>
+
+          <p>
+            AV fistulas are routinely checked by touch and sound, making
+            surveillance qualitative and intermittent. We designed a compact
+            wearable system to measure blood-flow-induced vibrations directly
+            through the skin and track changes associated with reduced flow
+            or stenosis.
+          </p>
+
+
+          <div class="media-row">
+
+            <figure>
+
+              <img
+                src="/assets/img/avf-monitor/01_avf_problem.png"
+                alt="Arteriovenous fistula anatomy and common failure modes"
+                loading="lazy"
+              >
+
+              <figcaption>
+                AVF monitoring problem: stenosis and thrombosis can alter
+                the vibration signature clinicians assess as thrill and bruit.
+              </figcaption>
+
+            </figure>
+
+
+            <figure>
+
+              <img
+                src="/assets/img/avf-monitor/02_wearable_prototype.jpg"
+                alt="Wearable AVF vibration sensor prototype placed on the arm"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Wearable prototype positioned over the vascular-access region
+                for non-invasive vibration sensing.
+              </figcaption>
+
+            </figure>
+
+          </div>
+
+
+
+          <!-- SENSOR HARDWARE -->
+
+          <h3>Piezoelectric sensing and analog front end</h3>
+
+          <p>
+            My technical work focused on the sensing hardware and signal chain.
+            Two flexible piezoelectric elements were arranged orthogonally to
+            capture directional vibration components. Because the sensors
+            produce high-impedance analog signals, I built a custom buffer
+            and differential-amplifier stage before embedded data acquisition.
+          </p>
+
+
+          <div class="media-row">
+
+            <figure>
+
+              <img
+                src="/assets/img/avf-monitor/03_piezo_sensor_module.jpg"
+                alt="Orthogonal piezoelectric sensor elements in wearable module"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Orthogonal piezoelectric sensing elements packaged into a
+                compact skin-contact module.
+              </figcaption>
+
+            </figure>
+
+
+            <figure>
+
+              <img
+                src="/assets/img/avf-monitor/04_analog_front_end_signal_conditioning.png"
+                alt="Differential amplifier and 60 Hz notch-filter signal processing"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Analog front end and frequency-domain validation of
+                60 Hz interference removal.
+              </figcaption>
+
+            </figure>
+
+          </div>
+
+
+          <p>
+            The processing pipeline combined analog conditioning, AC coupling,
+            60 Hz notch filtering, and frequency-domain analysis to separate
+            vascular vibration content from electrical noise and motion artifacts.
+          </p>
+
+
+
+          <!-- TESTBED -->
+
+          <h3>In-vitro vascular testbed and validation</h3>
+
+          <p>
+            We built a closed-loop benchtop flow system with a silicone AVF
+            phantom, pump-driven circulation, adjustable branch resistance,
+            and compliance/pulsation elements to create controlled changes in
+            vascular flow. This let us validate the sensor before moving toward
+            patient studies.
+          </p>
+
+
+          <div class="media-row">
+
+            <figure>
+
+              <img
+                src="/assets/img/avf-monitor/05_in_vitro_flow_test_rig.jpg"
+                alt="Closed-loop in-vitro AVF vascular flow test rig and silicone phantom"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Closed-loop vascular test rig and custom silicone AVF phantom
+                used for controlled hardware validation.
+              </figcaption>
+
+            </figure>
+
+
+            <figure>
+
+              <img
+                src="/assets/img/avf-monitor/06_stenosis_signal_response.png"
+                alt="AVF vibration waveform under low and high flow resistance"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Increasing simulated outflow resistance produced a clear change
+                in the measured vibration waveform.
+              </figcaption>
+
+            </figure>
+
+          </div>
+
+
+          <p>
+            The proof-of-concept experiments showed that progressive restriction
+            changed both waveform structure and spectral content. The result
+            established sensing feasibility and motivated patient-specific
+            baseline trending rather than relying on a single universal threshold.
+          </p>
+
+
+
+          <!-- OUTCOME -->
+
+          <h3>Outcome</h3>
+
+          <p>
+            The project received
+            <strong>2nd Place in the NIH NIBIB / VentureWell DEBUT Challenge</strong>
+            with a <strong>$15,000 award</strong>, and the team presented the
+            work at the <strong>2025 BMES Annual Meeting</strong>.
+          </p>
+
+
+          <figure>
+
+            <img
+              src="/assets/img/avf-monitor/07_bmes_debut_award.jpg"
+              alt="AVF monitoring team receiving recognition at the 2025 BMES Annual Meeting"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Team recognition at the 2025 BMES Annual Meeting following
+              the DEBUT Challenge award.
+            </figcaption>
+
+          </figure>
+
+
+
+          <!-- SKILLS -->
+
+          <div class="skills-strip">
+
+            <span class="lbl">
+              Applied skills
+            </span>
+
+            Wearable Sensing · Piezoelectric Sensors · Mechatronics ·
+            Analog Front-End Design · Impedance Buffering ·
+            Differential Amplification · Embedded Data Acquisition ·
+            Arduino · Signal Processing · Frequency Analysis ·
+            Noise Filtering · Soft Sensor Packaging ·
+            In-vitro Test Design · Experimental Validation ·
+            Clinical Collaboration
+
+          </div>
+
+
+        </article>
+
+
+        <hr class="divider">
+
+
+        <div
+          class="detail-links"
+          id="detail-nav"
+        ></div>
+
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <site-footer></site-footer>
+
+
+  <script src="/content/projects.js"></script>
+  <script src="/content/site.js"></script>
+  <script src="/scripts/site.js"></script>
+  <script src="/scripts/render.js"></script>
+
+
+</body>
+
+</html>
