@@ -2,19 +2,14 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>Wearable ToF + IMU Terrain & Gait Sensing — Zach Park</title>
+  <title>Wearable ToF + IMU Terrain and Gait Sensing | Zach Park</title>
 
   <meta
     name="description"
-    content="A bilateral thigh-mounted ToF and IMU sensing platform for terrain recognition, gait sensing, and automatic annotation of wearable-robot data."
+    content="A bilateral wearable ToF and IMU sensing system for terrain recognition, gait analysis, and automatic annotation."
   >
 
   <link
@@ -23,31 +18,15 @@
   >
 
   <meta property="og:type" content="website">
-
-  <meta
-    property="og:title"
-    content="Wearable ToF + IMU Terrain & Gait Sensing — Zach Park"
-  >
-
-  <meta
-    property="og:description"
-    content="Bilateral wearable sensing for terrain recognition, gait analysis, and automatic annotation."
-  >
-
-  <meta
-    property="og:url"
-    content="https://zpark01.github.io/projects/hurotics-tof-imu.html"
-  >
+  <meta property="og:title" content="Wearable ToF + IMU Terrain and Gait Sensing | Zach Park">
+  <meta property="og:url" content="https://zpark01.github.io/projects/hurotics-tof-imu.html">
 
   <meta
     property="og:image"
-    content="https://zpark01.github.io/assets/img/hurotics/tof-imu/tof_wearable_rig.jpg"
+    content="https://zpark01.github.io/assets/img/hurotics/tof-imu/01_concept_vertical_vs_tilted.png"
   >
 
-  <meta
-    name="twitter:card"
-    content="summary_large_image"
-  >
+  <meta name="twitter:card" content="summary_large_image">
 
   <link rel="stylesheet" href="/styles/theme.css">
   <link rel="stylesheet" href="/styles/main.css">
@@ -56,11 +35,12 @@
     (function () {
       try {
         var t = localStorage.getItem('theme');
-        if (t) document.documentElement.setAttribute('data-theme', t);
+        if (t) {
+          document.documentElement.setAttribute('data-theme', t);
+        }
       } catch (e) {}
     })();
   </script>
-
 </head>
 
 
@@ -68,173 +48,127 @@
 
   <site-header></site-header>
 
-
   <main>
 
     <section class="section">
 
       <div class="container">
 
-        <div
-          class="detail-head"
-          id="detail-header"
-        ></div>
+        <div class="detail-head" id="detail-header"></div>
 
 
         <article class="prose wide">
 
 
-          <!-- ================= INTRO ================= -->
-
           <p class="lede">
-            A self-initiated wearable sensing platform that combines
-            forward-tilted Time-of-Flight sensors with bilateral thigh IMUs
-            to recognize terrain and gait, while exploring whether unlabeled
-            exosuit data could be annotated automatically.
-          </p>
-
-
-          <figure>
-            <img
-              src="/assets/img/hurotics/tof-imu/tof_wearable_rig.jpg"
-              alt="Wearable ToF and IMU sensing prototype"
-            >
-
-            <figcaption>
-              Final wearable prototype with bilateral thigh-mounted sensors
-              and a standalone logging system.
-            </figcaption>
-          </figure>
-
-
-
-          <!-- ================= MOTIVATION ================= -->
-
-          <h3>Why add ranging to an IMU-based wearable?</h3>
-
-          <p>
-            HUROTICS' walking-assist systems use inertial sensing to estimate
-            gait, but IMUs fundamentally describe motion that has already
-            occurred. They do not directly observe the terrain ahead of the
-            wearer. At the same time, large amounts of gait data are difficult
-            to use for learning when the activity being performed is not
-            annotated.
-          </p>
-
-          <p>
-            I explored whether inexpensive ranging sensors mounted directly on
-            the thighs could add terrain information while also producing
-            sensor patterns distinct enough to automatically separate gait
-            activities without manually supplied labels.
-          </p>
-
-
-
-          <!-- ================= GEOMETRY ================= -->
-
-          <h3>Designing the sensor geometry</h3>
-
-          <p>
-            A vertically mounted distance sensor mostly measures the distance
-            directly below the leg. On a slope, the wearer remains approximately
-            aligned with gravity, so this measurement changes very little.
-            I therefore tilted each ToF sensor roughly 10° forward so that its
-            beam intersects terrain ahead of the wearer.
-          </p>
-
-          <p>
-            The geometry can be approximated by
-            <strong>L = H / (cos θ + sin θ · tan α)</strong>,
-            where <em>L</em> is measured distance, <em>H</em> is sensor height,
-            <em>θ</em> is beam angle from vertical, and <em>α</em> is terrain
-            slope. When θ = 0, terrain slope disappears from the equation,
-            explaining why the forward tilt is important.
+            A bilateral thigh-mounted sensing system that combines Time of Flight
+            range sensors and IMUs for terrain recognition, gait analysis, and
+            automatic annotation of wearable robot data.
           </p>
 
 
           <figure>
             <img
               src="/assets/img/hurotics/tof-imu/01_concept_vertical_vs_tilted.png"
-              alt="Comparison of vertical and forward-tilted ToF sensing"
+              alt="Vertical versus forward tilted ToF sensing"
+              loading="lazy"
+              style="width:100%; height:auto; object-fit:contain;"
             >
 
             <figcaption>
-              Forward tilting makes terrain geometry observable in the range
-              measurement.
+              A forward-tilted sensor can observe terrain ahead instead of only
+              measuring the ground directly under the leg.
             </figcaption>
           </figure>
 
 
 
-          <!-- ================= HARDWARE ================= -->
+          <h3>Motivation and sensing concept</h3>
 
-          <h3>From prototype to standalone wearable logger</h3>
+          <p>
+            HUROTICS already collected large amounts of IMU gait data, but IMUs
+            only measure motion after it occurs and much of the data lacked
+            activity labels. I wanted to test whether inexpensive wearable range
+            sensors could add terrain information and also help label existing
+            gait datasets automatically.
+          </p>
+
+          <p>
+            I mounted one ToF sensor and one IMU on each thigh. The ToF sensors
+            were tilted about 10 degrees forward so their beams intersected the
+            ground ahead of the wearer. This geometry makes stairs and slopes
+            visible in the range signal before direct foot contact.
+          </p>
+
+
 
           <div class="media-row">
 
             <figure>
               <img
-                src="/assets/img/hurotics/tof-imu/tof_sensor_mount.jpg"
-                alt="ToF sensor mounted at a forward angle"
+                src="/assets/img/hurotics/tof-imu/tof_wearable_rig.jpg"
+                alt="Wearable ToF and IMU prototype"
+                loading="lazy"
+                style="width:100%; height:auto; object-fit:contain;"
               >
 
               <figcaption>
-                Custom sensor mount for the forward-tilted ranging geometry.
+                Wearable prototype with bilateral thigh-mounted sensors.
               </figcaption>
             </figure>
 
 
             <figure>
               <img
-                src="/assets/img/hurotics/tof-imu/tof_breadboard_prototype.jpg"
-                alt="Early embedded sensing prototype"
+                src="/assets/img/hurotics/tof-imu/tof_sensor_mount.jpg"
+                alt="Custom ToF and IMU sensor mount"
+                loading="lazy"
+                style="width:100%; height:auto; object-fit:contain;"
               >
 
               <figcaption>
-                Early electronics prototype used during sensor bring-up and
-                debugging.
+                Custom mount integrating the ToF and IMU sensors.
               </figcaption>
             </figure>
 
           </div>
 
 
-          <p>
-            The final system used two VL53L4CD ToF sensors and two BNO085 IMUs,
-            one pair per thigh, with a Teensy 4.1 handling sensor acquisition,
-            activity buttons, status indication, and SD-card logging.
-          </p>
+
+          <h3>Embedded system development</h3>
 
           <p>
-            Several iterations were required before the system became reliable.
-            Both ToF sensors initially shared the same I²C address, so I used
-            their shutdown pins to bring them online sequentially and reassign
-            unique addresses. More significantly, the BNO085 repeatedly failed
-            over I²C during development. After isolating the problem from wiring
-            and bus assignment, I moved the IMUs to UART-RVC mode and migrated
-            the logger to a Teensy 4.1 with dedicated serial ports.
-          </p>
-
-          <p>
-            Running all four sensors exposed another concurrency problem:
-            blocking ToF reads allowed incoming IMU serial packets to overflow
-            the receive buffers. I enlarged the buffers and implemented a
-            drain-to-latest strategy so each logged ToF sample was paired with
-            the newest available IMU measurement.
+            The logger evolved from an ESP32 prototype into a standalone Teensy
+            4.1 system with two VL53L4CD ToF sensors, two BNO085 IMUs, SD storage,
+            activity buttons, and status indication. During development I
+            resolved duplicate I2C addresses, unreliable BNO085 communication,
+            and serial packet loss caused by blocking ToF reads.
           </p>
 
 
+          <figure>
+            <img
+              src="/assets/img/hurotics/tof-imu/tof_breadboard_prototype.jpg"
+              alt="ToF and IMU embedded electronics prototype"
+              loading="lazy"
+              style="width:100%; height:auto; object-fit:contain;"
+            >
 
-          <!-- ================= PHYSICS VALIDATION ================= -->
+            <figcaption>
+              Electronics prototype used for sensor bring-up, logging, and
+              communication debugging.
+            </figcaption>
+          </figure>
 
-          <h3>Did the forward tilt actually help?</h3>
+
+
+          <h3>Physical validation</h3>
 
           <p>
-            Yes. During stair descent, the forward-tilted configuration
-            increased the measured distance by approximately
-            <strong>221 mm</strong>, compared with about
-            <strong>75 mm</strong> for the vertical mount — roughly a
-            threefold increase in terrain signal.
+            Forward tilting produced a much stronger terrain signal. During
+            stair descent, measured distance increased by about
+            <strong>221 mm</strong> with the tilted mount compared with about
+            <strong>75 mm</strong> using a vertical mount.
           </p>
 
 
@@ -243,11 +177,14 @@
             <figure>
               <img
                 src="/assets/img/hurotics/tof-imu/04_stair_descent_signal_strength.png"
-                alt="Stair descent signal strength comparison"
+                alt="Comparison of stair descent signal strength"
+                loading="lazy"
+                style="width:100%; height:auto; object-fit:contain;"
               >
 
               <figcaption>
-                Forward tilt substantially increased the stair-descent signal.
+                Forward tilt increased the stair descent signal by roughly
+                three times.
               </figcaption>
             </figure>
 
@@ -255,13 +192,14 @@
             <figure>
               <img
                 src="/assets/img/hurotics/tof-imu/05_geometric_model_fit.png"
-                alt="Geometric model fit for ToF sensing"
+                alt="Geometric model fit"
+                loading="lazy"
+                style="width:100%; height:auto; object-fit:contain;"
               >
 
               <figcaption>
-                Fitting the geometric model recovered approximately
-                615 mm sensor height and 7.1° tilt, close to the physical
-                setup of about 600 mm and 10°.
+                The fitted model recovered about 615 mm sensor height and
+                7.1 degree tilt, close to the physical setup.
               </figcaption>
             </figure>
 
@@ -269,77 +207,50 @@
 
 
 
-          <!-- ================= ML ================= -->
-
-          <h3>Can the activities separate without human labels?</h3>
+          <h3>Recognition and automatic annotation</h3>
 
           <p>
-            I segmented the bilateral ToF and thigh-pitch signals into time
-            windows and extracted statistical features from left distance,
-            right distance, left-right difference, and both thigh angles.
-            Using leakage-free time-block cross-validation,
-            ToF + IMU classification reached
-            <strong>99.0% accuracy</strong> on stair activities.
-          </p>
-
-          <p>
-            The more interesting question was whether the activity labels were
-            needed at all. I removed them during training and applied K-means
-            clustering to the sensor features. After clustering, the resulting
-            groups matched the human button labels with
-            <strong>97.7% agreement</strong> and an
-            <strong>Adjusted Rand Index of 0.93</strong>.
+            With leakage-free time-block validation, the combined ToF and IMU
+            features reached <strong>99.0% stair classification accuracy</strong>.
+            I then removed the activity labels and clustered the sensor features
+            directly.
           </p>
 
 
           <figure>
             <img
               src="/assets/img/hurotics/tof-imu/10_unsupervised_stairs.png"
-              alt="Comparison between human activity labels and unsupervised gait clusters"
+              alt="Unsupervised clustering of stair activities"
+              loading="lazy"
+              style="width:100%; height:auto; object-fit:contain;"
             >
 
             <figcaption>
-              Stair activities formed naturally separated clusters even
-              without supplying activity labels to the algorithm.
+              K-means clustering matched human activity labels with
+              97.7% agreement and an Adjusted Rand Index of 0.93.
             </figcaption>
           </figure>
 
 
           <p>
-            This changed the way I viewed the project. Rather than only acting
-            as another terrain classifier, the wearable could potentially
-            serve as a low-cost annotation front end for large existing IMU
-            datasets — automatically organizing field data before it is used
-            to train more advanced assistive-control models.
+            The result suggested a second use for the system: automatically
+            organizing unlabeled IMU datasets before they are used to train
+            wearable control models.
           </p>
 
 
 
-          <!-- ================= LIMITATIONS ================= -->
-
-          <h3>What did not generalize</h3>
+          <h3>Limitations</h3>
 
           <p>
-            Stair activities were strongly separated, but ramps were much
-            harder. Unsupervised agreement dropped to about
-            <strong>68%</strong>, and outdoor sunlight substantially increased
-            ToF measurement uncertainty. The dataset also contained only one
-            participant across seven sessions, so these results should be
-            interpreted as a proof of concept rather than cross-subject
-            validation.
-          </p>
-
-          <p>
-            The work reinforced an important lesson: a high classification
-            number is useful only after checking the data split, session
-            dependence, and physical sensing conditions. Several initially
-            high scores dropped when I removed leakage from overlapping time
-            windows, while the stair result remained strong.
+            Stair activities separated strongly, but ramps were harder.
+            Unsupervised agreement dropped to about <strong>68%</strong>, and
+            outdoor sunlight substantially increased ToF uncertainty.
+            The dataset also used one participant across seven sessions, so the
+            results remain a proof of concept rather than cross-subject validation.
           </p>
 
 
-
-          <!-- ================= SKILLS ================= -->
 
           <div class="skills-strip">
 
@@ -348,7 +259,7 @@
             </span>
 
             Embedded Systems · Wearable Sensing · ToF · IMU · Teensy 4.1 ·
-            I²C / UART · C++ · Python · Signal Processing · Sensor Modeling ·
+            I2C · UART · C++ · Python · Signal Processing · Sensor Modeling ·
             Machine Learning
 
           </div>
@@ -359,11 +270,7 @@
 
         <hr class="divider">
 
-        <div
-          class="detail-links"
-          id="detail-nav"
-        ></div>
-
+        <div class="detail-links" id="detail-nav"></div>
 
       </div>
 
@@ -379,7 +286,6 @@
   <script src="/content/site.js"></script>
   <script src="/scripts/site.js"></script>
   <script src="/scripts/render.js"></script>
-
 
 </body>
 
