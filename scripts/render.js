@@ -39,7 +39,7 @@ function projectCard(p) {
         src="${p.thumb}"
         alt="${p.title}"
         loading="lazy"
-        ${p.slug === "hurotics-tof-imu" ? 'style="object-position: 50% 10%;"' : ""}
+        ${p.slug === "hurotics-tof-imu" ? 'style="object-position: 50% 0%;"' : ""}
       >
     </div>
 
