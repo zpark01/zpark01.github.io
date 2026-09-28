@@ -135,7 +135,7 @@ window.PROJECTS = [
   course: "Senior Capstone · The Cooper Union",
   term: "2025–2026",
 
-  thumb: "/assets/img/surgeon-ergonomic-assist/01_system_overview.png",
+  thumb: "/assets/img/surgeon-ergonomic-assist/sea_thumb.png",
 
   desc: "Led an interdisciplinary team developing an active robotic armrest with Mount Sinai clinicians, combining precision mechanics, sensor-based actuation, EMG analysis, and computer-vision posture tracking.",
 
