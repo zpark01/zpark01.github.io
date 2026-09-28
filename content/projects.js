@@ -98,6 +98,32 @@ window.PROJECTS = [
 
   links: [],
 },
+
+   {
+  slug: "robotic-tail-balance-recovery",
+  num: "04",
+  category: "projects",
+  featured: true,
+
+  title: "Cable-Driven Robotic Tail for Quadruped Balance Recovery",
+  course: "ME 459 · Bio-Inspired Robotics",
+  term: "Spring 2026",
+
+  thumb: "/assets/img/robotic-tail/robot_thumb.png",
+
+  desc: "Designed, integrated, and experimentally validated a modular robotic inertial tail for quadruped balance recovery using cable-driven actuation, IMU feedback, and active control.",
+
+  tags: [
+    "Legged Robotics",
+    "Robot Dynamics",
+    "Feedback Control",
+    "Mechatronics",
+    "Embedded Systems",
+    "System Identification"
+  ],
+
+  links: [],
+},
    
   {
     slug: "multi-robot-motion-planning",
