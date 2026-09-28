@@ -31,7 +31,7 @@ window.PROJECTS = [
   course: "HUROTICS Inc. · Product Design Internship",
   term: "Summer 2026",
 
-  thumb: "/assets/img/hurotics/tof-imu/01_concept_vertical_vs_tilted.png",
+  thumb: "/assets/img/hurotics/tof-imu/tof_wearable_rig.jpg",
 
   desc: "Built a bilateral thigh-mounted ToF and IMU sensing system for terrain and gait recognition, reaching 99.0% stair classification and 97.7% agreement with human labels using unsupervised clustering.",
 
