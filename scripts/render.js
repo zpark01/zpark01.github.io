@@ -31,15 +31,23 @@ function fill(id, html) { const n = document.getElementById(id); if (n) n.innerH
 function projectCard(p) {
   const href = p.href || `/projects/${p.slug}.html`;
   const meta = p.meta || `${p.course} · ${p.term}`;
+
   return `
   <article class="card">
     <div class="card__media">
-      <img src="${p.thumb}" alt="${p.title}" loading="lazy">
-         ${p.slug === "hurotics-tof-imu" ? 'style="object-position: 50% 0%;"' : ""}>
+      <img
+        src="${p.thumb}"
+        alt="${p.title}"
+        loading="lazy"
+        ${p.slug === "hurotics-tof-imu" ? 'style="object-position: 50% 10%;"' : ""}
+      >
     </div>
+
     <div class="card__body">
       <div class="card__meta">${meta}</div>
-      <h3 class="card__title"><a class="card__link" href="${href}">${p.title}</a></h3>
+      <h3 class="card__title">
+        <a class="card__link" href="${href}">${p.title}</a>
+      </h3>
       <p class="card__desc">${p.desc}</p>
       ${tagList(p.tags, 4)}
       <div class="card__foot">
