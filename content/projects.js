@@ -124,6 +124,32 @@ window.PROJECTS = [
 
   links: [],
 },
+
+   {
+  slug: "surgeon-ergonomic-assist",
+  num: "05",
+  category: "projects",
+  featured: true,
+
+  title: "SEA: Active Robotic Armrest for Surgeon Ergonomics",
+  course: "Senior Capstone · The Cooper Union",
+  term: "2025–2026",
+
+  thumb: "/assets/img/surgeon-ergonomic-assist/sea_thumb.png",
+
+  desc: "Developed an active robotic armrest for ENT microsurgery combining precision mechanical design, sensor-based actuation, EMG analysis, and computer-vision posture tracking.",
+
+  tags: [
+    "Assistive Robotics",
+    "Mechatronics",
+    "Mechanical Design",
+    "Computer Vision",
+    "Human Factors",
+    "EMG"
+  ],
+
+  links: [],
+},
    
   {
     slug: "multi-robot-motion-planning",
