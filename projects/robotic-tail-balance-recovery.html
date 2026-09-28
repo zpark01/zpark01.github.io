@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Cable-Driven Robotic Tail for Quadruped Balance Recovery | Zach Park</title>
+
+  <meta
+    name="description"
+    content="A modular cable-driven robotic tail for quadruped balance recovery, combining lightweight mechanism design, IMU feedback, active control, and experimental validation."
+  >
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>"
+  >
+
+  <meta property="og:type" content="website">
+
+  <meta
+    property="og:title"
+    content="Cable-Driven Robotic Tail for Quadruped Balance Recovery | Zach Park"
+  >
+
+  <meta
+    property="og:description"
+    content="A modular robotic inertial tail combining mechanical design, embedded sensing, feedback control, and dynamic experiments for robot balance recovery."
+  >
+
+  <meta
+    property="og:url"
+    content="https://zpark01.github.io/projects/robotic-tail-balance-recovery.html"
+  >
+
+  <meta
+    property="og:image"
+    content="https://zpark01.github.io/assets/img/robotic-tail/05_three_segment_tail_prototype.png"
+  >
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
+
+  <link rel="stylesheet" href="/styles/theme.css">
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+
+        if (t) {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+
+<body data-project="robotic-tail-balance-recovery">
+
+  <site-header></site-header>
+
+
+  <main>
+
+    <section class="section">
+
+      <div class="container">
+
+        <div
+          class="detail-head"
+          id="detail-header"
+        ></div>
+
+
+        <article class="prose wide">
+
+
+          <!-- INTRO -->
+
+          <p class="lede">
+            A modular inertial tail developed for quadruped balance recovery,
+            combining cable-driven actuation, IMU feedback, active control,
+            and dynamic experiments to study how tail segmentation affects
+            robot stabilization.
+          </p>
+
+
+
+          <!-- ROBOTIC TAIL DESIGN -->
+
+          <h3>Robotic tail design and actuation</h3>
+
+          <p>
+            I worked in a three-person team to develop a lightweight robotic
+            appendage that could generate reaction torque without modifying
+            the quadruped's legs or gait controller. The tail uses modular
+            3D-printed links connected by revolute joints and antagonistic
+            cables to convert compact servo motion into coordinated planar
+            tail bending.
+          </p>
+
+          <p>
+            The system was designed around interchangeable
+            <strong>1-link, 2-link, and 3-link configurations</strong>.
+            Cable routing produced approximately
+            <strong>30°, 60°, and 90°</strong> of tail-tip motion respectively,
+            allowing us to investigate how additional segmentation changes the
+            inertial response generated from the same actuator architecture.
+          </p>
+
+
+          <div class="media-row">
+
+            <figure>
+
+              <img
+                src="/assets/img/robotic-tail/05_three_segment_tail_prototype.png"
+                alt="Three-segment cable-driven robotic tail prototype"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Modular three-segment robotic tail with servo-driven
+                antagonistic cable actuation.
+              </figcaption>
+
+            </figure>
+
+
+            <figure>
+
+              <img
+                src="/assets/img/robotic-tail/06_tail_cable_routing_kinematic_schematic.png"
+                alt="Kinematic and cable routing model of robotic tail"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Cable transmission and kinematic model relating servo motion
+                to coordinated segment curvature.
+              </figcaption>
+
+            </figure>
+
+          </div>
+
+
+
+          <!-- QUADRUPED INTEGRATION -->
+
+          <h3>Quadruped integration and feedback control</h3>
+
+          <p>
+            We integrated the tail onto a
+            <strong>Mini Pupper 2 quadruped</strong> using a custom mounting
+            interface. An Arduino Nano 33 IoT provided onboard IMU sensing and
+            servo commands, allowing the tail to react to measured body motion
+            while the robot traversed flat, inclined, and bumped terrain.
+          </p>
+
+
+          <figure>
+
+            <img
+              src="/assets/img/robotic-tail/quadruped_test.gif"
+              alt="Mini Pupper quadruped testing with active robotic tail"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Robotic tail integrated with the Mini Pupper during terrain
+              disturbance experiments.
+            </figcaption>
+
+          </figure>
+
+
+          <p>
+            The first active-tail experiment revealed a negative result:
+            body roll RMS increased by <strong>19%</strong> relative to the
+            matched passive condition. Hardware debugging later identified a
+            likely IMU-axis mapping error in the threshold-based controller,
+            and the quadruped suffered a servo failure before the full
+            active-control test matrix could be completed.
+          </p>
+
+
+          <figure>
+
+            <img
+              src="/assets/img/robotic-tail/08_quadruped_body_roll_rms.png"
+              alt="Mini Pupper body roll RMS across terrain conditions"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Preliminary quadruped data quantified increasing body roll with
+              terrain difficulty and exposed limitations in the initial
+              feedback implementation.
+            </figcaption>
+
+          </figure>
+
+
+
+          <!-- EXPERIMENTAL ROBOTICS PIVOT -->
+
+          <h3>Controlled dynamics testbed</h3>
+
+          <p>
+            To separate tail dynamics from gait coupling, foot-ground contact,
+            mechanical asymmetry, and quadruped controller behavior, we moved
+            the same robotic tail onto a planar pendulum testbed. This turned
+            the problem into a controlled disturbance-rejection experiment
+            where the contribution of the active appendage could be measured
+            directly.
+          </p>
+
+          <p>
+            The pendulum controller used IMU feedback with
+            <strong>PD control</strong> to command the tail against body motion.
+            We tested three tail configurations, three initial disturbance
+            angles, and both passive and active control for
+            <strong>18 total trials</strong>.
+          </p>
+
+
+          <figure>
+
+            <video
+              src="/assets/img/robotic-tail/pendulum_test.mp4"
+              poster="/assets/img/robotic-tail/09_pendulum_testbed_photo.png"
+              controls
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+
+            <figcaption>
+              Closed-loop tail response on the pendulum dynamics testbed.
+            </figcaption>
+
+          </figure>
+
+
+
+          <!-- DYNAMICS -->
+
+          <h3>Dynamics modeling and system identification</h3>
+
+          <p>
+            We modeled the body-tail system as a coupled pendulum and
+            cable-driven inertial appendage. A Lagrangian formulation linked
+            tail reaction torque to body motion, while the measured body
+            response was approximated as a second-order damped system.
+          </p>
+
+          <p>
+            I used video-based motion tracking to recover body angle over time
+            and fit an exponential envelope to oscillation peaks. This provided
+            the decay rate and damping ratio needed to compare controller
+            performance independently of the different pendulum configurations.
+          </p>
+
+
+          <figure>
+
+            <img
+              src="/assets/img/robotic-tail/13_exponential_envelope_fit.png"
+              alt="System identification using exponential damping envelope"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Example 3-link, 45° response: active control increased the
+              measured decay rate from 0.30/s to 0.50/s.
+            </figcaption>
+
+          </figure>
+
+
+
+          <!-- ROBOTICS RESULT -->
+
+          <h3>Active stabilization and segmentation</h3>
+
+          <p>
+            The closed-loop robotic tail increased damping in
+            <strong>all nine matched conditions</strong>, reaching
+            <strong>1.26× to 1.66×</strong> the passive damping ratio.
+            The three-segment tail produced the largest active-control gain
+            across every tested release angle.
+          </p>
+
+
+          <figure>
+
+            <img
+              src="/assets/img/robotic-tail/14_segmentation_effect_on_damping.png"
+              alt="Robotic tail segmentation effect on active damping"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Additional segmentation provided the strongest stabilization
+              benefit when combined with active feedback control.
+            </figcaption>
+
+          </figure>
+
+
+          <p>
+            The main limitation is that segmentation and tail swing range were
+            coupled by the cable transmission. The larger 3-link response
+            therefore reflects both increased segmentation and greater available
+            tail excursion. A future design would independently control these
+            variables and transfer the validated PD controller back onto the
+            quadruped.
+          </p>
+
+
+
+          <!-- SKILLS -->
+
+          <div class="skills-strip">
+
+            <span class="lbl">
+              Applied skills
+            </span>
+
+            Robotics · Legged Robotics · Mechatronics ·
+            Cable-Driven Mechanisms · Robot Dynamics ·
+            Feedback Control · PD Control · IMU Sensing ·
+            Embedded Systems · Arduino · System Integration ·
+            Dynamic Modeling · Lagrangian Mechanics ·
+            System Identification · Experimental Robotics ·
+            Hardware Debugging · Rapid Prototyping
+
+          </div>
+
+
+        </article>
+
+
+        <hr class="divider">
+
+
+        <div
+          class="detail-links"
+          id="detail-nav"
+        ></div>
+
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <site-footer></site-footer>
+
+
+  <script src="/content/projects.js"></script>
+  <script src="/content/site.js"></script>
+  <script src="/scripts/site.js"></script>
+  <script src="/scripts/render.js"></script>
+
+
+</body>
+
+</html>
