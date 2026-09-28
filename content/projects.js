@@ -167,6 +167,36 @@ window.PROJECTS = [
     links: [],
   },
 
+   {
+  slug: "avf-wearable-monitor",
+  num: "06",
+  category: "projects",
+  featured: true,
+
+  title: "Wearable AVF Vibration Monitor for Dialysis Patients",
+  course: "Senior Capstone · The Cooper Union + Mount Sinai",
+  term: "2025–2026",
+
+  // fallback image
+  thumb: "/assets/img/avf-monitor/02_wearable_prototype.jpg",
+
+  // actual card thumbnail
+  thumbVideo: "/assets/img/avf-monitor/avf_card_preview.mp4",
+
+  desc: "Engineered a wearable dual-axis piezoelectric sensing system and in-vitro flow testbed with Mount Sinai collaborators to quantify AVF vibrations for dialysis-access monitoring.",
+
+  tags: [
+    "Wearable Sensing",
+    "Mechatronics",
+    "Signal Processing",
+    "Analog Electronics",
+    "Embedded Systems",
+    "Experimental Validation"
+  ],
+
+  links: [],
+},
+
 
 
   /* ========================================================================
