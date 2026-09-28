@@ -35,7 +35,7 @@ function projectCard(p) {
   <article class="card">
     <div class="card__media">
       <img src="${p.thumb}" alt="${p.title}" loading="lazy">
-         ${p.slug === "hurotics-tof-imu" ? 'style="object-position: 50% 15%;"' : ""}>
+         ${p.slug === "hurotics-tof-imu" ? 'style="object-position: 50% 0%;"' : ""}>
     </div>
     <div class="card__body">
       <div class="card__meta">${meta}</div>
