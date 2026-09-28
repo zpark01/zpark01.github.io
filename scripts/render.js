@@ -40,6 +40,7 @@ function projectCard(p) {
         alt="${p.title}"
         loading="lazy"
         ${p.slug === "hurotics-tof-imu" ? 'style="object-position: 50% 0%;"' : ""}
+        ${p.slug === "hurotics-mechanical-design" ? 'style="object-position: 50% 90%;"' : ""}
       >
     </div>
 
