@@ -57,7 +57,7 @@ window.PROJECTS = [
   course: "HUROTICS Inc. · Product Design Internship",
   term: "Summer 2026",
 
-  thumb: "/assets/img/hurotics/hvision/01_system/concept_diagram.png",
+  thumb: "/assets/img/hurotics/hvision/concept_diagram.png",
 
   desc: "Built a waist-worn smartphone perception system combining LiDAR depth, downward leg video, IMU, and voice for look-ahead terrain sensing and gait analysis.",
 
