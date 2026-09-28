@@ -18,15 +18,31 @@
   >
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="H Vision: Smartphone Terrain and Gait Perception | Zach Park">
-  <meta property="og:url" content="https://zpark01.github.io/projects/hvision.html">
+
+  <meta
+    property="og:title"
+    content="H Vision: Smartphone Terrain and Gait Perception | Zach Park"
+  >
+
+  <meta
+    property="og:description"
+    content="A smartphone sensing platform combining LiDAR depth, downward leg video, IMU, and voice for terrain perception and gait analysis."
+  >
+
+  <meta
+    property="og:url"
+    content="https://zpark01.github.io/projects/hvision.html"
+  >
 
   <meta
     property="og:image"
-    content="https://zpark01.github.io/assets/img/hurotics/hvision/01_system/concept_diagram.png"
+    content="https://zpark01.github.io/assets/img/hurotics/hvision/concept_diagram.png"
   >
 
-  <meta name="twitter:card" content="summary_large_image">
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
 
   <link rel="stylesheet" href="/styles/theme.css">
   <link rel="stylesheet" href="/styles/main.css">
@@ -34,9 +50,10 @@
   <script>
     (function () {
       try {
-        var t = localStorage.getItem('theme');
+        var t = localStorage.getItem("theme");
+
         if (t) {
-          document.documentElement.setAttribute('data-theme', t);
+          document.documentElement.setAttribute("data-theme", t);
         }
       } catch (e) {}
     })();
@@ -55,11 +72,16 @@
 
       <div class="container">
 
-        <div class="detail-head" id="detail-header"></div>
+        <div
+          class="detail-head"
+          id="detail-header"
+        ></div>
 
 
         <article class="prose wide">
 
+
+          <!-- INTRO -->
 
           <p class="lede">
             A waist-worn smartphone perception platform that combines forward
@@ -70,10 +92,9 @@
 
           <figure>
             <img
-              src="/assets/img/hurotics/hvision/01_system/concept_diagram.png"
+              src="/assets/img/hurotics/hvision/concept_diagram.png"
               alt="H Vision system concept"
               loading="lazy"
-              style="width:100%; height:auto; object-fit:contain;"
             >
 
             <figcaption>
@@ -83,6 +104,8 @@
           </figure>
 
 
+
+          <!-- SYSTEM DESIGN -->
 
           <h3>System design</h3>
 
@@ -108,7 +131,6 @@
                 src="/assets/img/hurotics/hvision/hvision_wearable.jpg"
                 alt="H Vision waist-mounted prototype"
                 loading="lazy"
-                style="width:100%; height:auto; object-fit:contain;"
               >
 
               <figcaption>
@@ -122,7 +144,6 @@
                 src="/assets/img/hurotics/hvision/hvision_mirror_mount.jpg"
                 alt="Prism mirror attachment on the iPhone"
                 loading="lazy"
-                style="width:100%; height:auto; object-fit:contain;"
               >
 
               <figcaption>
@@ -133,6 +154,8 @@
           </div>
 
 
+
+          <!-- DATA LOGGING -->
 
           <h3>Synchronized data logging</h3>
 
@@ -149,7 +172,6 @@
               src="/assets/img/hurotics/hvision/hvision_app_screen.jpg"
               alt="H Vision iPhone logging interface"
               loading="lazy"
-              style="width:100%; height:auto; object-fit:contain;"
             >
 
             <figcaption>
@@ -160,18 +182,20 @@
 
 
 
+          <!-- TERRAIN -->
+
           <h3>Terrain perception</h3>
 
           <p>
-            My first attempts tried to estimate absolute terrain angle from the
-            depth map and from a fitted 3D plane. Those methods were unreliable
-            because the waist-mounted camera often saw walls and distant scene
-            structure rather than a clean ground plane.
+            My first attempts estimated terrain angle from the depth map and
+            from a fitted 3D plane. These methods were unreliable because the
+            waist-mounted camera often saw walls and distant scene structure
+            rather than a clean ground plane.
           </p>
 
           <p>
             Inspecting the raw depth maps led to a simpler approach. Vertical
-            depth profiles showed distinct terrain structure: flat ground
+            depth profiles showed distinct terrain structure. Flat ground
             changed gradually, stair ascent formed stepped plateaus, and stair
             descent occupied a narrower depth range.
           </p>
@@ -179,10 +203,9 @@
 
           <figure>
             <img
-              src="/assets/img/hurotics/hvision/02_terrain/depth_profiles_by_terrain.png"
+              src="/assets/img/hurotics/hvision/depth_profiles_by_terrain.png"
               alt="Depth profiles for different terrain conditions"
               loading="lazy"
-              style="width:100%; height:auto; object-fit:contain;"
             >
 
             <figcaption>
@@ -199,22 +222,23 @@
 
 
 
+          <!-- TTC -->
+
           <h3>Stair arrival prediction</h3>
 
           <p>
             For assistive control, detecting a stair is not enough. The device
-            needs to know when the wearer will reach it. I filtered the forward
-            distance signal, estimated closing speed with linear regression, and
-            computed time to contact.
+            also needs to know when the wearer will reach it. I filtered the
+            forward distance signal, estimated closing speed with linear
+            regression, and computed time to contact.
           </p>
 
 
           <figure>
             <img
-              src="/assets/img/hurotics/hvision/03_arrival_prediction/ttc_showcase_best_event.png"
+              src="/assets/img/hurotics/hvision/ttc_showcase_best_event.png"
               alt="Stair arrival prediction"
               loading="lazy"
-              style="width:100%; height:auto; object-fit:contain;"
             >
 
             <figcaption>
@@ -235,6 +259,8 @@
 
 
 
+          <!-- GAIT -->
+
           <h3>Gait sensing and hands-free annotation</h3>
 
           <p>
@@ -246,10 +272,9 @@
 
           <figure>
             <img
-              src="/assets/img/hurotics/hvision/04_gait/gait_leg_motion_steps.png"
+              src="/assets/img/hurotics/hvision/gait_leg_motion_steps.png"
               alt="Optical flow gait signal"
               loading="lazy"
-              style="width:100%; height:auto; object-fit:contain;"
             >
 
             <figcaption>
@@ -262,11 +287,13 @@
             The flat-ground session produced about
             <strong>102 steps per minute</strong> with a spectral SNR of
             <strong>19.6</strong>. I also replaced handheld button annotation
-            with spoken activity labels processed offline using Whisper, letting
-            the wearer label sessions naturally while walking.
+            with spoken activity labels processed offline using Whisper,
+            allowing sessions to be labeled naturally while walking.
           </p>
 
 
+
+          <!-- LIMITATIONS -->
 
           <h3>Limitations</h3>
 
@@ -274,12 +301,18 @@
             H Vision demonstrated useful terrain, gait, and approach signals,
             but generalization was not established. Terrain features varied
             across sessions, and the strongest arrival prediction result relied
-            on a limited number of long, straight stair approaches. I therefore
-            treated the phone as a reference platform for deciding which signals
-            were worth moving into lower-cost dedicated hardware.
+            on a limited number of long, straight stair approaches.
+          </p>
+
+          <p>
+            I therefore treated the phone as a reference platform for deciding
+            which sensing signals were worth moving into lower-cost dedicated
+            hardware.
           </p>
 
 
+
+          <!-- SKILLS -->
 
           <div class="skills-strip">
 
@@ -299,7 +332,12 @@
 
         <hr class="divider">
 
-        <div class="detail-links" id="detail-nav"></div>
+
+        <div
+          class="detail-links"
+          id="detail-nav"
+        ></div>
+
 
       </div>
 
@@ -315,6 +353,7 @@
   <script src="/content/site.js"></script>
   <script src="/scripts/site.js"></script>
   <script src="/scripts/render.js"></script>
+
 
 </body>
 
