@@ -9,7 +9,7 @@
 
   <meta
     name="description"
-    content="Mechanical design and validation hardware developed at HUROTICS, including an anthropomorphic endurance test jig, tendon-routing components, drive-unit docking hardware, and a thermal test bed."
+    content="Mechanical design and validation hardware developed at HUROTICS, including an anthropomorphic endurance test jig, tendon-routing components, tool-free docking hardware, and a thermal test platform."
   >
 
   <link
@@ -26,7 +26,7 @@
 
   <meta
     property="og:description"
-    content="Mechanical design and validation hardware developed for wearable exosuit systems at HUROTICS."
+    content="Mechanical design and validation hardware for wearable exosuit systems at HUROTICS."
   >
 
   <meta
@@ -86,8 +86,10 @@
           <p class="lede">
             Mechanical design and validation hardware for wearable exosuits,
             spanning an anthropomorphic endurance test jig, tendon-routing
-            components, tool-free docking hardware, and a thermal test platform.
+            components, user-facing attachment hardware, tool-free docking,
+            and thermal validation.
           </p>
+
 
 
           <!-- TEST JIG -->
@@ -96,21 +98,20 @@
 
           <p>
             HUROTICS needed a robotic test fixture that could wear a complete
-            exosuit and reproduce gait motion continuously for long-duration
-            product validation. I developed the mechanical architecture,
-            actuator sizing, and control concept around a real mannequin torso
-            and custom lower-body mechanism.
+            exosuit and reproduce gait motion continuously for product
+            validation. I translated system-level requirements into the
+            mechanical architecture, actuator sizing, packaging constraints,
+            and control concept for the test rig.
           </p>
 
           <p>
-            The design targeted <strong>200 N cable loading</strong>,
+            The system was designed around
+            <strong>200 N cable loading</strong>,
             <strong>100,000 gait cycles</strong>, and walking speeds from
-            <strong>0.2 to 6 km/h</strong>. I built a torque budget including
-            cable reaction force, leg weight, and acceleration, giving a peak
-            requirement of roughly <strong>29 to 32 N·m</strong>. This led to
-            selection of a compact integrated actuator that could fit within
-            human hip-width constraints while maintaining torque and speed
-            margin.
+            <strong>0.2 to 6 km/h</strong>. I developed a torque budget that
+            included cable reaction force, leg weight, and acceleration,
+            resulting in a peak requirement of approximately
+            <strong>29 to 32 N·m</strong>.
           </p>
 
 
@@ -124,8 +125,8 @@
               >
 
               <figcaption>
-                Dynamic thigh mechanism designed around human-scale hip geometry
-                and flexion-extension motion.
+                Human-scale dynamic test fixture developed for repeated
+                flexion-extension testing of a complete exosuit.
               </figcaption>
             </figure>
 
@@ -138,31 +139,40 @@
               >
 
               <figcaption>
-                Integrated servo actuator selected from torque, speed, packaging,
-                and endurance requirements.
+                Integrated servo actuator selected through torque, speed,
+                packaging, and endurance requirements.
               </figcaption>
             </figure>
 
           </div>
 
 
+          <p>
+            An earlier motor, gearbox, and encoder architecture exceeded the
+            available hip-width envelope. I replaced it with a compact integrated
+            actuator and performed packaging and interference checks to keep both
+            hip drives within human-scale geometry while preserving torque and
+            speed margin.
+          </p>
+
+
           <figure>
             <img
               src="/assets/img/hurotics/mechanical/jig2.png"
-              alt="Mannequin interface design"
+              alt="Mannequin interface and test jig connection"
               loading="lazy"
             >
 
             <figcaption>
-              I measured and recreated the existing mannequin interface so the
-              production torso could be reused instead of designing a new upper body.
+              Existing mannequin geometry was measured and recreated in CAD so
+              the production torso could be reused as part of the fixture.
             </figcaption>
           </figure>
 
 
           <p>
-            The concept was approved for external fabrication, with HUROTICS
-            committing approximately <strong>$15,000</strong> to build the
+            The concept was approved for external fabrication, and HUROTICS
+            committed approximately <strong>$15,000</strong> to build the
             production test system based on the proposed architecture.
           </p>
 
@@ -174,46 +184,72 @@
 
           <p>
             For the next-generation daily-use exosuit, I designed the sheath
-            that redirects the tendon force around the body. Because cable
-            routing directly affects assistive force transmission, I shaped the
-            entry and exit geometry around hip flexion and extension to reduce
-            sharp bends, friction, and interference throughout the joint range
-            of motion.
+            that redirects the tendon load around the hip. The component acts as
+            a critical mechanical interface between the actuator cable and the
+            body, so cable path, bending radius, friction, and joint kinematics
+            directly affect force transmission.
           </p>
 
 
-          <figure>
-            <img
-              src="/assets/img/hurotics/mechanical/sheath1.png"
-              alt="Exosuit tendon sheath routing study"
-              loading="lazy"
-            >
+          <div class="media-row">
 
-            <figcaption>
-              Cable-path and sheath geometry developed around the changing
-              joint configuration during flexion and extension.
-            </figcaption>
-          </figure>
+            <figure>
+              <img
+                src="/assets/img/hurotics/mechanical/sheath1.png"
+                alt="Exosuit tendon sheath routing study"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Cable-path study used to evaluate routing through hip flexion
+                and extension.
+              </figcaption>
+            </figure>
+
+
+            <figure>
+              <img
+                src="/assets/img/hurotics/mechanical/sheath2.png"
+                alt="Physical tendon sheath prototypes"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Prototype iterations used to evaluate geometry and cable
+                interaction.
+              </figcaption>
+            </figure>
+
+          </div>
+
+
+          <p>
+            I adjusted the sheath entry and exit geometry around the changing
+            joint configuration to reduce sharp cable curvature, parasitic
+            friction, and interference across the required range of motion.
+          </p>
 
 
 
           <!-- HOOK -->
 
-          <h3>Self-locking thigh hook</h3>
+          <h3>Self-locking thigh attachment</h3>
 
           <p>
-            I also designed the interface connecting the tendon cable to the
-            thigh garment. The hook needed to be easy for patients and older
-            users to attach, while remaining secure under repeated tensile load.
+            I designed the hook connecting the tendon cable to the thigh
+            garment as both a load-bearing component and a human interface.
+            The geometry needed to withstand repeated tensile loading while
+            remaining easy to locate, grip, and attach for patients and older
+            users.
           </p>
 
           <p>
-            To simplify production and assembly, I separated the garment-side
-            interface from the cable assembly and designed the hook to capture a
-            cross-pin installed in the cable end. The geometry becomes more
-            secure as tensile load increases, while the outer shape was iterated
-            for grip and handling. I used FEA to evaluate the primary load path
-            and refine the structure before prototyping.
+            I separated the garment-side component from the cable assembly to
+            simplify production and final assembly. A cross-pin installed in
+            the cable end allows the hook to capture the cable mechanically,
+            while the load path becomes more secure under tension. I used FEA
+            and iterative FDM prototypes to refine the structure, grip geometry,
+            and attachment orientation.
           </p>
 
 
@@ -222,13 +258,13 @@
             <figure>
               <img
                 src="/assets/img/hurotics/mechanical/hook1.png"
-                alt="Self-locking exosuit cable hook CAD"
+                alt="Self-locking thigh hook CAD"
                 loading="lazy"
               >
 
               <figcaption>
-                Final hook architecture developed around tensile loading,
-                handling, and cable attachment.
+                Hook geometry developed around tensile load path,
+                manufacturability, and user handling.
               </figcaption>
             </figure>
 
@@ -236,13 +272,13 @@
             <figure>
               <img
                 src="/assets/img/hurotics/mechanical/hook2.png"
-                alt="Physical hook design iterations"
+                alt="Physical hook prototype iterations"
                 loading="lazy"
               >
 
               <figcaption>
-                Rapid-prototype iterations used to evaluate geometry,
-                attachment, and user handling.
+                Rapid-prototype iterations used to evaluate ergonomics,
+                attachment, and assembly.
               </figcaption>
             </figure>
 
@@ -255,18 +291,18 @@
           <h3>Tool-free drive-unit docking</h3>
 
           <p>
-            The motor and battery module had to be removable from the
-            back-mounted wearable assembly without tools. I designed a
-            guided sliding interface with snap-fit retention so the drive unit
-            could be inserted along a constrained path and positively locked
-            into place.
+            The motor and battery module needed to be removable from the
+            back-mounted wearable assembly without tools. I designed a guided
+            linear docking interface with snap-fit retention so the module could
+            follow a constrained insertion path and positively lock into place.
           </p>
 
           <p>
-            The design incorporated manufacturing clearance for FDM prototypes,
-            including approximately <strong>0.15 to 0.30 mm</strong> sliding
-            clearance, while balancing fit, retention force, accessibility, and
-            repeatable assembly.
+            The design required careful fit and clearance control because the
+            sliding and locking features were produced with FDM prototypes.
+            I incorporated approximately <strong>0.15 to 0.30 mm</strong>
+            sliding clearance and iterated the snap-fit geometry to balance
+            insertion force, retention, repeatability, and manufacturability.
           </p>
 
 
@@ -275,12 +311,12 @@
             <figure>
               <img
                 src="/assets/img/hurotics/mechanical/slider2.png"
-                alt="Drive unit docking system CAD"
+                alt="Drive unit docking assembly"
                 loading="lazy"
               >
 
               <figcaption>
-                Docking interface integrated into the complete motor and battery
+                Docking interface packaged into the complete motor and battery
                 module.
               </figcaption>
             </figure>
@@ -289,13 +325,13 @@
             <figure>
               <img
                 src="/assets/img/hurotics/mechanical/slider3.png"
-                alt="Physical docking prototype"
+                alt="Physical drive unit docking prototypes"
                 loading="lazy"
               >
 
               <figcaption>
-                FDM prototype used to evaluate sliding clearance and snap-fit
-                engagement.
+                FDM prototypes used to evaluate sliding fit, snap engagement,
+                and repeated assembly.
               </figcaption>
             </figure>
 
@@ -305,20 +341,22 @@
 
           <!-- THERMAL -->
 
-          <h3>Drive-unit thermal test bed</h3>
+          <h3>Drive-unit thermal validation</h3>
 
           <p>
-            To evaluate heat buildup inside the wearable drive enclosure, I
-            designed and fabricated a full-scale test housing around the actual
-            cooling hardware. The enclosure reproduced the drive-unit packaging
-            with one intake fan, two exhaust fans, ventilation openings, and
-            representative internal components.
+            The wearable drive unit contains the motor electronics and battery
+            in a compact enclosure, making thermal management another packaging
+            constraint. I designed and fabricated a full-scale test enclosure
+            around the actual cooling hardware to reproduce the expected
+            operating environment.
           </p>
 
           <p>
-            The platform allowed the team to run the cooling system in realistic
-            packaging conditions and evaluate temperature rise before committing
-            to the final enclosure design.
+            The test bed incorporated one intake fan, two exhaust fans,
+            ventilation openings, internal component packaging, and removable
+            vent geometry. This allowed the cooling architecture to be tested
+            under representative enclosure conditions before committing to the
+            final product housing.
           </p>
 
 
@@ -327,13 +365,13 @@
             <figure>
               <img
                 src="/assets/img/hurotics/mechanical/thermal1.png"
-                alt="Thermal test bed CAD"
+                alt="Drive unit thermal enclosure CAD"
                 loading="lazy"
               >
 
               <figcaption>
-                Test enclosure designed around the actual fan layout and internal
-                packaging.
+                Thermal test enclosure designed around the actual fan layout
+                and internal packaging constraints.
               </figcaption>
             </figure>
 
@@ -341,12 +379,13 @@
             <figure>
               <img
                 src="/assets/img/hurotics/mechanical/thermal3.png"
-                alt="Thermal test bed internal hardware"
+                alt="Thermal test enclosure internal assembly"
                 loading="lazy"
               >
 
               <figcaption>
-                Fabricated enclosure with installed fans and internal hardware.
+                Fabricated test bed with cooling fans and internal hardware
+                installed.
               </figcaption>
             </figure>
 
@@ -379,10 +418,12 @@
               Applied skills
             </span>
 
-            Mechanical Design · CAD · Product Development · Actuator Sizing ·
-            Torque Budgeting · FEA · DFM/DFA · FDM Prototyping ·
-            Snap-Fit Design · Tolerance and Clearance Design ·
-            Tendon Routing · Thermal Testing
+            Mechanical Design · Requirements-Driven Design · CAD ·
+            Actuator Sizing · Torque Budgeting · Packaging &amp; Interference Analysis ·
+            FEA · DFM/DFA · Design for Additive Manufacturing ·
+            Dimensional Tolerancing · Fit &amp; Clearance Design ·
+            Snap-Fit Design · Human Factors · Tendon Routing ·
+            Rapid Prototyping · Reliability Test Design · Thermal Validation
 
           </div>
 
