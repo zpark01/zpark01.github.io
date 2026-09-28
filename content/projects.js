@@ -72,6 +72,33 @@ window.PROJECTS = [
 
   links: [],
 },
+
+{
+  slug: "hurotics-mechanical-design",
+  num: "03",
+  category: "internship",
+  featured: true,
+
+  title: "Exosuit Mechanical Design and Validation Hardware",
+  course: "HUROTICS Inc. · Product Design Internship",
+  term: "Summer 2026",
+
+  thumb: "/assets/img/hurotics/mechanical/jig1.png",
+
+  desc: "Designed exosuit hardware spanning an anthropomorphic endurance test rig, tendon-routing components, user-facing attachments, tool-free docking, and thermal validation.",
+
+  tags: [
+    "Mechanical Design",
+    "CAD",
+    "FEA",
+    "DFM/DFA",
+    "Actuator Sizing",
+    "Prototyping"
+  ],
+
+  links: [],
+},
+   
   {
     slug: "multi-robot-motion-planning",
     num: "01", category: "graduate", featured: true,
