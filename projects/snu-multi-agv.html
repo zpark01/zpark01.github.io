@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Multi-AGV Docking and Shared-Payload Transport | Zach Park</title>
+
+  <meta
+    name="description"
+    content="Multi-AGV warehouse transport research at Seoul National University INRoL, combining ROS 2, mechanical docking design, rapid prototyping, and shared-payload platform development."
+  >
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>"
+  >
+
+  <meta property="og:type" content="website">
+
+  <meta
+    property="og:title"
+    content="Multi-AGV Docking and Shared-Payload Transport | Zach Park"
+  >
+
+  <meta
+    property="og:description"
+    content="Mechanical docking and shared-payload transport concepts for four small warehouse AGVs."
+  >
+
+  <meta
+    property="og:url"
+    content="https://zpark01.github.io/projects/snu-multi-agv.html"
+  >
+
+  <meta
+    property="og:image"
+    content="https://zpark01.github.io/assets/img/snu-agv/01_agv_platform_robots.jpg"
+  >
+
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="/styles/theme.css">
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+
+        if (t) {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+
+<body data-project="snu-multi-agv">
+
+  <site-header></site-header>
+
+
+  <main>
+
+    <section class="section">
+
+      <div class="container">
+
+        <div
+          class="detail-head"
+          id="detail-header"
+        ></div>
+
+
+        <article class="prose wide">
+
+
+          <!-- INTRO -->
+
+          <p class="lede">
+            At Seoul National University's Interactive &amp; Networked Robotics Laboratory,
+            I worked on a warehouse transport concept in which four small AGVs lift and
+            carry one shared platform. My work focused on docking hardware, platform
+            mechanics, rapid prototyping, and ROS 2-based robot development.
+          </p>
+
+
+          <figure
+            style="
+              max-width: 920px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+
+            <img
+              src="/assets/img/snu-agv/01_agv_platform_robots.jpg"
+              alt="Small automated guided vehicles used for the multi-AGV transport project"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Small AGV platforms used in the INRoL multi-robot transport project.
+            </figcaption>
+
+          </figure>
+
+
+
+          <!-- ARCHITECTURE -->
+
+          <h3>Multi-AGV transport architecture</h3>
+
+          <p>
+            I evaluated how four independently mobile robots could support a single payload
+            platform while remaining easy to dock and deploy. Rather than lowering the entire
+            platform onto the robots, the concept used lift-equipped robot-side connectors to
+            approach and raise the platform from underneath.
+          </p>
+
+
+          <figure
+            style="
+              max-width: 900px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+
+            <video
+              src="/assets/img/snu-agv/06_multi_agv_animation.mp4"
+              controls
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+
+            <figcaption>
+              Blender concept animation showing the four-robot docking and shared-payload workflow.
+            </figcaption>
+
+          </figure>
+
+
+
+          <!-- CONNECTOR -->
+
+          <h3>Self-aligning docking connector</h3>
+
+          <p>
+            I iterated several connector concepts to tolerate positioning error during docking,
+            including conical passive alignment, mechanical locking, spring-centering, and a
+            simplified friction-based design. The later concepts were 3D printed to evaluate
+            assembly and fit, revealing the tolerance sensitivity of the more complex mechanism.
+          </p>
+
+
+          <div class="media-row">
+
+            <figure>
+
+              <img
+                src="/assets/img/snu-agv/03_self_aligning_connector_cad.png"
+                alt="SolidWorks self-aligning connector concept"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Self-aligning connector concept using guided geometry and compliant centering.
+              </figcaption>
+
+            </figure>
+
+
+            <figure>
+
+              <img
+                src="/assets/img/snu-agv/02_connector_prototypes.jpg"
+                alt="3D printed AGV connector prototypes"
+                loading="lazy"
+              >
+
+              <figcaption>
+                3D-printed connector prototypes used to evaluate assembly and docking geometry.
+              </figcaption>
+
+            </figure>
+
+          </div>
+
+
+          <p>
+            A simpler friction-based connector reduced mechanism complexity and was easier to
+            fabricate while still allowing positional tolerance at the interface.
+          </p>
+
+
+          <figure
+            style="
+              max-width: 700px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+
+            <img
+              src="/assets/img/snu-agv/04_friction_connector_cad.png"
+              alt="Friction-based AGV docking connector concept"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Simplified docking concept using payload weight and interface friction for retention.
+            </figcaption>
+
+          </figure>
+
+
+
+          <!-- PLATFORM -->
+
+          <h3>Shared-payload platform</h3>
+
+          <p>
+            I designed a braced platform structure to distribute load across four support points
+            and reduce twisting during coordinated motion. The frame also preserved open regions
+            required by the robot sensing and localization setup.
+          </p>
+
+
+          <figure
+            style="
+              max-width: 920px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+
+            <img
+              src="/assets/img/snu-agv/05_platform_structure_cad.png"
+              alt="SolidWorks shared payload platform structure for four AGVs"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Shared-payload platform concept with cross-bracing and reinforced docking regions.
+            </figcaption>
+
+          </figure>
+
+
+
+          <!-- SKILLS -->
+
+          <div class="skills-strip">
+
+            <span class="lbl">
+              Applied skills
+            </span>
+
+            ROS 2 · Mechanical Design · SOLIDWORKS · Multi-Robot Systems ·
+            Docking Mechanisms · Rapid Prototyping · 3D Printing · Blender
+
+          </div>
+
+
+        </article>
+
+
+        <hr class="divider">
+
+
+        <div
+          class="detail-links"
+          id="detail-nav"
+        ></div>
+
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <site-footer></site-footer>
+
+
+  <script src="/content/projects.js"></script>
+  <script src="/content/site.js"></script>
+  <script src="/scripts/site.js"></script>
+  <script src="/scripts/render.js"></script>
+
+
+</body>
+
+</html>
