@@ -300,7 +300,31 @@ window.PROJECTS = [
 
   links: [],
 },
+{
+  slug: "mini-sumo-robot",
+  num: "11",
+  category: "projects",
+  featured: false,
 
+  title: "Autonomous Mini-Sumo Robot",
+  course: "ME353 Mechatronics · The Cooper Union",
+  term: "Spring 2025",
+
+  thumb: "/assets/img/mini-sumo/01_robot_side.jpg",
+
+  desc: "Developed an autonomous differential-drive mini-sumo robot integrating embedded motor control, IR edge sensing, and rapid-prototyped mechanical hardware.",
+
+  tags: [
+    "Mechatronics",
+    "ATmega328P",
+    "Motor Control",
+    "IR Sensing",
+    "Embedded Programming",
+    "Rapid Prototyping"
+  ],
+
+  links: [],
+},
   /* ========================================================================
      ORIGINAL TEMPLATE PROJECTS
      Kept in repository for reference, but hidden from the website.
