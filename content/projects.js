@@ -83,7 +83,7 @@ window.PROJECTS = [
   course: "HUROTICS Inc. · Product Design Internship",
   term: "Summer 2026",
 
-  thumb: "/assets/img/hurotics/mechanical/jig1.png",
+  thumb: "/assets/img/hurotics/mechanical/thermal3.png",
 
   desc: "Designed exosuit hardware spanning an anthropomorphic endurance test rig, tendon-routing components, user-facing attachments, tool-free docking, and thermal validation.",
 
