@@ -83,11 +83,6 @@ window.CV = {
     },
 
     {
-      when: "Nov 2025",
-      title: "Maroon & Gold Labs Full Grant — $5,000 Project Funding"
-    },
-
-    {
       when: "Oct 2025",
       title: "2nd Place — NIH / VentureWell DEBUT Challenge · $15,000 Award"
     },
