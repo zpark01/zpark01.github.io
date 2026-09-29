@@ -91,7 +91,7 @@ window.PROJECTS = [
     slug: "hurotics-mechanical-design",
     num: "03",
     category: "internship",
-    featured: true,
+    featured: false,
 
     title: "Exosuit Mechanical Design and Validation Hardware",
     course: "HUROTICS Inc. · Product Design Internship",
