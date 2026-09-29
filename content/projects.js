@@ -378,6 +378,32 @@ window.PROJECTS = [
 
   links: [],
 },
+
+   {
+  slug: "pfizer-cucu",
+  num: "14",
+  category: "competition",
+  featured: false,
+
+  title: "CUCU: NLP Mental Health Companion",
+  course: "Pfizer Digital Hackathon · The Cooper Union",
+  term: "Fall 2024",
+
+  thumb: "/assets/img/pfizer-cucu/01_team_second_place.jpg",
+
+  desc: "Built an NLP-based virtual companion for student mental well-being, combining journal-based mood classification, personalized activity suggestions, and gamified support tools; 2nd Place at the inaugural Pfizer Digital Hackathon.",
+
+  tags: [
+    "Machine Learning",
+    "NLP",
+    "Python",
+    "Random Forest",
+    "Product Design",
+    "Figma"
+  ],
+
+  links: [],
+},
    
   /* ========================================================================
      ORIGINAL TEMPLATE PROJECTS
