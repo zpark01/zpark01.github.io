@@ -112,55 +112,44 @@ window.CV = {
 
   /* ================= SKILLS ================= */
 
-  skillGroups: [
-
-    {
-      title: "Programming",
-      items: [
-        "Python",
-        "C++",
-        "MATLAB",
-        "JavaScript",
-        "React Native"
-      ]
-    },
-
-    {
-      title: "Robotics & Machine Learning",
-      items: [
-        "ROS 2",
-        "PyTorch",
-        "Computer Vision",
-        "Reinforcement Learning",
-        "Control Systems"
-      ]
-    },
-
-    {
-      title: "Design & Simulation",
-      items: [
-        "SolidWorks",
-        "Fusion 360",
-        "LS-DYNA",
-        "Mimics",
-        "Visual3D",
-        "JMP"
-      ]
-    },
-
-    {
-      title: "Hardware & Prototyping",
-      items: [
-        "Arduino",
-        "NI LabVIEW",
-        "Sensors & Instrumentation",
-        "3D Printing",
-        "Machining",
-        "Mechanical Prototyping"
-      ]
-    },
-
-  ],
+   skillGroups: [
+     {
+       title: "Languages",
+       items: [
+         "Python",
+         "C++",
+         "MATLAB",
+         "JavaScript",
+         "Swift"
+       ]
+     },
+   
+     {
+       title: "Tools",
+       items: [
+         "ROS 2",
+         "PyTorch",
+         "SolidWorks",
+         "Fusion 360",
+         "LS-DYNA",
+         "Mimics",
+         "LabVIEW / NI DAQ"
+       ]
+     },
+   
+     {
+       title: "Methods",
+       items: [
+         "Reinforcement Learning",
+         "Computer Vision",
+         "Control Systems",
+         "Signal Processing",
+         "FEA",
+         "CFD",
+         "DFM/DFA"
+       ]
+     }
+   ]
 
 
   /* ================= RESEARCH INTERESTS ================= */
