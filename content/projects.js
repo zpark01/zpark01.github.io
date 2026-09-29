@@ -325,6 +325,33 @@ window.PROJECTS = [
 
   links: [],
 },
+
+   {
+  slug: "wind-turbine-flow-augmentation",
+  num: "12",
+  category: "research",
+  featured: false,
+
+  title: "CFD Optimization of Wind-Turbine Flow Augmentation",
+  course: "The Cooper Union · Undergraduate Research",
+  term: "2024-2025",
+
+  thumb: "/assets/img/wind-turbine-cfd/01_hawt_flow_augmenter_cad.png",
+
+  desc: "Co-developed passive flow-augmentation structures for small HAWT and VAWT systems, using SolidWorks Flow Simulation to predict up to ~70% local velocity amplification in the strongest horizontal-axis design.",
+
+  tags: [
+    "CFD",
+    "SolidWorks",
+    "Aerodynamics",
+    "Parametric Design",
+    "Fluid Mechanics",
+    "Design Optimization"
+  ],
+
+  links: [],
+},
+   
   /* ========================================================================
      ORIGINAL TEMPLATE PROJECTS
      Kept in repository for reference, but hidden from the website.
