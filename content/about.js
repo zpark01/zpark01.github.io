@@ -1,25 +1,71 @@
-/* ==========================================================================
-   content/about.js — "Hobbies & Travel" gallery on the About page
-   The bio text lives in about.html (static). This is just the gallery.
-   Items can be photos OR videos — .mp4/.mov/.webm render as players.
-   The `caption` slides up on hover (location or a short description). Leave it
-   "" for no caption. Reorder freely; the gallery aligns everything by height.
-   ========================================================================== */
 window.ABOUT = {
+
   photos: [
-    { src: "/assets/img/gallery/gallery-01.jpg", caption: "London" },
-    { src: "/assets/img/gallery/gallery-02.jpg", caption: "London" },
-    { src: "/assets/img/gallery/gallery-03.jpg", caption: "London" },
-    { src: "/assets/img/gallery/gallery-04.jpg", caption: "London" },
-    { src: "/assets/img/gallery/gallery-05.jpg", caption: "Amsterdam" },
-    { src: "/assets/img/gallery/gallery-06.jpg", caption: "Amsterdam" },
-    { src: "/assets/img/gallery/gallery-07.jpg", caption: "Amsterdam" },
-    { src: "/assets/img/gallery/gallery-08.jpg", caption: "Chicago" },
-    { src: "/assets/img/gallery/gallery-09.jpg", caption: "New York City" },
-    { src: "/assets/img/gallery/gallery-10.jpg", caption: "New York City" },
-    { src: "/assets/img/gallery/gallery-11.jpg", caption: "Pittsburgh" },
-    { src: "/assets/img/gallery/gallery-12.jpg", caption: "New York City" },
-    { src: "/assets/img/gallery/gallery-13.jpg", caption: "Chicago" },
-    { src: "/assets/img/gallery/gallery-14.jpg", caption: "Hawaiʻi" },
-  ],
+
+    {
+      src: "/assets/img/about/01_industrial_hall.jpg"
+    },
+
+    {
+      src: "/assets/img/about/02_mountain_ridge.jpg"
+    },
+
+    {
+      src: "/assets/img/about/03_fish_painting.jpg"
+    },
+
+    {
+      src: "/assets/img/about/04_fish_collage.jpg"
+    },
+
+    {
+      src: "/assets/img/about/05_countryside_storm.jpg"
+    },
+
+    {
+      src: "/assets/img/about/06_self_portrait_painting.jpg"
+    },
+
+    {
+      src: "/assets/img/about/07_riverside_evening.jpg"
+    },
+
+    {
+      src: "/assets/img/about/08_blue_portrait_painting.jpg"
+    },
+
+    {
+      src: "/assets/img/about/09_city_night.jpg"
+    },
+
+    {
+      src: "/assets/img/about/10_city_overlook.jpg"
+    },
+
+    {
+      src: "/assets/img/about/11_figurative_artwork.jpg"
+    },
+
+    {
+      src: "/assets/img/about/12_glacier_view.jpg"
+    },
+
+    {
+      src: "/assets/img/about/13_lakeside_view.jpg"
+    },
+
+    {
+      src: "/assets/img/about/14_mountain_rainbow.jpg"
+    },
+
+    {
+      src: "/assets/img/about/15_golf_course.jpg"
+    },
+
+    {
+      src: "/assets/img/about/16_ocean_storm.jpg"
+    }
+
+  ]
+
 };
