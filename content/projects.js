@@ -481,6 +481,32 @@ window.PROJECTS = [
 
   links: [],
 },
+
+   {
+  slug: "peristaltic-pump-vibration",
+  num: "18",
+  category: "projects",
+  featured: false,
+
+  title: "Vibrational Analysis of a Peristaltic Pump",
+  course: "ME301 Mechanical Vibrations",
+  term: "Spring 2025",
+
+  thumb: "/assets/img/peristaltic-pump-vibration/01_experimental_setup.png",
+
+  desc: "Characterized the vibration dynamics of a peristaltic pump using impact-hammer modal testing, dual accelerometers, NI DAQ, and LabVIEW to identify natural frequencies and resonance conditions.",
+
+  tags: [
+    "Mechanical Vibrations",
+    "LabVIEW",
+    "NI DAQ",
+    "Modal Testing",
+    "Signal Processing",
+    "Accelerometers"
+  ],
+
+  links: [],
+},
   /* ========================================================================
      ORIGINAL TEMPLATE PROJECTS
      Kept in repository for reference, but hidden from the website.
