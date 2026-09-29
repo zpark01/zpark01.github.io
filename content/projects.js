@@ -351,6 +351,33 @@ window.PROJECTS = [
 
   links: [],
 },
+
+   {
+  slug: "pfizer-poko",
+  num: "13",
+  category: "competition",
+  featured: true,
+
+  title: "Poko: Pediatric Cancer Digital Companion",
+  course: "2025 Pfizer Digital Hackathon · Team Lead · 2nd Place",
+  term: "September 2025",
+
+  thumb: "/assets/img/pfizer-poko/01_team_award.jpg",
+  thumbVideo: "/assets/img/pfizer-poko/02_poko_mobile_demo.mp4",
+
+  desc: "Led a five-person team to build a pediatric oncology digital companion with patient and caregiver experiences, a React/TypeScript caregiver portal, and a guarded OpenAI/LangChain chatbot.",
+
+  tags: [
+    "Digital Health",
+    "React",
+    "TypeScript",
+    "OpenAI API",
+    "LangChain",
+    "System Architecture"
+  ],
+
+  links: [],
+},
    
   /* ========================================================================
      ORIGINAL TEMPLATE PROJECTS
