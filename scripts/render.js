@@ -10,19 +10,26 @@
      #publications #research-timeline                            (research)
      #experience-timeline                                       (experience)
      #teaching-groups #outreach                                 (teaching)
-     #cv-education #cv-experience #cv-awards #cv-skills #cv-interests #cv-download
+     #cv-education #cv-experience #cv-awards #cv-skills
+     #cv-interests #cv-download
      <body data-project="slug"> + #detail-header                 (project detail)
    ========================================================================== */
 
 
 /* ---- small helpers ------------------------------------------------------ */
+
 function linkBtn(l, cls) {
-  const ext = /^https?:/.test(l.href)
-    ? ' target="_blank" rel="noopener"'
-    : "";
+
+  const ext =
+    /^https?:/.test(l.href)
+      ? ' target="_blank" rel="noopener"'
+      : "";
 
   const ic =
-    (typeof ICONS !== "undefined" && ICONS[l.icon])
+    (
+      typeof ICONS !== "undefined" &&
+      ICONS[l.icon]
+    )
       ? ICONS[l.icon]
       : "";
 
@@ -39,6 +46,7 @@ function linkBtn(l, cls) {
 
 
 function tagList(tags, max) {
+
   const t =
     max
       ? tags.slice(0, max)
@@ -61,6 +69,7 @@ function tagList(tags, max) {
 
 
 function fill(id, html) {
+
   const n =
     document.getElementById(id);
 
@@ -72,24 +81,10 @@ function fill(id, html) {
 }
 
 
-/*
- * Supports either:
- *
- * category: "research"
- *
- * or:
- *
- * category: ["research", "competition"]
- */
-function projectCategories(p) {
-  return Array.isArray(p.category)
-    ? p.category
-    : [p.category];
-}
-
-
 /* ---- project card ------------------------------------------------------- */
+
 function projectCard(p) {
+
   const href =
     p.href ||
     `/projects/${p.slug}.html`;
@@ -101,6 +96,7 @@ function projectCard(p) {
 
   const media =
     p.thumbVideo
+
       ? `
         <video
           src="${p.thumbVideo}"
@@ -119,6 +115,7 @@ function projectCard(p) {
           "
         ></video>
       `
+
       : `
         <img
           src="${p.thumb}"
@@ -165,9 +162,11 @@ function projectCard(p) {
         ${tagList(p.tags, 4)}
 
         <div class="card__foot">
+
           <span class="card__arrow">
             view →
           </span>
+
         </div>
 
       </div>
@@ -178,14 +177,13 @@ function projectCard(p) {
 
 
 /* ---- projects page: filters + grid ------------------------------------- */
+
 function initProjects() {
+
   const grid =
     document.getElementById("projects-grid");
 
-
-  if (!grid) {
-    return;
-  }
+  if (!grid) return;
 
 
   const all =
@@ -202,39 +200,40 @@ function initProjects() {
   ];
 
 
-  /*
-   * Count supports projects with more than one category.
-   *
-   * Example:
-   * category: ["research", "competition"]
-   *
-   * counts once under research
-   * and once under competition.
-   */
   const count = (c) =>
+
     c === "all"
+
       ? all.length
-      : all.filter((p) =>
-          projectCategories(p).includes(c)
+
+      : all.filter(
+          (p) => p.category === c
         ).length;
 
 
   const bar =
-    document.getElementById("project-filters");
+    document.getElementById(
+      "project-filters"
+    );
 
 
   if (bar) {
+
     bar.innerHTML =
       cats.map((c, i) => `
+
         <button
           class="filter ${i === 0 ? "active" : ""}"
           data-cat="${c}"
         >
           ${c}
+
           <span class="count">
             ${count(c)}
           </span>
+
         </button>
+
       `).join("");
 
 
@@ -245,10 +244,7 @@ function initProjects() {
         const b =
           e.target.closest(".filter");
 
-
-        if (!b) {
-          return;
-        }
+        if (!b) return;
 
 
         bar
@@ -260,30 +256,26 @@ function initProjects() {
 
         b.classList.add("active");
 
-
         draw(
           b.dataset.cat
         );
+
       }
     );
   }
 
 
-  /*
-   * Filter supports both:
-   *
-   * category: "research"
-   *
-   * and:
-   *
-   * category: ["research", "competition"]
-   */
   function draw(cat) {
+
     const list =
+
       cat === "all"
+
         ? all
-        : all.filter((p) =>
-            projectCategories(p).includes(cat)
+
+        : all.filter(
+            (p) =>
+              p.category === cat
           );
 
 
@@ -298,19 +290,25 @@ function initProjects() {
 }
 
 
-/* ---- homepage: featured projects + news + highlights + selected pub ----- */
+/* ---- homepage ----------------------------------------------------------- */
+
 function initHome() {
+
   const hs =
-    document.getElementById("hero-socials");
+    document.getElementById(
+      "hero-socials"
+    );
 
 
   if (
     hs &&
     window.SITE
   ) {
+
     hs.innerHTML =
       (window.SITE.socials || [])
         .map((s) => `
+
           <a
             href="${s.href}"
             title="${s.label}"
@@ -320,21 +318,36 @@ function initHome() {
               ? 'target="_blank" rel="noopener"'
               : ""}
           >
-            ${(typeof ICONS !== "undefined" && ICONS[s.icon]) || ""}
+
+            ${
+              (
+                typeof ICONS !== "undefined" &&
+                ICONS[s.icon]
+              )
+                ? ICONS[s.icon]
+                : ""
+            }
+
           </a>
+
         `)
         .join("");
   }
 
 
   const feat =
-    document.getElementById("featured-projects");
+    document.getElementById(
+      "featured-projects"
+    );
 
 
   if (feat) {
+
     const extra =
-      (window.SITE && window.SITE.featured) ||
-      [];
+      (
+        window.SITE &&
+        window.SITE.featured
+      ) || [];
 
 
     const projs =
@@ -354,17 +367,22 @@ function initHome() {
 
 
   const news =
-    document.getElementById("news");
+    document.getElementById(
+      "news"
+    );
 
 
   if (
     news &&
     window.SITE
   ) {
+
     news.innerHTML =
       (window.SITE.news || [])
         .map((n) => `
+
           <li>
+
             <span class="date">
               ${n.date}
             </span>
@@ -372,23 +390,29 @@ function initHome() {
             <span class="txt">
               ${n.txt}
             </span>
+
           </li>
+
         `)
         .join("");
   }
 
 
   const hl =
-    document.getElementById("highlights");
+    document.getElementById(
+      "highlights"
+    );
 
 
   if (
     hl &&
     window.SITE
   ) {
+
     hl.innerHTML =
       (window.SITE.highlights || [])
         .map((h) => `
+
           <div class="hl">
 
             <div class="num">
@@ -400,19 +424,23 @@ function initHome() {
             </p>
 
           </div>
+
         `)
         .join("");
   }
 
 
   const sp =
-    document.getElementById("selected-pub");
+    document.getElementById(
+      "selected-pub"
+    );
 
 
   if (
     sp &&
     window.PUBLICATIONS
   ) {
+
     sp.innerHTML =
       pubItem(
         window.PUBLICATIONS[0]
@@ -422,7 +450,9 @@ function initHome() {
 
 
 /* ---- publications ------------------------------------------------------- */
+
 function pubItem(p) {
+
   const links =
     (p.links || [])
       .map((l) =>
@@ -433,6 +463,7 @@ function pubItem(p) {
 
   const abs =
     p.abstract
+
       ? `
         <button
           class="btn btn--sm pub__toggle"
@@ -445,11 +476,13 @@ function pubItem(p) {
           ${p.abstract}
         </p>
       `
+
       : "";
 
 
   const demo =
     p.video
+
       ? `
         <figure class="pub__demo">
 
@@ -464,6 +497,7 @@ function pubItem(p) {
 
         </figure>
       `
+
       : "";
 
 
@@ -496,8 +530,7 @@ function pubItem(p) {
         </p>
 
         <div class="pub__links">
-          ${links}
-          ${abs}
+          ${links}${abs}
         </div>
 
         ${demo}
@@ -510,13 +543,13 @@ function pubItem(p) {
 
 
 function initPublications() {
+
   const c =
-    document.getElementById("publications");
+    document.getElementById(
+      "publications"
+    );
 
-
-  if (!c) {
-    return;
-  }
+  if (!c) return;
 
 
   c.innerHTML =
@@ -530,22 +563,26 @@ function initPublications() {
     (e) => {
 
       const b =
-        e.target.closest(".pub__toggle");
+        e.target.closest(
+          ".pub__toggle"
+        );
 
-
-      if (!b) {
-        return;
-      }
+      if (!b) return;
 
 
       const abs =
         b.parentElement
-          .querySelector(".pub__abstract");
+          .querySelector(
+            ".pub__abstract"
+          );
 
 
       if (abs) {
+
         const open =
-          abs.classList.toggle("open");
+          abs.classList.toggle(
+            "open"
+          );
 
 
         b.textContent =
@@ -553,15 +590,20 @@ function initPublications() {
             ? "hide abstract"
             : "abstract";
       }
+
     }
   );
 }
 
 
-/* ---- timelines (research / experience) --------------------------------- */
+/* ---- timelines ---------------------------------------------------------- */
+
 function timelineItem(x) {
+
   const org =
+
     x.orgUrl
+
       ? `
         <a
           href="${x.orgUrl}"
@@ -571,13 +613,15 @@ function timelineItem(x) {
           ${x.org}
         </a>
       `
+
       : x.org;
 
 
   const bullets =
     (x.bullets || [])
-      .map((b) =>
-        `<li>${b}</li>`
+      .map(
+        (b) =>
+          `<li>${b}</li>`
       )
       .join("");
 
@@ -621,13 +665,15 @@ function timelineItem(x) {
           ${tags}
         </div>
 
-        ${links
-          ? `
-            <div class="detail-links">
-              ${links}
-            </div>
-          `
-          : ""}
+        ${
+          links
+            ? `
+              <div class="detail-links">
+                ${links}
+              </div>
+            `
+            : ""
+        }
 
       </div>
 
@@ -637,17 +683,23 @@ function timelineItem(x) {
 
 
 function initTimelines() {
+
   const r =
-    document.getElementById("research-timeline");
+    document.getElementById(
+      "research-timeline"
+    );
 
 
   if (r) {
+
     r.innerHTML = `
       <div class="timeline">
 
-        ${(window.RESEARCH || [])
-          .map(timelineItem)
-          .join("")}
+        ${
+          (window.RESEARCH || [])
+            .map(timelineItem)
+            .join("")
+        }
 
       </div>
     `;
@@ -655,16 +707,21 @@ function initTimelines() {
 
 
   const e =
-    document.getElementById("experience-timeline");
+    document.getElementById(
+      "experience-timeline"
+    );
 
 
   if (e) {
+
     e.innerHTML = `
       <div class="timeline">
 
-        ${(window.EXPERIENCE || [])
-          .map(timelineItem)
-          .join("")}
+        ${
+          (window.EXPERIENCE || [])
+            .map(timelineItem)
+            .join("")
+        }
 
       </div>
     `;
@@ -672,10 +729,14 @@ function initTimelines() {
 }
 
 
-/* ---- about page: hobbies & travel gallery (photos + videos) ------------- */
+/* ---- about page: hobbies & travel gallery ------------------------------ */
+
 function initAbout() {
+
   const p =
-    document.getElementById("photos");
+    document.getElementById(
+      "photos"
+    );
 
 
   if (
@@ -691,6 +752,7 @@ function initAbout() {
 
 
   if (!items.length) {
+
     p.innerHTML = `
       <p class="muted">
         A gallery of my hobbies and travels — coming soon.
@@ -701,14 +763,23 @@ function initAbout() {
   }
 
 
+  /*
+   * IMPORTANT:
+   * Captions are intentionally NOT rendered here.
+   * This removes location labels such as
+   * "London" or "New York City" from the gallery.
+   */
+
   p.innerHTML =
     items.map((ph) => {
 
       const isVid =
-        /\.(mp4|mov|webm)$/i.test(ph.src);
+        /\.(mp4|mov|webm)$/i
+          .test(ph.src);
 
 
       if (isVid) {
+
         return `
           <figure>
 
@@ -721,23 +792,9 @@ function initAbout() {
               preload="metadata"
             ></video>
 
-            ${ph.caption
-              ? `<figcaption>${ph.caption}</figcaption>`
-              : ""}
-
           </figure>
         `;
       }
-
-
-      const cap =
-        ph.caption
-          ? `
-            <figcaption class="gallery__cap">
-              ${ph.caption}
-            </figcaption>
-          `
-          : "";
 
 
       return `
@@ -745,11 +802,9 @@ function initAbout() {
 
           <img
             src="${ph.src}"
-            alt="${ph.caption || ""}"
+            alt=""
             loading="lazy"
           >
-
-          ${cap}
 
         </figure>
       `;
@@ -758,8 +813,10 @@ function initAbout() {
 }
 
 
-/* ---- education (degrees w/ imagery + coursework) ----------------------- */
+/* ---- education ---------------------------------------------------------- */
+
 function initEducation() {
+
   if (
     !window.TEACHING ||
     !window.TEACHING.education
@@ -778,39 +835,42 @@ function initEducation() {
     `
       <div class="edu-list">
 
-        ${ed.degrees.map((d) => `
+        ${
+          ed.degrees.map((d) => `
 
-          <div class="edu-item">
+            <div class="edu-item">
 
-            <div class="edu-item__img">
+              <div class="edu-item__img">
 
-              <img
-                src="${d.img}"
-                alt="${d.org}"
-                loading="lazy"
-              >
+                <img
+                  src="${d.img}"
+                  alt="${d.org}"
+                  loading="lazy"
+                >
+
+              </div>
+
+
+              <div>
+
+                <p class="edu-item__deg">
+                  ${d.title}
+                </p>
+
+                <p class="edu-item__org">
+                  ${d.org}
+                </p>
+
+                <p class="edu-item__when">
+                  ${d.when}
+                </p>
+
+              </div>
 
             </div>
 
-            <div>
-
-              <p class="edu-item__deg">
-                ${d.title}
-              </p>
-
-              <p class="edu-item__org">
-                ${d.org}
-              </p>
-
-              <p class="edu-item__when">
-                ${d.when}
-              </p>
-
-            </div>
-
-          </div>
-
-        `).join("")}
+          `).join("")
+        }
 
       </div>
     `
@@ -818,38 +878,51 @@ function initEducation() {
 
 
   const cw =
-    document.getElementById("coursework");
+    document.getElementById(
+      "coursework"
+    );
 
 
   if (cw) {
+
     cw.innerHTML =
-      ed.coursework.map((g) => `
+      ed.coursework
+        .map((g) => `
 
-        <div class="cv-block">
+          <div class="cv-block">
 
-          <p class="kicker">
-            ${g.school}
-          </p>
+            <p class="kicker">
+              ${g.school}
+            </p>
 
-          <div class="chips">
+            <div class="chips">
 
-            ${g.items.map((i) =>
-              `<span class="tag">${i}</span>`
-            ).join("")}
+              ${
+                g.items
+                  .map((i) =>
+                    `<span class="tag">${i}</span>`
+                  )
+                  .join("")
+              }
+
+            </div>
 
           </div>
 
-        </div>
-
-      `).join("");
+        `)
+        .join("");
   }
 }
 
 
 /* ---- students mentored ------------------------------------------------- */
+
 function initMentees() {
+
   const c =
-    document.getElementById("mentees");
+    document.getElementById(
+      "mentees"
+    );
 
 
   if (
@@ -865,8 +938,12 @@ function initMentees() {
 
 
   if (!m.length) {
-    c.innerHTML =
-      `<p class="muted">Coming soon.</p>`;
+
+    c.innerHTML = `
+      <p class="muted">
+        Coming soon.
+      </p>
+    `;
 
     return;
   }
@@ -875,23 +952,29 @@ function initMentees() {
   c.innerHTML = `
     <ul class="mentee-grid">
 
-      ${m.map((x) => `
-        <li>
+      ${
+        m.map((x) => `
 
-          <span class="code">
-            ${x.name}
-          </span>
+          <li>
 
-          ${x.note
-            ? `
-              <span class="org">
-                · ${x.note}
-              </span>
-            `
-            : ""}
+            <span class="code">
+              ${x.name}
+            </span>
 
-        </li>
-      `).join("")}
+            ${
+              x.note
+                ? `
+                  <span class="org">
+                    · ${x.note}
+                  </span>
+                `
+                : ""
+            }
+
+          </li>
+
+        `).join("")
+      }
 
     </ul>
   `;
@@ -899,15 +982,20 @@ function initMentees() {
 
 
 /* ---- teaching ----------------------------------------------------------- */
+
 function initTeaching() {
+
   const g =
-    document.getElementById("teaching-groups");
+    document.getElementById(
+      "teaching-groups"
+    );
 
 
   if (
     g &&
     window.TEACHING
   ) {
+
     g.innerHTML =
       window.TEACHING.groups
         .map((grp) => `
@@ -920,21 +1008,25 @@ function initTeaching() {
 
             <ul class="teach-list">
 
-              ${grp.items.map((it) => `
-                <li>
+              ${
+                grp.items.map((it) => `
 
-                  <span class="code">
-                    ${it.code}
-                  </span>
+                  <li>
 
-                  ${it.name}
+                    <span class="code">
+                      ${it.code}
+                    </span>
 
-                  <span class="org">
-                    · ${it.org}
-                  </span>
+                    ${it.name}
 
-                </li>
-              `).join("")}
+                    <span class="org">
+                      · ${it.org}
+                    </span>
+
+                  </li>
+
+                `).join("")
+              }
 
             </ul>
 
@@ -946,21 +1038,26 @@ function initTeaching() {
 
 
   const o =
-    document.getElementById("outreach");
+    document.getElementById(
+      "outreach"
+    );
 
 
   if (
     o &&
     window.TEACHING
   ) {
+
     o.innerHTML = `
       <div class="chips">
 
-        ${window.TEACHING.outreach
-          .map((x) =>
-            `<span class="tag">${x}</span>`
-          )
-          .join("")}
+        ${
+          window.TEACHING.outreach
+            .map((x) =>
+              `<span class="tag">${x}</span>`
+            )
+            .join("")
+        }
 
       </div>
     `;
@@ -968,7 +1065,9 @@ function initTeaching() {
 
 
   const op =
-    document.getElementById("outreach-photos");
+    document.getElementById(
+      "outreach-photos"
+    );
 
 
   if (
@@ -976,6 +1075,7 @@ function initTeaching() {
     window.TEACHING &&
     window.TEACHING.outreachPhotos
   ) {
+
     op.innerHTML =
       window.TEACHING.outreachPhotos
         .map((ph) => `
@@ -1000,18 +1100,21 @@ function initTeaching() {
 }
 
 
-/* ---- CV ----------------------------------------------------------------- */
+/* ---- CV ---------------------------------------------------------------- */
+
 function initCV() {
-  if (!window.CV) {
-    return;
-  }
+
+  if (!window.CV) return;
 
 
   const dl =
-    document.getElementById("cv-download");
+    document.getElementById(
+      "cv-download"
+    );
 
 
   if (dl) {
+
     dl.setAttribute(
       "href",
       window.CV.pdf
@@ -1041,17 +1144,21 @@ function initCV() {
 
             <span class="sub">
 
-              ${e.orgUrl
-                ? `
-                  <a
-                    href="${e.orgUrl}"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    ${e.org}
-                  </a>
-                `
-                : e.org}
+              ${
+                e.orgUrl
+
+                  ? `
+                    <a
+                      href="${e.orgUrl}"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      ${e.org}
+                    </a>
+                  `
+
+                  : e.org
+              }
 
             </span>
 
@@ -1136,11 +1243,11 @@ function initCV() {
 
             <div class="chips">
 
-              ${s.items
-                .map((i) =>
+              ${
+                s.items.map((i) =>
                   `<span class="tag">${i}</span>`
-                )
-                .join("")}
+                ).join("")
+              }
 
             </div>
 
@@ -1154,18 +1261,23 @@ function initCV() {
 
 
   const interests =
-    document.getElementById("cv-interests");
+    document.getElementById(
+      "cv-interests"
+    );
 
 
   if (interests) {
+
     interests.innerHTML = `
       <div class="chips">
 
-        ${window.CV.interests
-          .map((i) =>
-            `<span class="tag">${i}</span>`
-          )
-          .join("")}
+        ${
+          window.CV.interests
+            .map((i) =>
+              `<span class="tag">${i}</span>`
+            )
+            .join("")
+        }
 
       </div>
     `;
@@ -1173,23 +1285,17 @@ function initCV() {
 }
 
 
-/* ---- project detail header (single source of truth = projects.js) ------- */
+/* ---- project detail header --------------------------------------------- */
+
 function initDetailHeader() {
+
   const slug =
     document.body.dataset.project;
 
 
-  if (!slug) {
-    return;
-  }
+  if (!slug) return;
 
 
-  /*
-   * Hidden projects remain accessible
-   * if their URL is entered directly,
-   * but they do not participate in
-   * Experience / homepage / prev-next navigation.
-   */
   const allProjects =
     window.PROJECTS || [];
 
@@ -1201,9 +1307,7 @@ function initDetailHeader() {
     );
 
 
-  if (!p) {
-    return;
-  }
+  if (!p) return;
 
 
   document.title =
@@ -1213,23 +1317,12 @@ function initDetailHeader() {
   const links =
     (p.links || [])
       .map((l) =>
-        linkBtn(l, "btn")
+        linkBtn(
+          l,
+          "btn"
+        )
       )
       .join("");
-
-
-  /*
-   * A single category appears as:
-   *
-   * research
-   *
-   * Multiple categories appear as:
-   *
-   * research · competition
-   */
-  const categoryText =
-    projectCategories(p)
-      .join(" · ");
 
 
   fill(
@@ -1243,19 +1336,22 @@ function initDetailHeader() {
         ← experience
       </a>
 
+
       <p class="kicker">
 
         <span class="idx">
           ${p.num}
         </span>
 
-        ${categoryText}
+        ${p.category}
 
       </p>
+
 
       <h1>
         ${p.title}
       </h1>
+
 
       <div class="detail-meta">
 
@@ -1269,19 +1365,24 @@ function initDetailHeader() {
 
       </div>
 
-      ${links
-        ? `
-          <div class="detail-links">
-            ${links}
-          </div>
-        `
-        : ""}
+
+      ${
+        links
+          ? `
+            <div class="detail-links">
+              ${links}
+            </div>
+          `
+          : ""
+      }
     `
   );
 
 
   const nav =
-    document.getElementById("detail-nav");
+    document.getElementById(
+      "detail-nav"
+    );
 
 
   const list =
@@ -1303,16 +1404,19 @@ function initDetailHeader() {
     i !== -1 &&
     list.length > 1
   ) {
+
     const prev =
       list[
-        (i - 1 + list.length) %
+        (i - 1 + list.length)
+        %
         list.length
       ];
 
 
     const next =
       list[
-        (i + 1) %
+        (i + 1)
+        %
         list.length
       ];
 
@@ -1325,6 +1429,7 @@ function initDetailHeader() {
       >
         ← ${prev.title}
       </a>
+
 
       <a
         class="btn btn--sm"
@@ -1339,17 +1444,18 @@ function initDetailHeader() {
 
 
 /* ---- nav shadow on scroll ---------------------------------------------- */
+
 function initNavScroll() {
+
   const nav =
     document.querySelector(".nav");
 
 
-  if (!nav) {
-    return;
-  }
+  if (!nav) return;
 
 
   const onScroll = () =>
+
     nav.classList.toggle(
       "nav--scrolled",
       window.scrollY > 8
@@ -1370,9 +1476,13 @@ function initNavScroll() {
 
 
 /* ---- back-to-top button ------------------------------------------------- */
+
 function initBackToTop() {
+
   const btn =
-    document.createElement("button");
+    document.createElement(
+      "button"
+    );
 
 
   btn.className =
@@ -1400,10 +1510,12 @@ function initBackToTop() {
   `;
 
 
-  document.body.appendChild(btn);
+  document.body
+    .appendChild(btn);
 
 
   const onScroll = () =>
+
     btn.classList.toggle(
       "show",
       window.scrollY > 500
@@ -1434,16 +1546,22 @@ function initBackToTop() {
 
 
 /* ---- gallery lightbox --------------------------------------------------- */
+
 function initLightbox() {
+
   if (
-    !document.querySelector(".gallery")
+    !document.querySelector(
+      ".gallery"
+    )
   ) {
     return;
   }
 
 
   const box =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
 
   box.className =
@@ -1462,7 +1580,8 @@ function initLightbox() {
   `;
 
 
-  document.body.appendChild(box);
+  document.body
+    .appendChild(box);
 
 
   const pic =
@@ -1470,11 +1589,15 @@ function initLightbox() {
 
 
   const close = () => {
-    box.classList.remove("open");
+
+    box.classList.remove(
+      "open"
+    );
 
     pic.src = "";
 
-    document.body.style.overflow = "";
+    document.body.style.overflow =
+      "";
   };
 
 
@@ -1484,16 +1607,21 @@ function initLightbox() {
 
       const g =
         e.target.closest &&
-        e.target.closest(".gallery img");
+        e.target.closest(
+          ".gallery img"
+        );
 
 
       if (g) {
+
         pic.src =
           g.currentSrc ||
           g.src;
 
 
-        box.classList.add("open");
+        box.classList.add(
+          "open"
+        );
 
 
         document.body.style.overflow =
@@ -1506,10 +1634,14 @@ function initLightbox() {
 
       if (
         e.target.closest &&
-        e.target.closest(".lightbox")
+        e.target.closest(
+          ".lightbox"
+        )
       ) {
+
         close();
       }
+
     }
   );
 
@@ -1521,6 +1653,7 @@ function initLightbox() {
       if (
         e.key === "Escape"
       ) {
+
         close();
       }
 
@@ -1529,19 +1662,26 @@ function initLightbox() {
 }
 
 
-/* ---- reveal on scroll (fade/slide up) ---------------------------------- */
+/* ---- reveal on scroll --------------------------------------------------- */
+
 function initReveal() {
+
   if (
-    !("IntersectionObserver" in window)
+    !(
+      "IntersectionObserver"
+      in window
+    )
   ) {
     return;
   }
 
 
   if (
-    window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches
+    window
+      .matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      )
+      .matches
   ) {
     return;
   }
@@ -1556,30 +1696,34 @@ function initReveal() {
 
       (entries) => {
 
-        entries.forEach((en) => {
+        entries.forEach(
+          (en) => {
 
-          if (
-            en.isIntersecting
-          ) {
+            if (
+              en.isIntersecting
+            ) {
 
-            en.target
-              .classList
-              .add("in");
-
-
-            io.unobserve(
               en.target
-            );
+                .classList.add(
+                  "in"
+                );
+
+
+              io.unobserve(
+                en.target
+              );
+
+            }
 
           }
-
-        });
+        );
 
       },
 
       {
         threshold: 0.08,
-        rootMargin: "0px 0px -40px 0px"
+        rootMargin:
+          "0px 0px -40px 0px"
       }
 
     );
@@ -1589,7 +1733,9 @@ function initReveal() {
     .querySelectorAll(sel)
     .forEach((el) => {
 
-      el.classList.add("reveal");
+      el.classList.add(
+        "reveal"
+      );
 
       io.observe(el);
 
@@ -1598,6 +1744,7 @@ function initReveal() {
 
 
 /* ---- boot --------------------------------------------------------------- */
+
 document.addEventListener(
   "DOMContentLoaded",
   () => {
@@ -1624,6 +1771,7 @@ document.addEventListener(
 
 
     /* cosmetic behaviors */
+
     initNavScroll();
 
     initBackToTop();
