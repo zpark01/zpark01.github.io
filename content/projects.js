@@ -404,6 +404,30 @@ window.PROJECTS = [
 
   links: [],
 },
+   {
+  slug: "gesture-drone-control",
+  num: "15",
+  category: "projects",
+  featured: false,
+
+  title: "Real-Time Multi-Drone Control through Hand Gesture Recognition",
+  course: "Independent Project · Cooper Union VIP Spring Showcase",
+  term: "Spring 2024",
+
+  thumb: "/assets/img/gesture-drone-control/02_dual_hand_gesture_control.png",
+
+  desc: "Developed a vision-based human-robot interface using MediaPipe hand tracking to command Crazyflie quadrotors, progressing from real-time single-drone control to multi-drone operation.",
+
+  tags: [
+    "Computer Vision",
+    "Multi-Robot Control",
+    "MediaPipe",
+    "Human-Robot Interaction",
+    "Python"
+  ],
+
+  links: [],
+},
    
   /* ========================================================================
      ORIGINAL TEMPLATE PROJECTS
