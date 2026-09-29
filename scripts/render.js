@@ -8,163 +8,291 @@
      #news #highlights #featured-projects #selected-pub          (home)
      #project-filters #projects-grid                             (projects)
      #publications #research-timeline                            (research)
-     #experience-timeline                                        (experience)
-     #teaching-groups #outreach                                  (teaching)
+     #experience-timeline                                       (experience)
+     #teaching-groups #outreach                                 (teaching)
      #cv-education #cv-experience #cv-awards #cv-skills #cv-interests #cv-download
      <body data-project="slug"> + #detail-header                 (project detail)
    ========================================================================== */
 
+
 /* ---- small helpers ------------------------------------------------------ */
 function linkBtn(l, cls) {
-  const ext = /^https?:/.test(l.href) ? ' target="_blank" rel="noopener"' : "";
-  const ic = (typeof ICONS !== "undefined" && ICONS[l.icon]) ? ICONS[l.icon] : "";
-  return `<a class="btn ${cls || "btn--sm"}" href="${l.href}"${ext}>${ic}${l.label}</a>`;
-}
-
-function tagList(tags, max) {
-  const t = max ? tags.slice(0, max) : tags;
-  const extra = max && tags.length > max
-    ? `<li class="tag">+${tags.length - max}</li>`
+  const ext = /^https?:/.test(l.href)
+    ? ' target="_blank" rel="noopener"'
     : "";
 
-  return `<ul class="tags">${t.map((x) =>
-    `<li class="tag">${x}</li>`
-  ).join("")}${extra}</ul>`;
+  const ic =
+    (typeof ICONS !== "undefined" && ICONS[l.icon])
+      ? ICONS[l.icon]
+      : "";
+
+  return `
+    <a
+      class="btn ${cls || "btn--sm"}"
+      href="${l.href}"
+      ${ext}
+    >
+      ${ic}${l.label}
+    </a>
+  `;
 }
 
+
+function tagList(tags, max) {
+  const t =
+    max
+      ? tags.slice(0, max)
+      : tags;
+
+  const extra =
+    max && tags.length > max
+      ? `<li class="tag">+${tags.length - max}</li>`
+      : "";
+
+  return `
+    <ul class="tags">
+      ${t.map((x) =>
+        `<li class="tag">${x}</li>`
+      ).join("")}
+      ${extra}
+    </ul>
+  `;
+}
+
+
 function fill(id, html) {
-  const n = document.getElementById(id);
-  if (n) n.innerHTML = html;
+  const n =
+    document.getElementById(id);
+
+  if (n) {
+    n.innerHTML = html;
+  }
+
   return n;
+}
+
+
+/*
+ * Supports either:
+ *
+ * category: "research"
+ *
+ * or:
+ *
+ * category: ["research", "competition"]
+ */
+function projectCategories(p) {
+  return Array.isArray(p.category)
+    ? p.category
+    : [p.category];
 }
 
 
 /* ---- project card ------------------------------------------------------- */
 function projectCard(p) {
-  const href = p.href || `/projects/${p.slug}.html`;
-  const meta = p.meta || `${p.course} · ${p.term}`;
+  const href =
+    p.href ||
+    `/projects/${p.slug}.html`;
 
-  const media = p.thumbVideo
-    ? `
-      <video
-        src="${p.thumbVideo}"
-        ${p.thumb ? `poster="${p.thumb}"` : ""}
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        aria-label="${p.title}"
-        style="
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
-        "
-      ></video>
-    `
-    : `
-      <img
-        src="${p.thumb}"
-        alt="${p.title}"
-        loading="lazy"
-        ${p.slug === "hurotics-tof-imu"
-          ? 'style="object-position: 50% 0%;"'
-          : ""}
-        ${p.slug === "hurotics-mechanical-design"
-          ? 'style="object-position: 50% 90%;"'
-          : ""}
-      >
-    `;
+  const meta =
+    p.meta ||
+    `${p.course} · ${p.term}`;
+
+
+  const media =
+    p.thumbVideo
+      ? `
+        <video
+          src="${p.thumbVideo}"
+          ${p.thumb ? `poster="${p.thumb}"` : ""}
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label="${p.title}"
+          style="
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+          "
+        ></video>
+      `
+      : `
+        <img
+          src="${p.thumb}"
+          alt="${p.title}"
+          loading="lazy"
+
+          ${p.slug === "hurotics-tof-imu"
+            ? 'style="object-position: 50% 0%;"'
+            : ""}
+
+          ${p.slug === "hurotics-mechanical-design"
+            ? 'style="object-position: 50% 90%;"'
+            : ""}
+        >
+      `;
+
 
   return `
-  <article class="card">
+    <article class="card">
 
-    <div class="card__media">
-      ${media}
-    </div>
-
-    <div class="card__body">
-
-      <div class="card__meta">
-        ${meta}
+      <div class="card__media">
+        ${media}
       </div>
 
-      <h3 class="card__title">
-        <a class="card__link" href="${href}">
-          ${p.title}
-        </a>
-      </h3>
+      <div class="card__body">
 
-      <p class="card__desc">
-        ${p.desc}
-      </p>
+        <div class="card__meta">
+          ${meta}
+        </div>
 
-      ${tagList(p.tags, 4)}
+        <h3 class="card__title">
+          <a
+            class="card__link"
+            href="${href}"
+          >
+            ${p.title}
+          </a>
+        </h3>
 
-      <div class="card__foot">
-        <span class="card__arrow">
-          view →
-        </span>
+        <p class="card__desc">
+          ${p.desc}
+        </p>
+
+        ${tagList(p.tags, 4)}
+
+        <div class="card__foot">
+          <span class="card__arrow">
+            view →
+          </span>
+        </div>
+
       </div>
 
-    </div>
-
-  </article>`;
+    </article>
+  `;
 }
 
 
 /* ---- projects page: filters + grid ------------------------------------- */
 function initProjects() {
-  const grid = document.getElementById("projects-grid");
+  const grid =
+    document.getElementById("projects-grid");
 
-  if (!grid) return;
 
-  const all = (window.PROJECTS || []).filter((p) => !p.hidden);
+  if (!grid) {
+    return;
+  }
 
-  const cats = ["all", "internship", "projects", "research", "competition"];
 
+  const all =
+    (window.PROJECTS || [])
+      .filter((p) => !p.hidden);
+
+
+  const cats = [
+    "all",
+    "internship",
+    "projects",
+    "research",
+    "competition"
+  ];
+
+
+  /*
+   * Count supports projects with more than one category.
+   *
+   * Example:
+   * category: ["research", "competition"]
+   *
+   * counts once under research
+   * and once under competition.
+   */
   const count = (c) =>
     c === "all"
       ? all.length
-      : all.filter((p) => p.category === c).length;
+      : all.filter((p) =>
+          projectCategories(p).includes(c)
+        ).length;
 
-  const bar = document.getElementById("project-filters");
+
+  const bar =
+    document.getElementById("project-filters");
+
 
   if (bar) {
-    bar.innerHTML = cats.map((c, i) =>
-      `<button
-        class="filter ${i === 0 ? "active" : ""}"
-        data-cat="${c}"
-      >
-        ${c}
-        <span class="count">${count(c)}</span>
-      </button>`
-    ).join("");
+    bar.innerHTML =
+      cats.map((c, i) => `
+        <button
+          class="filter ${i === 0 ? "active" : ""}"
+          data-cat="${c}"
+        >
+          ${c}
+          <span class="count">
+            ${count(c)}
+          </span>
+        </button>
+      `).join("");
 
-    bar.addEventListener("click", (e) => {
-      const b = e.target.closest(".filter");
 
-      if (!b) return;
+    bar.addEventListener(
+      "click",
+      (e) => {
 
-      bar.querySelectorAll(".filter").forEach((x) =>
-        x.classList.remove("active")
-      );
+        const b =
+          e.target.closest(".filter");
 
-      b.classList.add("active");
 
-      draw(b.dataset.cat);
-    });
+        if (!b) {
+          return;
+        }
+
+
+        bar
+          .querySelectorAll(".filter")
+          .forEach((x) =>
+            x.classList.remove("active")
+          );
+
+
+        b.classList.add("active");
+
+
+        draw(
+          b.dataset.cat
+        );
+      }
+    );
   }
 
+
+  /*
+   * Filter supports both:
+   *
+   * category: "research"
+   *
+   * and:
+   *
+   * category: ["research", "competition"]
+   */
   function draw(cat) {
     const list =
       cat === "all"
         ? all
-        : all.filter((p) => p.category === cat);
+        : all.filter((p) =>
+            projectCategories(p).includes(cat)
+          );
 
-    grid.innerHTML = list.map(projectCard).join("");
+
+    grid.innerHTML =
+      list
+        .map(projectCard)
+        .join("");
   }
+
 
   draw("all");
 }
@@ -172,34 +300,51 @@ function initProjects() {
 
 /* ---- homepage: featured projects + news + highlights + selected pub ----- */
 function initHome() {
-  const hs = document.getElementById("hero-socials");
+  const hs =
+    document.getElementById("hero-socials");
 
-  if (hs && window.SITE) {
-    hs.innerHTML = (window.SITE.socials || []).map((s) =>
-      `<a
-        href="${s.href}"
-        title="${s.label}"
-        aria-label="${s.label}"
-        ${s.href.startsWith("http")
-          ? 'target="_blank" rel="noopener"'
-          : ""}
-      >
-        ${(typeof ICONS !== "undefined" && ICONS[s.icon]) || ""}
-      </a>`
-    ).join("");
+
+  if (
+    hs &&
+    window.SITE
+  ) {
+    hs.innerHTML =
+      (window.SITE.socials || [])
+        .map((s) => `
+          <a
+            href="${s.href}"
+            title="${s.label}"
+            aria-label="${s.label}"
+
+            ${s.href.startsWith("http")
+              ? 'target="_blank" rel="noopener"'
+              : ""}
+          >
+            ${(typeof ICONS !== "undefined" && ICONS[s.icon]) || ""}
+          </a>
+        `)
+        .join("");
   }
 
 
-  const feat = document.getElementById("featured-projects");
+  const feat =
+    document.getElementById("featured-projects");
+
 
   if (feat) {
     const extra =
-      (window.SITE && window.SITE.featured) || [];
+      (window.SITE && window.SITE.featured) ||
+      [];
+
 
     const projs =
-      (window.PROJECTS || []).filter(
-        (p) => p.featured && !p.hidden
-      );
+      (window.PROJECTS || [])
+        .filter(
+          (p) =>
+            p.featured &&
+            !p.hidden
+        );
+
 
     feat.innerHTML =
       [...extra, ...projs]
@@ -208,36 +353,70 @@ function initHome() {
   }
 
 
-  const news = document.getElementById("news");
+  const news =
+    document.getElementById("news");
 
-  if (news && window.SITE) {
+
+  if (
+    news &&
+    window.SITE
+  ) {
     news.innerHTML =
-      (window.SITE.news || []).map((n) =>
-        `<li>
-          <span class="date">${n.date}</span>
-          <span class="txt">${n.txt}</span>
-        </li>`
-      ).join("");
+      (window.SITE.news || [])
+        .map((n) => `
+          <li>
+            <span class="date">
+              ${n.date}
+            </span>
+
+            <span class="txt">
+              ${n.txt}
+            </span>
+          </li>
+        `)
+        .join("");
   }
 
 
-  const hl = document.getElementById("highlights");
+  const hl =
+    document.getElementById("highlights");
 
-  if (hl && window.SITE) {
+
+  if (
+    hl &&
+    window.SITE
+  ) {
     hl.innerHTML =
-      (window.SITE.highlights || []).map((h) =>
-        `<div class="hl">
-          <div class="num">${h.num}</div>
-          <p class="lbl">${h.label}</p>
-        </div>`
-      ).join("");
+      (window.SITE.highlights || [])
+        .map((h) => `
+          <div class="hl">
+
+            <div class="num">
+              ${h.num}
+            </div>
+
+            <p class="lbl">
+              ${h.label}
+            </p>
+
+          </div>
+        `)
+        .join("");
   }
 
 
-  const sp = document.getElementById("selected-pub");
+  const sp =
+    document.getElementById("selected-pub");
 
-  if (sp && window.PUBLICATIONS) {
-    sp.innerHTML = pubItem(window.PUBLICATIONS[0]);
+
+  if (
+    sp &&
+    window.PUBLICATIONS
+  ) {
+    sp.innerHTML =
+      pubItem(
+        window.PUBLICATIONS[0]
+      );
   }
 }
 
@@ -245,163 +424,215 @@ function initHome() {
 /* ---- publications ------------------------------------------------------- */
 function pubItem(p) {
   const links =
-    (p.links || []).map((l) => linkBtn(l)).join("");
+    (p.links || [])
+      .map((l) =>
+        linkBtn(l)
+      )
+      .join("");
 
-  const abs = p.abstract
-    ? `
-      <button
-        class="btn btn--sm pub__toggle"
-        type="button"
-      >
-        abstract
-      </button>
 
-      <p class="pub__abstract">
-        ${p.abstract}
-      </p>
-    `
-    : "";
+  const abs =
+    p.abstract
+      ? `
+        <button
+          class="btn btn--sm pub__toggle"
+          type="button"
+        >
+          abstract
+        </button>
 
-  const demo = p.video
-    ? `
-      <figure class="pub__demo">
-        <video
-          src="${p.video}"
-          controls
-          muted
-          loop
-          playsinline
-          preload="metadata"
-        ></video>
-      </figure>
-    `
-    : "";
+        <p class="pub__abstract">
+          ${p.abstract}
+        </p>
+      `
+      : "";
+
+
+  const demo =
+    p.video
+      ? `
+        <figure class="pub__demo">
+
+          <video
+            src="${p.video}"
+            controls
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          ></video>
+
+        </figure>
+      `
+      : "";
+
 
   return `
-  <article class="pub">
+    <article class="pub">
 
-    <div class="pub__thumb">
-      <img
-        src="${p.thumb}"
-        alt=""
-        loading="lazy"
-      >
-    </div>
+      <div class="pub__thumb">
 
-    <div>
+        <img
+          src="${p.thumb}"
+          alt=""
+          loading="lazy"
+        >
 
-      <div class="pub__venue">
-        ${p.venue}
       </div>
 
-      <h3 class="pub__title">
-        ${p.title}
-      </h3>
 
-      <p class="pub__authors">
-        ${p.authorsHtml}
-      </p>
+      <div>
 
-      <div class="pub__links">
-        ${links}${abs}
+        <div class="pub__venue">
+          ${p.venue}
+        </div>
+
+        <h3 class="pub__title">
+          ${p.title}
+        </h3>
+
+        <p class="pub__authors">
+          ${p.authorsHtml}
+        </p>
+
+        <div class="pub__links">
+          ${links}
+          ${abs}
+        </div>
+
+        ${demo}
+
       </div>
 
-      ${demo}
-
-    </div>
-
-  </article>`;
+    </article>
+  `;
 }
 
 
 function initPublications() {
-  const c = document.getElementById("publications");
+  const c =
+    document.getElementById("publications");
 
-  if (!c) return;
+
+  if (!c) {
+    return;
+  }
+
 
   c.innerHTML =
     (window.PUBLICATIONS || [])
       .map(pubItem)
       .join("");
 
-  c.addEventListener("click", (e) => {
-    const b = e.target.closest(".pub__toggle");
 
-    if (!b) return;
+  c.addEventListener(
+    "click",
+    (e) => {
 
-    const abs =
-      b.parentElement.querySelector(".pub__abstract");
+      const b =
+        e.target.closest(".pub__toggle");
 
-    if (abs) {
-      const open =
-        abs.classList.toggle("open");
 
-      b.textContent =
-        open
-          ? "hide abstract"
-          : "abstract";
+      if (!b) {
+        return;
+      }
+
+
+      const abs =
+        b.parentElement
+          .querySelector(".pub__abstract");
+
+
+      if (abs) {
+        const open =
+          abs.classList.toggle("open");
+
+
+        b.textContent =
+          open
+            ? "hide abstract"
+            : "abstract";
+      }
     }
-  });
+  );
 }
 
 
 /* ---- timelines (research / experience) --------------------------------- */
 function timelineItem(x) {
-  const org = x.orgUrl
-    ? `<a
-        href="${x.orgUrl}"
-        target="_blank"
-        rel="noopener"
-      >${x.org}</a>`
-    : x.org;
+  const org =
+    x.orgUrl
+      ? `
+        <a
+          href="${x.orgUrl}"
+          target="_blank"
+          rel="noopener"
+        >
+          ${x.org}
+        </a>
+      `
+      : x.org;
+
 
   const bullets =
     (x.bullets || [])
-      .map((b) => `<li>${b}</li>`)
+      .map((b) =>
+        `<li>${b}</li>`
+      )
       .join("");
+
 
   const tags =
     x.tags
       ? tagList(x.tags)
       : "";
 
+
   const links =
     (x.links || [])
-      .map((l) => linkBtn(l))
+      .map((l) =>
+        linkBtn(l)
+      )
       .join("");
 
+
   return `
-  <div class="tl-item">
+    <div class="tl-item">
 
-    <div class="tl-when">
-      ${x.when}
-    </div>
-
-    <div class="tl-body">
-
-      <h3 class="tl-role">
-        ${x.role}
-      </h3>
-
-      <p class="tl-org">
-        ${org}
-      </p>
-
-      <ul>
-        ${bullets}
-      </ul>
-
-      <div class="mt-4">
-        ${tags}
+      <div class="tl-when">
+        ${x.when}
       </div>
 
-      ${links
-        ? `<div class="detail-links">${links}</div>`
-        : ""}
+      <div class="tl-body">
+
+        <h3 class="tl-role">
+          ${x.role}
+        </h3>
+
+        <p class="tl-org">
+          ${org}
+        </p>
+
+        <ul>
+          ${bullets}
+        </ul>
+
+        <div class="mt-4">
+          ${tags}
+        </div>
+
+        ${links
+          ? `
+            <div class="detail-links">
+              ${links}
+            </div>
+          `
+          : ""}
+
+      </div>
 
     </div>
-
-  </div>`;
+  `;
 }
 
 
@@ -409,12 +640,15 @@ function initTimelines() {
   const r =
     document.getElementById("research-timeline");
 
+
   if (r) {
     r.innerHTML = `
       <div class="timeline">
+
         ${(window.RESEARCH || [])
           .map(timelineItem)
           .join("")}
+
       </div>
     `;
   }
@@ -423,12 +657,15 @@ function initTimelines() {
   const e =
     document.getElementById("experience-timeline");
 
+
   if (e) {
     e.innerHTML = `
       <div class="timeline">
+
         ${(window.EXPERIENCE || [])
           .map(timelineItem)
           .join("")}
+
       </div>
     `;
   }
@@ -440,10 +677,18 @@ function initAbout() {
   const p =
     document.getElementById("photos");
 
-  if (!p || !window.ABOUT) return;
+
+  if (
+    !p ||
+    !window.ABOUT
+  ) {
+    return;
+  }
+
 
   const items =
     window.ABOUT.photos || [];
+
 
   if (!items.length) {
     p.innerHTML = `
@@ -456,53 +701,60 @@ function initAbout() {
   }
 
 
-  p.innerHTML = items.map((ph) => {
-    const isVid =
-      /\.(mp4|mov|webm)$/i.test(ph.src);
+  p.innerHTML =
+    items.map((ph) => {
+
+      const isVid =
+        /\.(mp4|mov|webm)$/i.test(ph.src);
 
 
-    if (isVid) {
+      if (isVid) {
+        return `
+          <figure>
+
+            <video
+              src="${ph.src}"
+              controls
+              muted
+              playsinline
+              loop
+              preload="metadata"
+            ></video>
+
+            ${ph.caption
+              ? `<figcaption>${ph.caption}</figcaption>`
+              : ""}
+
+          </figure>
+        `;
+      }
+
+
+      const cap =
+        ph.caption
+          ? `
+            <figcaption class="gallery__cap">
+              ${ph.caption}
+            </figcaption>
+          `
+          : "";
+
+
       return `
         <figure>
 
-          <video
+          <img
             src="${ph.src}"
-            controls
-            muted
-            playsinline
-            loop
-            preload="metadata"
-          ></video>
+            alt="${ph.caption || ""}"
+            loading="lazy"
+          >
 
-          ${ph.caption
-            ? `<figcaption>${ph.caption}</figcaption>`
-            : ""}
+          ${cap}
 
         </figure>
       `;
-    }
 
-
-    const cap = ph.caption
-      ? `<figcaption class="gallery__cap">${ph.caption}</figcaption>`
-      : "";
-
-
-    return `
-      <figure>
-
-        <img
-          src="${ph.src}"
-          alt="${ph.caption || ""}"
-          loading="lazy"
-        >
-
-        ${cap}
-
-      </figure>
-    `;
-
-  }).join("");
+    }).join("");
 }
 
 
@@ -511,7 +763,9 @@ function initEducation() {
   if (
     !window.TEACHING ||
     !window.TEACHING.education
-  ) return;
+  ) {
+    return;
+  }
 
 
   const ed =
@@ -521,41 +775,45 @@ function initEducation() {
   fill(
     "education-degrees",
 
-    `<div class="edu-list">
+    `
+      <div class="edu-list">
 
-      ${ed.degrees.map((d) => `
+        ${ed.degrees.map((d) => `
 
-        <div class="edu-item">
+          <div class="edu-item">
 
-          <div class="edu-item__img">
-            <img
-              src="${d.img}"
-              alt="${d.org}"
-              loading="lazy"
-            >
+            <div class="edu-item__img">
+
+              <img
+                src="${d.img}"
+                alt="${d.org}"
+                loading="lazy"
+              >
+
+            </div>
+
+            <div>
+
+              <p class="edu-item__deg">
+                ${d.title}
+              </p>
+
+              <p class="edu-item__org">
+                ${d.org}
+              </p>
+
+              <p class="edu-item__when">
+                ${d.when}
+              </p>
+
+            </div>
+
           </div>
 
-          <div>
+        `).join("")}
 
-            <p class="edu-item__deg">
-              ${d.title}
-            </p>
-
-            <p class="edu-item__org">
-              ${d.org}
-            </p>
-
-            <p class="edu-item__when">
-              ${d.when}
-            </p>
-
-          </div>
-
-        </div>
-
-      `).join("")}
-
-    </div>`
+      </div>
+    `
   );
 
 
@@ -593,10 +851,13 @@ function initMentees() {
   const c =
     document.getElementById("mentees");
 
+
   if (
     !c ||
     !window.TEACHING
-  ) return;
+  ) {
+    return;
+  }
 
 
   const m =
@@ -614,18 +875,23 @@ function initMentees() {
   c.innerHTML = `
     <ul class="mentee-grid">
 
-      ${m.map((x) =>
-        `<li>
+      ${m.map((x) => `
+        <li>
+
           <span class="code">
             ${x.name}
           </span>
 
           ${x.note
-            ? ` <span class="org">· ${x.note}</span>`
+            ? `
+              <span class="org">
+                · ${x.note}
+              </span>
+            `
             : ""}
 
-        </li>`
-      ).join("")}
+        </li>
+      `).join("")}
 
     </ul>
   `;
@@ -643,35 +909,39 @@ function initTeaching() {
     window.TEACHING
   ) {
     g.innerHTML =
-      window.TEACHING.groups.map((grp) => `
+      window.TEACHING.groups
+        .map((grp) => `
 
-        <div class="teach-group">
+          <div class="teach-group">
 
-          <p class="kicker">
-            ${grp.title}
-          </p>
+            <p class="kicker">
+              ${grp.title}
+            </p>
 
-          <ul class="teach-list">
+            <ul class="teach-list">
 
-            ${grp.items.map((it) =>
-              `<li>
-                <span class="code">
-                  ${it.code}
-                </span>
+              ${grp.items.map((it) => `
+                <li>
 
-                ${it.name}
+                  <span class="code">
+                    ${it.code}
+                  </span>
 
-                <span class="org">
-                  · ${it.org}
-                </span>
-              </li>`
-            ).join("")}
+                  ${it.name}
 
-          </ul>
+                  <span class="org">
+                    · ${it.org}
+                  </span>
 
-        </div>
+                </li>
+              `).join("")}
 
-      `).join("");
+            </ul>
+
+          </div>
+
+        `)
+        .join("");
   }
 
 
@@ -686,9 +956,11 @@ function initTeaching() {
     o.innerHTML = `
       <div class="chips">
 
-        ${window.TEACHING.outreach.map((x) =>
-          `<span class="tag">${x}</span>`
-        ).join("")}
+        ${window.TEACHING.outreach
+          .map((x) =>
+            `<span class="tag">${x}</span>`
+          )
+          .join("")}
 
       </div>
     `;
@@ -705,30 +977,34 @@ function initTeaching() {
     window.TEACHING.outreachPhotos
   ) {
     op.innerHTML =
-      window.TEACHING.outreachPhotos.map((ph) => `
+      window.TEACHING.outreachPhotos
+        .map((ph) => `
 
-        <figure>
+          <figure>
 
-          <img
-            src="${ph.src}"
-            alt="${ph.caption}"
-            loading="lazy"
-          >
+            <img
+              src="${ph.src}"
+              alt="${ph.caption}"
+              loading="lazy"
+            >
 
-          <figcaption>
-            ${ph.caption}
-          </figcaption>
+            <figcaption>
+              ${ph.caption}
+            </figcaption>
 
-        </figure>
+          </figure>
 
-      `).join("");
+        `)
+        .join("");
   }
 }
 
 
 /* ---- CV ----------------------------------------------------------------- */
 function initCV() {
-  if (!window.CV) return;
+  if (!window.CV) {
+    return;
+  }
 
 
   const dl =
@@ -746,120 +1022,134 @@ function initCV() {
   fill(
     "cv-education",
 
-    window.CV.education.map((e) => `
+    window.CV.education
+      .map((e) => `
 
-      <div class="cv-row">
+        <div class="cv-row">
 
-        <div class="when">
-          ${e.when}
+          <div class="when">
+            ${e.when}
+          </div>
+
+          <div class="what">
+
+            <strong>
+              ${e.degree}
+            </strong>
+
+            <br>
+
+            <span class="sub">
+
+              ${e.orgUrl
+                ? `
+                  <a
+                    href="${e.orgUrl}"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    ${e.org}
+                  </a>
+                `
+                : e.org}
+
+            </span>
+
+          </div>
+
         </div>
 
-        <div class="what">
-
-          <strong>
-            ${e.degree}
-          </strong>
-
-          <br>
-
-          <span class="sub">
-
-            ${e.orgUrl
-              ? `<a
-                  href="${e.orgUrl}"
-                  target="_blank"
-                  rel="noopener"
-                >${e.org}</a>`
-              : e.org}
-
-          </span>
-
-        </div>
-
-      </div>
-
-    `).join("")
+      `)
+      .join("")
   );
 
 
   fill(
     "cv-experience",
 
-    window.CV.experience.map((e) => `
+    window.CV.experience
+      .map((e) => `
 
-      <div class="cv-row">
+        <div class="cv-row">
 
-        <div class="when">
-          ${e.when}
+          <div class="when">
+            ${e.when}
+          </div>
+
+          <div class="what">
+
+            <strong>
+              ${e.role}
+            </strong>
+
+            <br>
+
+            <span class="sub">
+              ${e.org}
+            </span>
+
+          </div>
+
         </div>
 
-        <div class="what">
-
-          <strong>
-            ${e.role}
-          </strong>
-
-          <br>
-
-          <span class="sub">
-            ${e.org}
-          </span>
-
-        </div>
-
-      </div>
-
-    `).join("")
+      `)
+      .join("")
   );
 
 
   fill(
     "cv-awards",
 
-    window.CV.awards.map((a) => `
+    window.CV.awards
+      .map((a) => `
 
-      <div class="cv-row">
+        <div class="cv-row">
 
-        <div class="when">
-          ${a.when}
+          <div class="when">
+            ${a.when}
+          </div>
+
+          <div class="what">
+            ${a.title}
+          </div>
+
         </div>
 
-        <div class="what">
-          ${a.title}
-        </div>
-
-      </div>
-
-    `).join("")
+      `)
+      .join("")
   );
 
 
   fill(
     "cv-skills",
 
-    window.CV.skillGroups.map((s) => `
+    window.CV.skillGroups
+      .map((s) => `
 
-      <div class="cv-row">
+        <div class="cv-row">
 
-        <div class="when">
-          ${s.title}
-        </div>
+          <div class="when">
+            ${s.title}
+          </div>
 
-        <div class="what">
+          <div class="what">
 
-          <div class="chips">
+            <div class="chips">
 
-            ${s.items.map((i) =>
-              `<span class="tag">${i}</span>`
-            ).join("")}
+              ${s.items
+                .map((i) =>
+                  `<span class="tag">${i}</span>`
+                )
+                .join("")}
+
+            </div>
 
           </div>
 
         </div>
 
-      </div>
-
-    `).join("")
+      `)
+      .join("")
   );
 
 
@@ -871,9 +1161,11 @@ function initCV() {
     interests.innerHTML = `
       <div class="chips">
 
-        ${window.CV.interests.map((i) =>
-          `<span class="tag">${i}</span>`
-        ).join("")}
+        ${window.CV.interests
+          .map((i) =>
+            `<span class="tag">${i}</span>`
+          )
+          .join("")}
 
       </div>
     `;
@@ -887,7 +1179,9 @@ function initDetailHeader() {
     document.body.dataset.project;
 
 
-  if (!slug) return;
+  if (!slug) {
+    return;
+  }
 
 
   /*
@@ -907,7 +1201,9 @@ function initDetailHeader() {
     );
 
 
-  if (!p) return;
+  if (!p) {
+    return;
+  }
 
 
   document.title =
@@ -922,6 +1218,20 @@ function initDetailHeader() {
       .join("");
 
 
+  /*
+   * A single category appears as:
+   *
+   * research
+   *
+   * Multiple categories appear as:
+   *
+   * research · competition
+   */
+  const categoryText =
+    projectCategories(p)
+      .join(" · ");
+
+
   fill(
     "detail-header",
 
@@ -934,11 +1244,13 @@ function initDetailHeader() {
       </a>
 
       <p class="kicker">
+
         <span class="idx">
           ${p.num}
         </span>
 
-        ${p.category}
+        ${categoryText}
+
       </p>
 
       <h1>
@@ -946,12 +1258,23 @@ function initDetailHeader() {
       </h1>
 
       <div class="detail-meta">
-        <span>${p.course}</span>
-        <span>${p.term}</span>
+
+        <span>
+          ${p.course}
+        </span>
+
+        <span>
+          ${p.term}
+        </span>
+
       </div>
 
       ${links
-        ? `<div class="detail-links">${links}</div>`
+        ? `
+          <div class="detail-links">
+            ${links}
+          </div>
+        `
         : ""}
     `
   );
@@ -985,6 +1308,7 @@ function initDetailHeader() {
         (i - 1 + list.length) %
         list.length
       ];
+
 
     const next =
       list[
@@ -1020,7 +1344,9 @@ function initNavScroll() {
     document.querySelector(".nav");
 
 
-  if (!nav) return;
+  if (!nav) {
+    return;
+  }
 
 
   const onScroll = () =>
@@ -1111,7 +1437,9 @@ function initBackToTop() {
 function initLightbox() {
   if (
     !document.querySelector(".gallery")
-  ) return;
+  ) {
+    return;
+  }
 
 
   const box =
@@ -1143,7 +1471,9 @@ function initLightbox() {
 
   const close = () => {
     box.classList.remove("open");
+
     pic.src = "";
+
     document.body.style.overflow = "";
   };
 
@@ -1159,12 +1489,16 @@ function initLightbox() {
 
       if (g) {
         pic.src =
-          g.currentSrc || g.src;
+          g.currentSrc ||
+          g.src;
+
 
         box.classList.add("open");
 
+
         document.body.style.overflow =
           "hidden";
+
 
         return;
       }
@@ -1183,9 +1517,13 @@ function initLightbox() {
   document.addEventListener(
     "keydown",
     (e) => {
-      if (e.key === "Escape") {
+
+      if (
+        e.key === "Escape"
+      ) {
         close();
       }
+
     }
   );
 }
@@ -1195,14 +1533,18 @@ function initLightbox() {
 function initReveal() {
   if (
     !("IntersectionObserver" in window)
-  ) return;
+  ) {
+    return;
+  }
 
 
   if (
     window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches
-  ) return;
+  ) {
+    return;
+  }
 
 
   const sel =
@@ -1216,11 +1558,18 @@ function initReveal() {
 
         entries.forEach((en) => {
 
-          if (en.isIntersecting) {
+          if (
+            en.isIntersecting
+          ) {
 
-            en.target.classList.add("in");
+            en.target
+              .classList
+              .add("in");
 
-            io.unobserve(en.target);
+
+            io.unobserve(
+              en.target
+            );
 
           }
 
