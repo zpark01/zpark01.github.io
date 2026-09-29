@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Real-Time Multi-Drone Control through Hand Gesture Recognition — Zach Park</title>
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>"
+  >
+
+  <meta
+    property="og:title"
+    content="Real-Time Multi-Drone Control through Hand Gesture Recognition — Zach Park"
+  >
+
+  <meta
+    property="og:description"
+    content="A real-time vision-based human-robot interface for controlling multiple quadrotors through hand gestures."
+  >
+
+  <meta
+    property="og:image"
+    content="https://zpark01.github.io/assets/img/gesture-drone-control/02_dual_hand_gesture_control.png"
+  >
+
+  <meta
+    property="og:url"
+    content="https://zpark01.github.io/projects/gesture-drone-control.html"
+  >
+
+  <meta property="og:type" content="website">
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
+
+  <link
+    rel="stylesheet"
+    href="/styles/theme.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="/styles/main.css"
+  >
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t) {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+
+<body data-project="gesture-drone-control">
+
+  <site-header></site-header>
+
+
+  <main>
+
+    <section class="section">
+
+      <div class="container">
+
+        <div
+          class="detail-head"
+          id="detail-header"
+        ></div>
+
+
+        <article class="prose wide">
+
+
+          <p class="lede">
+  An independent robotics project exploring intuitive human-robot interaction
+  through vision-based hand gesture control of Crazyflie quadrotors.
+  The system began as a real-time single-drone interface and was later
+  extended to multi-drone operation.
+</p>
+
+
+<h3>Real-time hand gesture perception</h3>
+
+<p>
+  I developed a Python-based computer vision pipeline using a standard RGB
+  camera and MediaPipe Hands to track 21 hand landmarks in real time.
+  Hand pose and finger configurations were interpreted as control gestures,
+  enabling direct robot commands without wearable controllers or markers.
+</p>
+
+
+<div class="media-row">
+
+  <figure>
+    <img
+      src="/assets/img/gesture-drone-control/01_hand_landmark_tracking.png"
+      alt="MediaPipe hand landmark tracking"
+      loading="lazy"
+    >
+
+    <figcaption>
+      Real-time hand landmark tracking with MediaPipe.
+    </figcaption>
+  </figure>
+
+
+  <figure>
+    <img
+      src="/assets/img/gesture-drone-control/02_dual_hand_gesture_control.png"
+      alt="Dual-hand gesture recognition"
+      loading="lazy"
+    >
+
+    <figcaption>
+      Gesture recognition during development of the drone control interface.
+    </figcaption>
+  </figure>
+
+</div>
+
+
+<h3>Gesture-to-drone control</h3>
+
+<p>
+  Recognized gestures were mapped to Crazyflie flight commands through the
+  MotionCommander control framework. A Flow Deck V2 provided time-of-flight
+  altitude sensing, while the control software supported both direct
+  gesture-based flight and preset autonomous motion patterns.
+</p>
+
+
+<figure>
+  <img
+    src="/assets/img/gesture-drone-control/03_physical_drone_test.png"
+    alt="Physical Crazyflie drone testing"
+    loading="lazy"
+  >
+
+  <figcaption>
+    Physical Crazyflie testing with the vision-based control system.
+  </figcaption>
+</figure>
+
+
+<h3>Extension to multi-drone operation</h3>
+
+<p>
+  After validating the initial single-drone interface, I extended the system
+  toward coordinated control of multiple quadrotors. This required mapping
+  gesture inputs to multiple robot commands while maintaining responsive
+  perception and stable physical flight.
+</p>
+
+
+<figure>
+
+  <video
+    src="/assets/img/gesture-drone-control/04_multi_drone_flight_demo.mp4"
+    controls
+    playsinline
+    preload="metadata"
+    style="
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+    "
+  ></video>
+
+  <figcaption>
+    Physical multi-drone flight demonstration from the later stage of the project.
+  </figcaption>
+
+</figure>
+
+
+<div class="skills-strip">
+
+  <span class="lbl">Applied skills</span>
+
+  Computer Vision ·
+  Human-Robot Interaction ·
+  Multi-Robot Control ·
+  MediaPipe ·
+  Hand Pose Estimation ·
+  Crazyflie ·
+  MotionCommander ·
+  ToF Sensing ·
+  Python
+
+</div>
+
+
+        </article>
+
+
+        <hr class="divider">
+
+
+        <div
+          class="detail-links"
+          id="detail-nav"
+        ></div>
+
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <site-footer></site-footer>
+
+
+  <script src="/content/projects.js"></script>
+  <script src="/content/site.js"></script>
+  <script src="/scripts/site.js"></script>
+  <script src="/scripts/render.js"></script>
+
+
+</body>
+</html>
