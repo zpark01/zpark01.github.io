@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Vibrational Analysis of a Peristaltic Pump — Zach Park</title>
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>"
+  >
+
+  <meta
+    property="og:title"
+    content="Vibrational Analysis of a Peristaltic Pump — Zach Park"
+  >
+
+  <meta
+    property="og:description"
+    content="Experimental vibration characterization of a peristaltic pump using impact-hammer testing, accelerometers, NI DAQ, and LabVIEW."
+  >
+
+  <meta
+    property="og:image"
+    content="https://zpark01.github.io/assets/img/peristaltic-pump-vibration/01_experimental_setup.png"
+  >
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
+
+  <link rel="stylesheet" href="/styles/theme.css">
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <script>
+    (() => {
+      const saved = localStorage.getItem("theme");
+
+      if (saved) {
+        document.documentElement.dataset.theme = saved;
+      }
+    })();
+  </script>
+</head>
+
+
+<body data-project="peristaltic-pump-vibration">
+
+  <site-header></site-header>
+
+
+  <main>
+
+    <section class="section">
+
+      <div class="container">
+
+        <div
+          class="detail-head"
+          id="detail-header"
+        ></div>
+
+
+        <article class="prose wide">
+
+          <p class="lede">
+            Investigated the vibration dynamics of a peristaltic
+            pump and flexible-tube system using experimental modal
+            testing and operational vibration analysis. I worked on
+            the dual-accelerometer setup, LabVIEW data acquisition,
+            and frequency-domain analysis used to identify natural
+            frequencies and resonance conditions.
+          </p>
+
+
+
+          <figure>
+
+            <img
+              src="/assets/img/peristaltic-pump-vibration/01_experimental_setup.png"
+              alt="Peristaltic pump vibration testing setup with accelerometers and NI DAQ"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Experimental setup with the peristaltic pump,
+              flexible tubing, accelerometers, and NI data-acquisition hardware.
+            </figcaption>
+
+          </figure>
+
+
+
+          <h3>Modal and operational vibration testing</h3>
+
+          <p>
+            We first used an impact hammer and accelerometers to
+            characterize the system's frequency response. The pump
+            was then operated from 100 to 600 RPM while two
+            accelerometers measured its vibration response through
+            an NI DAQ and LabVIEW.
+          </p>
+
+
+          <div class="media-row">
+
+            <figure>
+
+              <img
+                src="/assets/img/peristaltic-pump-vibration/02_impact_hammer_labview.png"
+                alt="LabVIEW interface for impact hammer modal testing"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Impact-hammer frequency-response and coherence measurements.
+              </figcaption>
+
+            </figure>
+
+
+            <figure>
+
+              <img
+                src="/assets/img/peristaltic-pump-vibration/03_labview_spectral_measurements.png"
+                alt="LabVIEW spectral measurement configuration"
+                loading="lazy"
+              >
+
+              <figcaption>
+                LabVIEW signal-acquisition and spectral-analysis pipeline.
+              </figcaption>
+
+            </figure>
+
+          </div>
+
+
+
+          <h3>Frequency response and resonance</h3>
+
+          <p>
+            Frequency-response and coherence analysis identified
+            dominant natural frequencies near
+            <strong>13.2 Hz, 27.6 Hz, and 45.6 Hz</strong>.
+            Operational testing showed amplified vibration when
+            pump excitation frequencies aligned with these modes.
+          </p>
+
+
+          <figure>
+
+            <img
+              src="/assets/img/peristaltic-pump-vibration/04_400rpm_frequency_response.png"
+              alt="400 RPM peristaltic pump frequency response"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Example frequency response at 400 RPM showing
+              structural peaks together with harmonics of the
+              pump excitation frequency.
+            </figcaption>
+
+          </figure>
+
+
+
+          <p>
+            We also compared pump speed with flow rate. Although
+            flow generally increased with RPM, the gain diminished
+            at the highest operating speeds. Because the experiment
+            did not directly establish vibration as the cause, this
+            behavior was treated as a potential mechanical effect
+            requiring further synchronized flow and vibration testing.
+          </p>
+
+
+
+          <div class="skills-strip">
+
+            <span class="lbl">
+              Applied skills
+            </span>
+
+            Mechanical Vibrations · Modal Testing ·
+            Impact Hammer Testing · Accelerometers ·
+            LabVIEW · NI DAQ · FFT · Frequency Response ·
+            Coherence Analysis · Experimental Data Analysis
+
+          </div>
+
+
+
+          <hr>
+
+
+          <div
+            class="detail-links"
+            id="detail-nav"
+          ></div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <site-footer></site-footer>
+
+
+  <script src="/content/projects.js"></script>
+  <script src="/content/site.js"></script>
+
+  <script src="/scripts/site.js"></script>
+  <script src="/scripts/render.js"></script>
+
+</body>
+</html>
