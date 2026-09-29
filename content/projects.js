@@ -415,6 +415,7 @@ window.PROJECTS = [
   term: "Spring 2024",
 
   thumb: "/assets/img/gesture-drone-control/02_dual_hand_gesture_control.png",
+  thumbVideo: "/assets/img/gesture-drone-control/04_multi_drone_flight_demo.mp4",
 
   desc: "Developed a vision-based human-robot interface using MediaPipe hand tracking to command Crazyflie quadrotors, progressing from real-time single-drone control to multi-drone operation.",
 
