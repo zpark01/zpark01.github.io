@@ -122,12 +122,7 @@ function initProjects() {
 
   const all = (window.PROJECTS || []).filter((p) => !p.hidden);
 
-  const cats = [
-    "all",
-    "internship",
-    "projects",
-    "research"
-  ];
+  const cats = ["all", "internship", "projects", "research", "competition"];
 
   const count = (c) =>
     c === "all"
