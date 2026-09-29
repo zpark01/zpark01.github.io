@@ -136,11 +136,6 @@ window.SITE = {
      },
    
      {
-       date: "Nov 2025",
-       txt: "Awarded a <a href=\"https://www.maroonandgoldlabs.org/ventures/ovelia\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>$5,000 Maroon & Gold Labs Full Grant</strong></a> to support the Ovelia Health project's clinical study and validation."
-     },
-   
-     {
        date: "Oct 2025",
        txt: "Won <a href=\"https://venturewell.org/debut-2025-winners/?utm_source=social&utm_medium=LinkedIn&utm_campaign=P_2025+DEBUT+Outreach+-+Confirmed+Registrants\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>2nd Place in the NIH NIBIB / VentureWell DEBUT Challenge</strong></a>, receiving a $15,000 award."
      },
