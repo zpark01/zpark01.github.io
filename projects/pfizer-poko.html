@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Poko: Pediatric Cancer Digital Companion | Zach Park</title>
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>"
+  >
+
+  <meta
+    property="og:image"
+    content="https://zpark01.github.io/assets/img/pfizer-poko/01_team_award.jpg"
+  >
+  <meta property="og:type" content="website">
+
+  <meta
+    property="og:title"
+    content="Poko: Pediatric Cancer Digital Companion | Zach Park"
+  >
+
+  <meta
+    property="og:description"
+    content="Team-led digital health project for pediatric oncology developed for the 2025 Pfizer Digital Hackathon."
+  >
+
+  <meta
+    property="og:url"
+    content="https://zpark01.github.io/projects/pfizer-poko.html"
+  >
+
+  <meta
+    name="twitter:title"
+    content="Poko: Pediatric Cancer Digital Companion | Zach Park"
+  >
+
+  <meta
+    name="twitter:description"
+    content="Team-led digital health project for pediatric oncology developed for the 2025 Pfizer Digital Hackathon."
+  >
+
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="/styles/theme.css">
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t) {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+<body data-project="pfizer-poko">
+
+  <site-header></site-header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <div class="detail-head" id="detail-header"></div>
+
+        <article class="prose wide">
+
+          <p class="lede">
+            Led a five-person Cooper Union team to 2nd place in the
+            2025 Pfizer Digital Hackathon, developing Poko, a digital
+            companion designed to support pediatric cancer patients and
+            their caregivers throughout treatment.
+          </p>
+
+          <h3>Digital health concept</h3>
+
+          <p>
+            Pediatric cancer care involves more than treatment itself.
+            Patients and caregivers must manage appointments, medications,
+            symptoms, emotional stress, education, and communication with
+            care teams. We designed Poko as a shared digital ecosystem with
+            separate patient and caregiver experiences.
+          </p>
+
+          <p>
+            The patient experience centers on a personalized virtual
+            companion, daily check-ins, missions, learning activities,
+            rewards, and age-appropriate engagement. The caregiver side
+            provides health tracking, scheduling, educational resources,
+            and care-team support.
+          </p>
+
+          <figure>
+            <video
+              src="/assets/img/pfizer-poko/02_poko_mobile_demo.mp4"
+              poster="/assets/img/pfizer-poko/04_mobile_mvp.jpg"
+              controls
+              muted
+              playsinline
+              preload="metadata"
+              style="width: 100%;"
+            ></video>
+
+            <figcaption>
+              Poko mobile experience including onboarding, the virtual
+              companion, patient activities, rewards, and caregiver features.
+            </figcaption>
+          </figure>
+
+
+          <h3>Caregiver web MVP and AI assistant</h3>
+
+          <p>
+            We built a functional caregiver web application using
+            <b>React</b> and <b>TypeScript</b>. The MVP included patient
+            monitoring, scheduling, learning resources, daily journals,
+            care-team communication, and progress tracking.
+          </p>
+
+          <p>
+            The platform also incorporated an <b>OpenAI API</b> chatbot
+            through <b>LangChain</b>. Rather than allowing unrestricted
+            generation, the assistant was designed to use trusted medical
+            references and avoid emotional or therapeutic responses outside
+            its intended role.
+          </p>
+
+          <figure>
+            <video
+              src="/assets/img/pfizer-poko/03_poko_web_demo.mp4"
+              poster="/assets/img/pfizer-poko/05_caregiver_portal.jpg"
+              controls
+              muted
+              playsinline
+              preload="metadata"
+              style="width: 100%;"
+            ></video>
+
+            <figcaption>
+              Functional caregiver portal MVP with patient tracking,
+              achievements, scheduling, learning, and care-team features.
+            </figcaption>
+          </figure>
+
+
+          <h3>System architecture and safety</h3>
+
+          <p>
+            Beyond the front-end prototype, we designed a scalable system
+            architecture around a <b>Node.js / Express</b> backend,
+            <b>REST APIs</b>, separate patient and content databases using
+            <b>PostgreSQL</b> and <b>MongoDB</b>, and cloud deployment.
+          </p>
+
+          <p>
+            The AI pipeline included middleware for prompt sanitization,
+            response filtering, and interaction logging. The broader product
+            design also considered authentication, role-based access,
+            encryption, HIPAA/COPPA requirements, and separation between
+            patient-facing and caregiver-facing information.
+          </p>
+
+          <p>
+            These were treated as system and product requirements rather
+            than simply adding an LLM to the interface, particularly because
+            the intended users include pediatric patients and caregivers in
+            a healthcare setting.
+          </p>
+
+
+          <h3>Competition and leadership</h3>
+
+          <p>
+            As team lead, I coordinated a five-person mechanical and
+            electrical engineering team across user research, product
+            strategy, software development, technical architecture,
+            regulatory considerations, and the final pitch.
+          </p>
+
+          <p>
+            We advanced through the virtual round to the final in-person
+            demo and presented the project at Pfizer's New York headquarters
+            to Pfizer Digital professionals. The project received
+            <b>2nd Place</b> in the 2025 Pfizer Digital Hackathon.
+          </p>
+
+          <figure>
+            <img
+              src="/assets/img/pfizer-poko/01_team_award.jpg"
+              alt="Cooper Union team at the 2025 Pfizer Digital Hackathon"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Cooper Union team at the 2025 Pfizer Digital Hackathon.
+            </figcaption>
+          </figure>
+
+
+          <div class="skills-strip">
+            <span class="lbl">Applied skills</span>
+            Technical Leadership · Digital Health · Product Development ·
+            React · TypeScript · OpenAI API · LangChain ·
+            System Architecture · REST APIs · Database Design ·
+            AI Guardrails · Healthcare Data Privacy
+          </div>
+
+        </article>
+
+        <hr class="divider">
+
+        <div class="detail-links" id="detail-nav"></div>
+
+      </div>
+    </section>
+  </main>
+
+  <site-footer></site-footer>
+
+  <script src="/content/projects.js"></script>
+  <script src="/content/site.js"></script>
+  <script src="/scripts/site.js"></script>
+  <script src="/scripts/render.js"></script>
+
+</body>
+</html>
