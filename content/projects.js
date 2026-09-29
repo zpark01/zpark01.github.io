@@ -429,6 +429,31 @@ window.PROJECTS = [
 
   links: [],
 },
+
+   {
+  slug: "airfoil-wind-tunnel",
+  num: "16",
+  category: "projects",
+  featured: false,
+
+  title: "Modular Airfoil Wind-Tunnel Test Rig",
+  course: "ME360 Engineering Experimentation · The Cooper Union",
+  term: "Spring 2025",
+
+  thumb: "/assets/img/airfoil-wind-tunnel/03_installed_airfoil_rig.png",
+
+  desc: "Designed and validated a modular wind-tunnel rig for adjustable airfoil mounting, surface-pressure measurement, and aerodynamic characterization.",
+
+  tags: [
+    "Mechanical Design",
+    "Aerodynamics",
+    "Experimental Design",
+    "Instrumentation",
+    "CAD"
+  ],
+
+  links: [],
+},
    
   /* ========================================================================
      ORIGINAL TEMPLATE PROJECTS
