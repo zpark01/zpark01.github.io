@@ -336,7 +336,7 @@ window.PROJECTS = [
   course: "The Cooper Union · Undergraduate Research",
   term: "2024-2025",
 
-  thumb: "/assets/img/wind-turbine-cfd/01_hawt_flow_augmenter_cad.png",
+  thumb: "/assets/img/wind-turbine-cfd/03_hawt_cfd_velocity.png",
 
   desc: "Co-developed passive flow-augmentation structures for small HAWT and VAWT systems, using SolidWorks Flow Simulation to predict up to ~70% local velocity amplification in the strongest horizontal-axis design.",
 
