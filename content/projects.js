@@ -170,7 +170,7 @@ window.PROJECTS = [
    {
   slug: "avf-wearable-monitor",
   num: "06",
-  category: "projects",
+  category: ["projects", "competition"],
   featured: true,
 
   title: "Wearable AVF Vibration Monitor for Dialysis Patients",
