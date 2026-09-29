@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Modular Airfoil Wind-Tunnel Test Rig — Zach Park</title>
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>"
+  >
+
+  <meta
+    property="og:title"
+    content="Modular Airfoil Wind-Tunnel Test Rig — Zach Park"
+  >
+
+  <meta
+    property="og:description"
+    content="A modular airfoil mounting and pressure-measurement rig for Cooper Union's subsonic wind tunnel."
+  >
+
+  <meta
+    property="og:image"
+    content="https://zpark01.github.io/assets/img/airfoil-wind-tunnel/03_installed_airfoil_rig.png"
+  >
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
+
+  <link
+    rel="stylesheet"
+    href="/styles/theme.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="/styles/main.css"
+  >
+
+  <script>
+    (() => {
+      const saved = localStorage.getItem("theme");
+
+      if (saved) {
+        document.documentElement.dataset.theme = saved;
+      }
+    })();
+  </script>
+</head>
+
+
+<body data-project="airfoil-wind-tunnel">
+
+  <site-header></site-header>
+
+
+  <main>
+
+    <section class="section">
+
+      <div class="container">
+
+        <div
+          class="detail-head"
+          id="detail-header"
+        ></div>
+
+
+        <article class="prose wide">
+
+          <p class="lede">
+            Designed and validated a modular airfoil mounting and pressure-measurement
+            system for Cooper Union's subsonic wind tunnel in ME360 Engineering
+            Experimentation. The rig enables rapid airfoil changes, external
+            angle-of-attack adjustment, and manometer-based surface-pressure testing.
+          </p>
+
+
+          <h3>Design and manufacturing</h3>
+
+          <p>
+            The goal was to replace an earlier setup with a reusable teaching rig that
+            was stable, easy to install, and flexible enough to test different airfoil
+            geometries. An early indexing-plate concept simplified angle adjustment,
+            but manufacturability and tunnel integration led to a more modular final design.
+          </p>
+
+
+          <div class="media-row">
+
+            <figure>
+              <img
+                src="/assets/img/airfoil-wind-tunnel/01_preliminary_mounting_rig.png"
+                alt="Preliminary adjustable airfoil mounting rig"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Early adjustable mounting concept and prototype.
+              </figcaption>
+            </figure>
+
+
+            <figure>
+              <img
+                src="/assets/img/airfoil-wind-tunnel/02_adjustable_mounting_cad.png"
+                alt="Exploded CAD of final adjustable airfoil mounting assembly"
+                loading="lazy"
+              >
+
+              <figcaption>
+                Final modular mounting assembly integrated with the wind-tunnel sidewall.
+              </figcaption>
+            </figure>
+
+          </div>
+
+
+          <p>
+            The final assembly used a circular polycarbonate interface, a 1/4-inch
+            support shaft, and modular 3D-printed airfoil sections. The wing could be
+            rotated from outside the tunnel and set between approximately -20° and +20°
+            using a digital angle finder, eliminating the need to open the test section
+            between runs.
+          </p>
+
+
+          <h3>Wind-tunnel testing and validation</h3>
+
+          <figure>
+            <img
+              src="/assets/img/airfoil-wind-tunnel/03_installed_airfoil_rig.png"
+              alt="NACA 2418 airfoil rig installed in Cooper Union wind tunnel"
+              loading="lazy"
+            >
+
+            <figcaption>
+              NACA 2418 test article installed in the wind tunnel for pressure measurements.
+            </figcaption>
+          </figure>
+
+
+          <p>
+            I calibrated tunnel velocity using a pitot-static probe and inclined
+            manometer, then collected surface-pressure measurements across multiple
+            angles of attack using pressure taps and U-tube manometers. The measured
+            pressure distributions were used to estimate lift and coefficient of lift
+            and compare the experimental results with published NACA 2418 data.
+          </p>
+
+
+          <figure>
+            <img
+              src="/assets/img/airfoil-wind-tunnel/04_airfoil_pressure_tap_cad.png"
+              alt="CAD model showing pressure tap routing inside the NACA 2418 airfoil"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Airfoil CAD showing internal routing for surface-pressure taps.
+            </figcaption>
+          </figure>
+
+
+          <p>
+            The weighted pressure-integration method matched literature lift-coefficient
+            values within about 1% at +5° and about 5% at +10°. The rig remained rigid
+            without measurable angle drift or vibration during testing up to roughly
+            41 m/s, while the experiments also identified pressure-tap spacing and
+            limited manometer availability as the main sources of measurement error.
+          </p>
+
+
+          <div class="skills-strip">
+            <span class="lbl">Applied skills</span>
+
+            Mechanical Design ·
+            CAD ·
+            Design for Manufacturing ·
+            Wind-Tunnel Testing ·
+            Aerodynamics ·
+            Experimental Design ·
+            Instrumentation ·
+            Pitot-Static Measurement ·
+            Manometry ·
+            Uncertainty Analysis ·
+            Data Analysis
+          </div>
+
+
+          <hr>
+
+
+          <div
+            class="detail-links"
+            id="detail-nav"
+          ></div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <site-footer></site-footer>
+
+
+  <script src="/content/projects.js"></script>
+  <script src="/content/site.js"></script>
+  <script src="/scripts/site.js"></script>
+  <script src="/scripts/render.js"></script>
+
+</body>
+</html>
