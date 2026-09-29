@@ -454,7 +454,33 @@ window.PROJECTS = [
 
   links: [],
 },
-   
+
+   {
+  slug: "drifter-ar-game",
+  num: "17",
+  category: "competition",
+  featured: false,
+
+  title: "Drifter: AR Obstacle-Dodging Game",
+  course: "FOBISIA Creative Coding Challenge 2019 · 1st Place",
+  term: "2019",
+
+  thumb: "/assets/img/ar-drifter-game/01_gameplay_poster.jpg",
+  thumbVideo: "/assets/img/ar-drifter-game/08_gameplay_demo.mp4",
+
+  desc: "Led a team to build a Swift-based AR game where players control a spatially anchored UFO to dodge obstacles emerging from a wall-mounted black hole.",
+
+  tags: [
+    "Swift",
+    "Augmented Reality",
+    "Game Design",
+    "Blender",
+    "3D Modeling",
+    "Team Leadership"
+  ],
+
+  links: [],
+},
   /* ========================================================================
      ORIGINAL TEMPLATE PROJECTS
      Kept in repository for reference, but hidden from the website.
