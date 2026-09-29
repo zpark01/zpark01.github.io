@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Zach Park — Mechanical Engineering MS, Carnegie Mellon</title>
+  <title>Zach Park</title>
 
   <meta
     name="description"
-    content="Zach Park is an M.S. Mechanical Engineering - Research student at Carnegie Mellon University working on robot learning, safe physical AI, tactile sensing, and dexterous manipulation."
+    content="Zach Park is an M.S. Mechanical Engineering - Research student at Carnegie Mellon University working on robot learning and safe physical AI."
   >
 
   <link
@@ -16,95 +16,29 @@
     href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>"
   >
 
-  <!-- Open Graph (link previews) -->
   <meta property="og:type" content="website">
-
-  <meta
-    property="og:title"
-    content="Zach Park — Mechanical Engineering MS, Carnegie Mellon"
-  >
-
+  <meta property="og:title" content="Zach Park">
   <meta
     property="og:description"
-    content="Robot learning, safe physical AI, tactile sensing, and dexterous manipulation."
+    content="Mechanical engineer and robotics researcher working on robot learning, safe physical AI, sensing, and intelligent hardware."
   >
+  <meta property="og:url" content="https://zpark01.github.io">
 
-  <meta
-    property="og:url"
-    content="https://zpark01.github.io/"
-  >
-
-  <meta
-    property="og:image"
-    content="https://zpark01.github.io/assets/img/prof_pic_web.jpg"
-  >
-
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-
-  <meta
-    name="twitter:card"
-    content="summary_large_image"
-  >
-
-  <meta
-    name="twitter:image"
-    content="https://zpark01.github.io/assets/img/prof_pic_web.jpg"
-  >
-
-
-  <!-- Structured data: helps search engines understand your profile -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Zach Park",
-    "url": "https://zpark01.github.io/",
-    "image": "https://zpark01.github.io/assets/img/prof_pic_web.jpg",
-    "jobTitle": "M.S. Student, Mechanical Engineering - Research",
-    "affiliation": {
-      "@type": "CollegeOrUniversity",
-      "name": "Carnegie Mellon University"
-    },
-    "memberOf": [
-      {
-        "@type": "Organization",
-        "name": "Safe AI Lab",
-        "url": "https://safeai-lab.github.io/"
-      },
-      {
-        "@type": "Organization",
-        "name": "Momentum Robotics Lab",
-        "url": "https://momentum-robotics-lab.github.io/"
-      }
-    ],
-    "alumniOf": [
-      {
-        "@type": "CollegeOrUniversity",
-        "name": "The Cooper Union"
-      }
-    ],
-    "sameAs": [
-      "https://github.com/zpark01",
-      "https://www.linkedin.com/in/jhyeon-park"
-    ]
-  }
-  </script>
-
+  <meta name="twitter:card" content="summary_large_image">
 
   <link rel="stylesheet" href="/styles/theme.css">
   <link rel="stylesheet" href="/styles/main.css">
 
-  <!-- Anti-flash: apply saved theme before first paint. Keep this. -->
   <script>
-    (function(){
-      try{
-        var t = localStorage.getItem('theme');
-        if(t) document.documentElement.setAttribute('data-theme', t);
-      } catch(e){}
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t) {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch (e) {}
     })();
   </script>
-
 </head>
 
 
@@ -115,23 +49,26 @@
 
   <main>
 
-    <!-- ================= HERO (edit this text directly) ================= -->
+    <!-- ================= HERO ================= -->
+
     <section class="hero">
 
       <div class="container hero__grid">
 
-        <div>
+        <div class="hero__content">
 
           <p class="kicker">
             M.S. Student · Carnegie Mellon
           </p>
 
+          <h1>
+            Zach Park
+          </h1>
 
-          <h1>Zach Park</h1>
+          <div class="hero__rule"></div>
 
 
-          <p class="hero__bio">
-
+          <p class="hero__lead">
             I'm a first-year M.S. Mechanical Engineering - Research student at
             <strong>Carnegie Mellon University</strong>, with a background spanning
             mechanical design, controls, sensing, and machine learning.
@@ -144,20 +81,10 @@
             <a href="https://safeai-lab.github.io/">
               Safe AI Lab
             </a>,
-            focusing on
-            <strong>robot learning and safe physical AI</strong>.
+            focusing on <strong>robot learning and safe physical AI</strong>.
 
-            I am also co-advised by
-            <a href="https://ichnow.ski/">
-              Prof. Jeffrey Ichnowski
-            </a>
-            in the
-            <a href="https://momentum-robotics-lab.github.io/">
-              Momentum Lab
-            </a>,
-            exploring
-            <strong>tactile sensing for dexterous manipulation</strong>.
-
+            Before CMU, I worked across
+            <strong>wearable robotics, medical-device development, sensing, and machine learning</strong>.
           </p>
 
 
@@ -187,7 +114,6 @@
               class="btn btn--primary"
               href="/projects.html"
             >
-
               View projects
 
               <svg
@@ -199,7 +125,6 @@
               >
                 <path d="M5 12h14M13 6l6 6-6 6"/>
               </svg>
-
             </a>
 
 
@@ -235,6 +160,7 @@
         </div>
 
 
+
         <div class="portrait">
 
           <img
@@ -252,6 +178,7 @@
 
 
     <!-- ================= SELECTED WORK ================= -->
+
     <section class="section">
 
       <div class="container">
@@ -267,8 +194,8 @@
           </h2>
 
           <p class="lead">
-            A few things I've built across robotics, controls, machine learning,
-            medical devices, and hardware.
+            Selected work across robotics, sensing, machine learning,
+            mechanical design, and intelligent hardware.
             <a href="/projects.html">
               See all projects →
             </a>
@@ -288,98 +215,41 @@
 
 
 
-    <!-- ================= NEWS + SELECTED PUBLICATION ================= -->
+    <!-- ================= NEWS ================= -->
+
     <section class="section">
-
-      <!--
-        Publication is hidden for now.
-
-        Original class:
-        class="container grid-2"
-
-        Change it back to grid-2 when Publication is enabled again.
-      -->
 
       <div class="container">
 
+        <div class="section-head">
 
-        <!-- ================= NEWS ================= -->
-        <div>
+          <p class="kicker">
+            Recent
+          </p>
 
-          <div class="section-head">
-
-            <p class="kicker">
-              Recent
-            </p>
-
-            <h2>
-              News
-            </h2>
-
-          </div>
-
-
-          <ul
-            id="news"
-            class="news"
-          ></ul>
+          <h2>
+            News
+          </h2>
 
         </div>
 
+
+        <ul
+          id="news"
+          class="news"
+        ></ul>
 
 
         <!--
-        ===============================================================
-        PUBLICATION — HIDDEN FOR NOW
+        Publications are intentionally hidden for now.
 
-        To restore later:
-
-        1. Remove this HTML comment.
-        2. Change:
-
-           <div class="container">
-
-           above to:
-
-           <div class="container grid-2">
-
-        ===============================================================
-
-
-        <div>
-
-          <div class="section-head">
-
-            <p class="kicker">
-              Latest paper
-            </p>
-
-            <h2>
-              Publication
-            </h2>
-
-          </div>
-
-
-          <div id="selected-pub"></div>
-
-
-          <p class="mt-4">
-
-            <a
-              class="btn btn--sm"
-              href="/research.html"
-            >
-              All publications →
-            </a>
-
-          </p>
-
+        <div class="section-head">
+          <p class="kicker">Latest paper</p>
+          <h2>Publication</h2>
         </div>
 
-
+        <div id="selected-pub"></div>
         -->
-
 
       </div>
 
@@ -389,25 +259,15 @@
   </main>
 
 
-
   <site-footer></site-footer>
 
 
-
-  <!-- content + logic -->
-  <!-- order matters: data, then chrome, then render -->
-
   <script src="/content/site.js"></script>
-
   <script src="/content/projects.js"></script>
-
-  <!-- Publication support is kept loaded for future use. -->
   <script src="/content/publications.js"></script>
 
   <script src="/scripts/site.js"></script>
-
   <script src="/scripts/render.js"></script>
-
 
 </body>
 </html>
