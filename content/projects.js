@@ -200,7 +200,7 @@ window.PROJECTS = [
    {
   slug: "astronaut-spine-biomechanics",
   num: "07",
-  category: "research",
+  category: ["research", "internship"],
   featured: false,
 
   title: "NASA-Funded Astronaut Spine Biomechanics and FE Modeling",
