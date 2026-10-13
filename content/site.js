@@ -12,33 +12,33 @@ window.SITE = {
 
   /* Top navigation — order = display order. Root-relative hrefs. */
 
-   nav: [
-     { label: "about", href: "/about.html" },
-   
-     /*
-     { 
-       label: "current work", 
-       href: "/current-work.html", 
-       children: [
-         // 기존 내용 전부 그대로
-       ]
-     },
-     */
-   
-     /*
-     { label: "research", href: "/research.html" },
-     */
-   
-     { label: "experience", href: "/projects.html" },
-   
-     /*
-     { label: "experience", href: "/experience.html" },
-     { label: "education & teaching", href: "/teaching.html" },
-     { label: "outreach", href: "/outreach.html" },
-     */
-   
-     { label: "cv", href: "/cv.html" },
-   ],
+  nav: [
+    { label: "about", href: "/about.html" },
+
+    /*
+    {
+      label: "current work",
+      href: "/current-work.html",
+      children: [
+        // 기존 내용 전부 그대로
+      ]
+    },
+    */
+
+    /*
+    { label: "research", href: "/research.html" },
+    */
+
+    { label: "experience", href: "/projects.html" },
+
+    /*
+    { label: "experience", href: "/experience.html" },
+    { label: "education & teaching", href: "/teaching.html" },
+    { label: "outreach", href: "/outreach.html" },
+    */
+
+    { label: "cv", href: "/cv.html" },
+  ],
 
 
   /* Contact + social links.
@@ -59,15 +59,26 @@ window.SITE = {
       href: "mailto:jhyeonpark01@gmail.com"
     },
 
+
+    /*
+    =================================================================
+    GITHUB — HIDDEN FOR NOW
+
+    The GitHub account is NOT deleted or changed.
+    This only prevents the GitHub icon/link from appearing on the site.
+
     {
       label: "GitHub",
       icon: "github",
       href: "https://github.com/zpark01"
     },
 
+    =================================================================
+    */
+
 
     /*
-    ================================================================
+    =================================================================
     GOOGLE SCHOLAR — HIDDEN FOR NOW
 
     When you create a Google Scholar profile later,
@@ -79,7 +90,7 @@ window.SITE = {
       href: "YOUR_GOOGLE_SCHOLAR_URL"
     },
 
-    ================================================================
+    =================================================================
     */
 
 
@@ -100,7 +111,8 @@ window.SITE = {
   /* ---- Homepage "Featured projects" — custom cards shown FIRST ----------
      Use for non-coursework highlights (e.g. current research). These render
      ahead of the featured course projects (those set featured:true in
-     content/projects.js). Each needs: title, meta, desc, thumb, href, tags. */
+     content/projects.js). Each needs: title, meta, desc, thumb, href, tags.
+  */
 
 
   featured: [
@@ -128,28 +140,29 @@ window.SITE = {
 
 
   /* ---- News / updates (newest first) ----------------------------------- */
-   news: [
-   
-     {
-       date: "May 2026",
-       txt: "Graduated <strong>Summa Cum Laude</strong> from The Cooper Union with a B.E. in Mechanical Engineering and a minor in Bioengineering."
-     },
-   
-     {
-       date: "Oct 2025",
-       txt: "Won <a href=\"https://venturewell.org/debut-2025-winners/?utm_source=social&utm_medium=LinkedIn&utm_campaign=P_2025+DEBUT+Outreach+-+Confirmed+Registrants\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>2nd Place in the NIH NIBIB / VentureWell DEBUT Challenge</strong></a>, receiving a $15,000 award."
-     },
-   
-     {
-       date: "Sep 2025",
-       txt: "Led a team to <a href=\"https://cooper.edu/engineering/news/cooper-team-wins-2nd-place-digital-hackathon\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>2nd Place in the Pfizer Digital Hackathon</strong></a>."
-     },
-   
-     {
-       date: "Sep 2024",
-       txt: "Won <a href=\"https://cooper.edu/engineering/news/cooper-union-team-takes-second-place-pfizers-first-digital-hackathon\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>2nd Place in Pfizer's Inaugural Digital Hackathon</strong></a>."
-     },
-   
-   ],
+
+  news: [
+
+    {
+      date: "May 2026",
+      txt: "Graduated <strong>Summa Cum Laude</strong> from The Cooper Union with a B.E. in Mechanical Engineering and a minor in Bioengineering."
+    },
+
+    {
+      date: "Oct 2025",
+      txt: "Won <a href=\"https://venturewell.org/debut-2025-winners/?utm_source=social&utm_medium=LinkedIn&utm_campaign=P_2025+DEBUT+Outreach+-+Confirmed+Registrants\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>2nd Place in the NIH NIBIB / VentureWell DEBUT Challenge</strong></a>, receiving a $15,000 award."
+    },
+
+    {
+      date: "Sep 2025",
+      txt: "Led a team to <a href=\"https://cooper.edu/engineering/news/cooper-team-wins-2nd-place-digital-hackathon\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>2nd Place in the Pfizer Digital Hackathon</strong></a>."
+    },
+
+    {
+      date: "Sep 2024",
+      txt: "Won <a href=\"https://cooper.edu/engineering/news/cooper-union-team-takes-second-place-pfizers-first-digital-hackathon\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>2nd Place in Pfizer's Inaugural Digital Hackathon</strong></a>."
+    },
+
+  ],
 
 };
