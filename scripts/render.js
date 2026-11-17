@@ -1,3 +1,4 @@
+
 /* ==========================================================================
    render.js — turns the content/*.js data into HTML on each page.
    A page only needs to (a) include the content file(s) it uses and this file,
@@ -8,8 +9,8 @@
      #news #highlights #featured-projects #selected-pub          (home)
      #project-filters #projects-grid                             (projects)
      #publications #research-timeline                            (research)
-     #experience-timeline                                       (experience)
-     #teaching-groups #outreach                                 (teaching)
+     #experience-timeline                                        (experience)
+     #teaching-groups #outreach                                  (teaching)
      #cv-education #cv-experience #cv-awards #cv-skills
      #cv-interests #cv-download
      <body data-project="slug"> + #detail-header                 (project detail)
@@ -78,6 +79,27 @@ function fill(id, html) {
   }
 
   return n;
+}
+
+
+/* ---- category helpers --------------------------------------------------- */
+
+function projectCategories(project) {
+
+  if (Array.isArray(project.category)) {
+    return project.category;
+  }
+
+  return project.category
+    ? [project.category]
+    : [];
+}
+
+
+function projectHasCategory(project, category) {
+
+  return projectCategories(project)
+    .includes(category);
 }
 
 
@@ -207,7 +229,7 @@ function initProjects() {
       ? all.length
 
       : all.filter(
-          (p) => p.category === c
+          (p) => projectHasCategory(p, c)
         ).length;
 
 
@@ -275,7 +297,7 @@ function initProjects() {
 
         : all.filter(
             (p) =>
-              p.category === cat
+              projectHasCategory(p, cat)
           );
 
 
@@ -1182,7 +1204,6 @@ function initCV() {
           <div class="when">
             ${e.when}
           </div>
-
           <div class="what">
 
             <strong>
@@ -1325,6 +1346,10 @@ function initDetailHeader() {
       .join("");
 
 
+  const categoryLabel =
+    projectCategories(p).join(" · ");
+
+
   fill(
     "detail-header",
 
@@ -1343,7 +1368,7 @@ function initDetailHeader() {
           ${p.num}
         </span>
 
-        ${p.category}
+        ${categoryLabel}
 
       </p>
 
